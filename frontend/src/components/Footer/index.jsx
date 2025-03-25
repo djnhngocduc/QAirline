@@ -30,19 +30,19 @@ function Footer() {
             Liên kết 
           </h3>
           <Link to="/about" className="footer__link">
-            Giới thiệu
+            Giới thiệu <br />
           </Link>
           <Link to="/services" className="footer__link">
-            Dịch vụ
+            Dịch vụ <br />
           </Link>
           <Link to="/contact" className="footer__link">
-            Liên hệ
+            Liên hệ <br />
           </Link>
           <Link to="/privacy" className="footer__link">
-            Chính sách bảo mật
+            Chính sách bảo mật <br />
           </Link>
           <Link to="/terms" className="footer__link">
-            Điều khoản sử dụng
+            Điều khoản sử dụng <br />
           </Link>
         </div>
 

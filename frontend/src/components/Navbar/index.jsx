@@ -20,7 +20,7 @@ function Navbar() {
           </li>
 
           <li className="nav__item">
-            <p className="nav__item__link">ĐẶT VÉ</p>
+            <p className="nav__item__link">Đặt vé</p>
 
             <ul className="nav__subMenu">
               <li className="nav__subMenu__item">
@@ -48,7 +48,7 @@ function Navbar() {
 
           <li className="nav__item">
             <p className="nav__item__link">
-              THÔNG TIN HÀNH TRÌNH 
+              Thông tin hành trình
             </p>
             <ul className="nav__subMenu">
               <li className="nav__subMenu__item">
@@ -81,7 +81,7 @@ function Navbar() {
 
           <li className="nav__item">
             <p className="nav__item__link">
-              KHÁM PHÁ
+              Khám phá
             </p>
             <ul className="nav__subMenu">
               <li className="nav__subMenu__item">
