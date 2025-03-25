@@ -1,0 +1,93 @@
+.footer {
+  background-color: #0b203b;
+  color: #f1f1f1;
+  padding: 60px 20px;
+  position: relative;
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+  }
+
+  &__logo {
+    flex: 1 1 200px;
+
+    &__image {
+      width: 180px;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &__info, &__listLink, &__social {
+    flex: 1 1 200px;
+  }
+
+  &__title {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: white;
+    position: relative;
+    padding-bottom: 5px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 3px;
+      background-color: #ff6b6b;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  &__info p, &__listLink a {
+    font-size: 15px;
+    margin: 8px 0;
+    line-height: 1.6;
+  }
+
+  &__listLink a {
+    color: #cccccc;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #ff6b6b;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    gap: 15px;
+     
+    &__link {
+      color: #f1f1f1;
+      font-size: 20px;
+      transition: color 0.3s ease, transform 0.3s ease;
+
+      &:hover {
+        color: #ff6b6b;
+        transform: translateY(-3px);
+      }
+    }
+  }
+
+  &__bottom {
+    border-top: 1px solid #333333;
+    padding-top: 25px;
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  &__copyRight {
+    font-size: 14px;
+    color: #aaaaaa;
+  }
+}
