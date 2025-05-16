@@ -26,7 +26,7 @@ function Navbar() {
           </li>
 
           <li className="nav__item">
-            <p className="nav__item__link">Đặt vé</p>
+            <p className="nav__item__link">Book</p>
 
             <ul className="nav__subMenu">
               <li className="nav__subMenu__item">
