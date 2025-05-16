@@ -5,24 +5,29 @@ import {
   FaTwitter,
   FaInstagram,
   FaLinkedinIn,
+  FaPhoneAlt,
 } from "react-icons/fa";
+import { MdMailOutline,  MdOutlineLocationOn } from "react-icons/md";
 
 function Footer() {
   return (
     <div className="footer">
       <div className="footer__content">
         <div className="footer__logo">
-          <img src="" alt="Logo" className="footer__logo__image" />
+          <img src="/assets/logo.png" alt="Logo" className="footer__logo__image" />
         </div>
 
         <div className="footer__info">
           <h3 className="footer__title">
             Liên hệ
           </h3>
-          <p>Địa chỉ: 144 Xuân Thủy, Cầu Giấy, Hà Nội, Việt Nam</p>
-          <p>Email: contact@company.com</p>
-          <p>Hotline: +84 123 456 789</p>
-          <p>Giờ làm việc: 8:00 - 17:00 từ Thứ 2 đến Thứ 6</p>
+          <p> 
+            <span className="footer__title__icon"><MdOutlineLocationOn /></span> 144 Xuân Thủy, Cầu Giấy, Hà Nội, Việt Nam</p>
+          <p>     
+            <span className="footer__title__icon"><MdMailOutline /></span> contact@company.com</p>
+          <p>
+            <span className="footer__title__icon"><FaPhoneAlt /></span> +84 123 456 789
+          </p>
         </div>
 
         <div className="footer__listLink">

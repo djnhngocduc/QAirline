@@ -1,21 +1,27 @@
 import './Navbar.scss';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { TiDeleteOutline } from 'react-icons/ti';
+import { FaBars } from 'react-icons/fa';
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const handleMenuOpen = () => {
+    setIsMenuOpen(!isMenuOpen);
+  }
+
   return (
     <>
-      <button className="menu">
-        {isMenuOpen ? "×" : "☰"} 
+      <button className="menu" onClick={handleMenuOpen}>
+        {isMenuOpen ? <TiDeleteOutline /> : <FaBars />} 
       </button>
 
       <div className={`nav ${isMenuOpen && "nav--active"}`}>
         <ul className="nav__list">
           <li className="nav__item">
             <Link to="/">
-              <img src="" alt="Logo" className="nav__item__logo"/>
+              <img src="/assets/logo.png" alt="Logo" className="nav__item__logo"/>
             </Link>
           </li>
 
@@ -123,6 +129,46 @@ function Navbar() {
                 </Link>
               </li>
             </ul>
+          </li>
+          <li className="nav__item nav__item__account">
+            {/* {isLoggedIn ? (
+              <>
+                <p className="nav__item__link">
+                  <img src="/images/user.png" alt="Avatar" className="nav__item__avatar" />
+                  Tài khoản 
+                </p>
+
+                <ul className="nav__subMenu">
+                  <li className="nav__subMenu__item">
+                    <Link to="/account/profile" className="nav__subMenu__item__link">
+                      Hồ Sơ
+                    </Link>
+                  </li>
+                  <li className="nav__subMenu__item">
+                    <Link to="/account/settings" className="nav__subMenu__item__link">
+                      Cài Đặt
+                    </Link>
+                  </li>
+                  <li className="nav__subMenu__item">
+                    <Link to="/account/logout" className="nav__subMenu__item__link">
+                      Đăng xuất
+                    </Link>
+                  </li>
+                </ul>
+              </>
+            ) : (
+              <div className="nav__authLinks">
+                <Link to="/account/signin" className="nav__item__link">
+                  Đăng Nhập
+                </Link>
+                <span className="nav__separator">
+                  |
+                </span>
+                <Link to="/account/signup" className="nav__item__link">
+                  Đăng ký
+                </Link>
+              </div>
+            )} */}
           </li>
         </ul>
       </div>
