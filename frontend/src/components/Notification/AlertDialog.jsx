@@ -38,11 +38,11 @@ const AlertDialog = ({
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="max-w-[400px] rounded-lg text-center">
         <DialogHeader>
-          <DialogTitle className="text-sm text-muted-foreground">
+          <DialogTitle className="text-md font-semibold">
             {title}
           </DialogTitle>
         </DialogHeader>
-        <DialogDescription className="py-4 text-base text-foreground">
+        <DialogDescription className="text-base text-foreground">
           <div className="flex justify-center py-4">
             {isSuccess ? (
               <CheckCircle className="h-16 w-16 text-green-500" /> // Tích xanh
@@ -56,14 +56,14 @@ const AlertDialog = ({
           {!isSuccess ? (
             <Link
               onClick={onClose}
-              className="min-w-[100px] bg-[#693e52] text-white hover:bg-[#693e52]/90"
+              className="min-w-[100px] rounded-lg py-2 bg-[#ff4d4d] text-white hover:bg-[#c84c4c]"
             >
               OK
             </Link>
           ) : (
             <p className="text-center text-gray-600">
-              The page will be redirected in <strong>{countdown}</strong>{' '}
-              seconds.
+              Trang sẽ được chuyển hướng trong <strong>{countdown}</strong>{' '}
+              giây.
             </p>
           )}
         </div>

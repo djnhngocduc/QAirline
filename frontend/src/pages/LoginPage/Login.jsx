@@ -91,7 +91,7 @@ function Login() {
         setAlert({
           open: true,
           title: 'QAirline',
-          message: `Đăng nhập thất bại: + ${errorMessage}`,
+          message: `Đăng nhập thất bại: ${errorMessage}`,
           isSuccess: false,
         });
       }
@@ -100,7 +100,7 @@ function Login() {
       setAlert({
         open: true,
         title: 'QAirline',
-        message: `Lỗi kết nối: + ${error}  + . Vui lòng thử lại!`,
+        message: `Lỗi kết nối: ${error}. Vui lòng thử lại sau!`,
         isSuccess: false,
       });
     }
@@ -123,7 +123,7 @@ function Login() {
       </div>
       <Card className="mb-3 w-full max-w-sm rounded-lg bg-card shadow-md sm:max-w-md md:max-w-lg">
         <CardHeader className="flex flex-col items-center space-y-2">
-          <h1 className="text-center text-2xl text-[#ff4d4d] font-bold text-foreground md:text-3xl">
+          <h1 className="text-center text-2xl text-[#ff4d4d] font-bold md:text-3xl">
             Chào mừng trở lại
           </h1>
           <h2 className="text-center text-muted-foreground md:text-md">
@@ -132,83 +132,84 @@ function Login() {
         </CardHeader>
         <CardContent>
           {/* Input Text (Changed from Email) */}
-          <div className="relative mb-4 max-w-full">
-            <Input
-              type="text"
-              id="username"
-              className="peer block h-11 w-full rounded-lg bg-transparent px-3 pb-2 pt-5 text-sm text-muted-foreground 
-              focus:outline-none focus:border-[#ff4d4d]"
-              placeholder=""
-              required
-              onChange={handleEmailChange}
-            />
-            <label
-              htmlFor="username"
-              className="peer-placeholder-shown:top-2.2 absolute left-3 top-2.5 max-w-full truncate whitespace-nowrap pr-4 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-muted-foreground peer-valid:top-0 peer-valid:text-sm peer-valid:text-[#ff4d4d] peer-focus:top-0 peer-focus:text-sm peer-focus:text-[#ff4d4d]"
-            >
-              abc@example.com
-            </label>
-          </div>
-
-          {/* Password Input */}
-          <div className="mb-6">
-            <div className="relative">
+          <form onSubmit={handleLogin}>
+            <div className="relative mb-4 max-w-full">
               <Input
-                type={showPassword ? 'text' : 'password'}
-                id="password"
-                className="peer block h-11 w-full rounded-lg border border-border bg-transparent pb-2 pl-3 pr-10 pt-5 text-sm text-muted-foreground focus:border-[#ff4d4d] focus:outline-none"
+                type="email"
+                id="username"
+                className="peer block h-11 w-full rounded-lg bg-transparent px-3 pb-2 pt-5 text-sm text-muted-foreground 
+                focus:outline-none focus:border-[#ff4d4d]"
                 placeholder=""
                 required
-                onChange={handlePasswordChange}
+                onChange={handleEmailChange}
               />
               <label
-                htmlFor="password"
-                className="peer-placeholder-shown:top-2.2 absolute left-3 top-2.5 max-w-full truncate pr-12 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-muted-foreground peer-valid:top-0 peer-valid:text-sm peer-valid:text-[#ff4d4d] peer-focus:top-0 peer-focus:text-sm peer-focus:text-[#ff4d4d]"
+                htmlFor="username"
+                className="peer-placeholder-shown:top-2.2 absolute left-3 top-2.5 max-w-full truncate whitespace-nowrap pr-4 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-muted-foreground peer-valid:top-0 peer-valid:text-sm peer-valid:text-[#ff4d4d] peer-focus:top-0 peer-focus:text-sm peer-focus:text-[#ff4d4d]"
               >
-                Mật khẩu
+                abc@example.com
               </label>
-              <button
-                onClick={togglePasswordVisibility}
-                className="absolute right-3 top-3 text-muted-foreground hover:text-foreground"
-              >
-                {showPassword ? (
-                  <EyeSlashIcon className="h-6 w-6" />
-                ) : (
-                  <EyeIcon className="h-6 w-6" />
-                )}
-              </button>
             </div>
-            <div className="mt-2 text-right">
-              <a
-                href="#"
-                className="text-sm text-[#ff4d4d] font-bold hover:text-[#c84c4c] hover:underline"
-              >
-                Quên mật khẩu?
-              </a>
-            </div>
-          </div>
 
-          {/* Log in Button */}
-          <div className="mt-4">
-            <button
-              className="w-full rounded-lg bg-[#ff4d4d] py-2 text-white font-bold text-sm hover:bg-[#c84c4c]"
-              onClick={handleLogin}
-            >
-              Đăng nhập
-            </button>
-            <AlertDialog
-              open={alert.open}
-              onClose={() => {
-                if (alert.onClose) {
-                  alert.onClose();
-                }
-                setAlert({ ...alert, open: false });
-              }}
-              title={alert.title}
-              message={alert.message}
-              isSuccess={alert.isSuccess}
-            />
-          </div>
+            {/* Password Input */}
+            <div className="mb-6">
+              <div className="relative">
+                <Input
+                  type={showPassword ? 'text' : 'password'}
+                  id="password"
+                  className="peer block h-11 w-full rounded-lg border border-border bg-transparent pb-2 pl-3 pr-10 pt-5 text-sm text-muted-foreground focus:border-[#ff4d4d] focus:outline-none"
+                  placeholder=""
+                  required
+                  onChange={handlePasswordChange}
+                />
+                <label
+                  htmlFor="password"
+                  className="peer-placeholder-shown:top-2.2 absolute left-3 top-2.5 max-w-full truncate pr-12 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-muted-foreground peer-valid:top-0 peer-valid:text-sm peer-valid:text-[#ff4d4d] peer-focus:top-0 peer-focus:text-sm peer-focus:text-[#ff4d4d]"
+                >
+                  Mật khẩu
+                </label>
+                <button
+                  onClick={togglePasswordVisibility}
+                  className="absolute right-3 top-3 text-muted-foreground hover:text-foreground"
+                >
+                  {showPassword ? (
+                    <EyeSlashIcon className="h-6 w-6" />
+                  ) : (
+                    <EyeIcon className="h-6 w-6" />
+                  )}
+                </button>
+              </div>
+              <div className="mt-2 text-right">
+                <a
+                  href="#"
+                  className="text-sm text-[#ff4d4d] font-bold hover:text-[#c84c4c] hover:underline"
+                >
+                  Quên mật khẩu?
+                </a>
+              </div>
+            </div>
+
+            {/* Log in Button */}
+            <div className="mt-4">
+              <button type="submit"
+                className="w-full rounded-lg bg-[#ff4d4d] py-2 text-white font-bold text-sm hover:bg-[#c84c4c]"
+              >
+                Đăng nhập
+              </button>
+              <AlertDialog
+                open={alert.open}
+                onClose={() => {
+                  if (alert.onClose) {
+                    alert.onClose();
+                  }
+                  setAlert({ ...alert, open: false });
+                }}
+                title={alert.title}
+                message={alert.message}
+                isSuccess={alert.isSuccess}
+              />
+            </div>
+          </form>
 
           <div className="my-5 flex items-center">
             <hr className="flex-1 border-muted-foreground" />
