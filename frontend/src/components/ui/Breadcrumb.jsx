@@ -36,7 +36,7 @@ const BreadcrumbLink = React.forwardRef(
     return (
       <Comp
         ref={ref}
-        className={cn('transition-colors hover:text-foreground', className)}
+        className={cn('font-semibold transition-colors hover:text-[#ff4d4d]', className)}
         {...props}
       />
     );
@@ -50,7 +50,7 @@ const BreadcrumbPage = React.forwardRef(({ className, ...props }, ref) => (
     role="link"
     aria-disabled="true"
     aria-current="page"
-    className={cn('font-normal text-foreground', className)}
+    className={cn('font-semibold text-[#ff4d4d]', className)}
     {...props}
   />
 ));
