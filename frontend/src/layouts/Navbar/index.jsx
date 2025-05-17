@@ -1,15 +1,55 @@
 import './Navbar.scss';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { TiDeleteOutline } from 'react-icons/ti';
 import { FaBars } from 'react-icons/fa';
+import axios from 'axios';
+import UserProfile from './UserProfile';
 
 function Navbar() {
+  const navigate = useNavigate();
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userInfo, setUserInfo] = useState({ name: '', email: '' }); // State to store user info
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      setIsLoggedIn(true); // Người dùng đã đăng nhập
+      fetchUserInfo(token); // Fetch user info
+    } else {
+      setIsLoggedIn(true); // Người dùng chưa đăng nhập
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Remove the token from localStorage
+    setIsLoggedIn(false);
+    setUserInfo({ name: '', email: '' }); // Clear user info
+    navigate('/');
+  };
 
   const handleMenuOpen = () => {
     setIsMenuOpen(!isMenuOpen);
   }
+
+  const fetchUserInfo = async (token) => {
+    try {
+      const response = await axios.get(
+        'http://localhost:5000/api/customer/my-info',
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const { first_name, last_name, User } = response.data;
+      setUserInfo({ name: `${first_name} ${last_name}`, email: User.email });
+    } catch (error) {
+      console.error('Error fetching user info:', error);
+    }
+  };
 
   return (
     <>
@@ -30,23 +70,18 @@ function Navbar() {
 
             <ul className="nav__subMenu">
               <li className="nav__subMenu__item">
-                <Link to="/booking/book-ticket" className="nav__subMenu__item__link">
-                  Mua Vé
+                <Link to="/" className="nav__subMenu__item__link">
+                  Flights
                 </Link>
               </li>
               <li className="nav__subMenu__item">
-                <Link to="/booking/manage-ticket" className="nav__subMenu__item__link">
-                  Quản Lý Vé
+                <Link to="/" className="nav__subMenu__item__link">
+                 Manage Booking
                 </Link>
               </li>
               <li className="nav__subMenu__item">
-                <Link to="/booking/guide" className="nav__subMenu__item__link">
-                  Hướng dẫn
-                </Link>
-              </li>
-              <li className="nav__subMenu__item">
-                <Link to="/booking/cancel-ticket" className="nav__subMenu__item__link">
-                  Điều kiện giá vé
+                <Link to="/" className="nav__subMenu__item__link">
+                  Special Offers
                 </Link>
               </li>
             </ul>
@@ -54,121 +89,34 @@ function Navbar() {
 
           <li className="nav__item">
             <p className="nav__item__link">
-              Thông tin hành trình
+              Discover
             </p>
-            <ul className="nav__subMenu">
-              <li className="nav__subMenu__item">
-                <Link to="/info/ticket-schedule" className="nav__subMenu__item__link">
-                  Lịch Bay
-                </Link>
-              </li>
-              <li className="nav__subMenu__item">
-                <Link to="/info/special-services" className="nav__subMenu__item__link">
-                  Dịch Vụ Đặc Biệt
-                </Link>
-              </li>
-              <li className="nav__subMenu__item">
-                <Link to="/info/check-in" className="nav__subMenu__item__link">
-                  Hướng Dẫn Thủ Tục
-                </Link>
-              </li>
-              <li className="nav__subMenu__item">
-                <Link to="/info/requirements" className="nav__subMenu__item__link">
-                  Yêu Cầu Giấy Tờ
-                </Link>
-              </li>
-              <li className="nav__subMenu__item">
-                <Link to="/info/airport" className="nav__subMenu__item__link">
-                  Thông Tin Sân Bay
-                </Link>
-              </li>
-            </ul>
           </li>
 
           <li className="nav__item">
             <p className="nav__item__link">
-              Khám phá
+              Help
             </p>
-            <ul className="nav__subMenu">
-              <li className="nav__subMenu__item">
-                <Link to="/explore/destinations" className="nav__subMenu__item__link">
-                  Điểm Đến
-                </Link>
-              </li>
-              <li className="nav__subMenu__item">
-                <Link to="/explore/offers" className="nav__subMenu__item__link">
-                  Ưu Đãi
-                </Link>
-              </li>
-              <li className="nav__subMenu__item">
-                <Link to="/explore/experience" className="nav__subMenu__item__link">
-                  Tin Tức
-                </Link>
-              </li>
-            </ul>
           </li>
 
           <li className="nav__item">
-            <p className="nav__item__link">
-              QAirline
-            </p>
-            <ul className="nav__subMenu">
-              <li className="nav__subMenu__item">
-                <Link to="/qairline/general" className="nav__subMenu__item__link">
-                  Thông Tin Chung
-                </Link>
-              </li>
-              <li className="nav__subMenu__item">
-                <Link to="/qairline/about" className="nav__subMenu__item__link">
-                  Giới Thiệu
-                </Link>
-              </li>
-              <li className="nav__subMenu__item">
-                <Link to="/qairline/news" className="nav__subMenu__item__link">
-                  Trải Nghiệm
-                </Link>
-              </li>
-            </ul>
-          </li>
-          <li className="nav__item nav__item__account">
-            {/* {isLoggedIn ? (
-              <>
-                <p className="nav__item__link">
-                  <img src="/images/user.png" alt="Avatar" className="nav__item__avatar" />
-                  Tài khoản 
-                </p>
-
-                <ul className="nav__subMenu">
-                  <li className="nav__subMenu__item">
-                    <Link to="/account/profile" className="nav__subMenu__item__link">
-                      Hồ Sơ
-                    </Link>
-                  </li>
-                  <li className="nav__subMenu__item">
-                    <Link to="/account/settings" className="nav__subMenu__item__link">
-                      Cài Đặt
-                    </Link>
-                  </li>
-                  <li className="nav__subMenu__item">
-                    <Link to="/account/logout" className="nav__subMenu__item__link">
-                      Đăng xuất
-                    </Link>
-                  </li>
-                </ul>
-              </>
+            {!isLoggedIn ? (
+              <Link to="/login" className="nav__item__link"
+              >
+                Login / SignUp
+              </Link>
             ) : (
-              <div className="nav__authLinks">
-                <Link to="/account/signin" className="nav__item__link">
-                  Đăng Nhập
-                </Link>
-                <span className="nav__separator">
-                  |
-                </span>
-                <Link to="/account/signup" className="nav__item__link">
-                  Đăng ký
-                </Link>
-              </div>
-            )} */}
+              <UserProfile
+                name={userInfo.name}
+                id={userInfo.email}
+                tier="New User"
+                avios={5}
+                qpoints={10}
+                onLogout={handleLogout}
+                isBooking={false}
+                className="nav__item__link"
+              />
+            )}
           </li>
         </ul>
       </div>
