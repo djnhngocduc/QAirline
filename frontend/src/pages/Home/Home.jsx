@@ -1,7 +1,10 @@
+import Booking from "./Booking";
 function Home() {
   return (
     <>
-      Home
+      <div className="relative">
+        <Booking />
+      </div>
     </>
   )
 }

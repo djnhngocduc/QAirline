@@ -103,13 +103,13 @@ function Navbar() {
             {!isLoggedIn ? (
               <Link to="/login" className="nav__item__link"
               >
-                Login / SignUp
+                Đăng nhập / Đăng ký
               </Link>
             ) : (
               <UserProfile
                 name={userInfo.name}
                 id={userInfo.email}
-                tier="New User"
+                tier="Người dùng mới"
                 avios={5}
                 qpoints={10}
                 onLogout={handleLogout}

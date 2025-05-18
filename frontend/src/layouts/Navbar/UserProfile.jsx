@@ -43,16 +43,16 @@ const UserProfile = ({
         </div>
 
         <div className="flex justify-self-center border-t p-4">
-          <Link to="/mybooking" className="text-gray-700 hover:text-[#ff4d4d] mr-3"
+          <Link to="/mybooking" className="text-gray-700 hover:text-[#ff4d4d] hover:underline mr-3"
           >
             My bookings
           </Link>
           <Link to="/profile"
-          className="text-gray-700 hover:text-[#ff4d4d] mr-3" 
+          className="text-gray-700 hover:text-[#ff4d4d] hover:underline mr-3" 
           >
             Edit profile
           </Link>
-          <Link onClick={onLogout}className="text-gray-700 hover:text-[#ff4d4d] mr-3"
+          <Link onClick={onLogout}className="text-gray-700 hover:text-[#ff4d4d] hover:underline mr-3"
           >
             Logout
           </Link>
