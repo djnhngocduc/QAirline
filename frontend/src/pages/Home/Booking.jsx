@@ -21,12 +21,11 @@ function Booking() {
         {/* Phần thông tin */}
         <div className="pt-15 relative z-10 ml-2 w-full text-left text-white sm:ml-4 md:ml-10 md:pt-20">
           <h1 className="mb-4 text-2xl font-bold md:mb-6 md:text-4xl">
-            Welcome aboard QAirline! <br />
-            Thank you for choosing to fly with us!
+            Chào mừng đến với QAirline! 
           </h1>
-          <p className="mb-4 text-sm md:mb-6 md:text-lg">
-            Amazing offers await
-          </p>
+          <h2 className="text-xl md:text-2xl font-semibold text-[#cccccc] mt-5">  
+            Cảm ơn bạn vì đã lựa chọn chúng tôi!
+          </h2>
           {/* Sử dụng Button từ shadcn */}
         </div>
       </div>

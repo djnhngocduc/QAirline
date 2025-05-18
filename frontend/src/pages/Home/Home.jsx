@@ -2,6 +2,7 @@ import Booking from "./Booking";
 import { FlightDeals } from "./FlightDeals";
 import FlightTab from "./FlightTab/FlightTab";
 import StartPlanning from "./StartPlanning";
+import SuggestionHome from "./SuggestionHome";
 
 function Home() {
   return (
@@ -16,7 +17,7 @@ function Home() {
 
       <StartPlanning />
       <FlightDeals />
-      
+      <SuggestionHome />
     </>
   )
 }
