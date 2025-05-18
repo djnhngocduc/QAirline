@@ -1,4 +1,5 @@
 import Booking from "./Booking";
+import { FlightDeals } from "./FlightDeals";
 import FlightTab from "./FlightTab/FlightTab";
 import StartPlanning from "./StartPlanning";
 
@@ -14,6 +15,8 @@ function Home() {
       </div>
 
       <StartPlanning />
+      <FlightDeals />
+      
     </>
   )
 }
