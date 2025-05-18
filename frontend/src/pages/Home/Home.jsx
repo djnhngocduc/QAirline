@@ -1,5 +1,7 @@
 import Booking from "./Booking";
 import FlightTab from "./FlightTab/FlightTab";
+import StartPlanning from "./StartPlanning";
+
 function Home() {
   return (
     <>
@@ -10,6 +12,8 @@ function Home() {
           <FlightTab />
         </div>
       </div>
+
+      <StartPlanning />
     </>
   )
 }
