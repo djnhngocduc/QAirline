@@ -19,7 +19,7 @@ function Navbar() {
       setIsLoggedIn(true); // Người dùng đã đăng nhập
       fetchUserInfo(token); // Fetch user info
     } else {
-      setIsLoggedIn(true); // Người dùng chưa đăng nhập
+      setIsLoggedIn(false) // Người dùng chưa đăng nhập
     }
   }, []);
 
