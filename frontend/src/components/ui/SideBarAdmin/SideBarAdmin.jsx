@@ -33,9 +33,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
         <ul className="space-y-2">
           <li>
             <NavLink
-              to="/admin/post-information"
+              to="/admin/manage-posts"
               className={`flex items-center gap-3 rounded-lg p-3 text-sm font-medium transition hover:bg-[#ff4d4d] ${
-                pathname.includes('post-information') ? 'bg-[#ff4d4d]' : ''
+                pathname.includes('manage-posts') ? 'bg-[#ff4d4d]' : ''
               }`}
             >
               <span>📋</span>
@@ -44,9 +44,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
           </li>
           <li>
             <NavLink
-              to="/admin/add-airplanes"
+              to="/admin/manage-airplanes"
               className={`flex items-center gap-3 rounded-lg p-3 text-sm font-medium transition hover:bg-[#ff4d4d] ${
-                pathname.includes('add-airplanes') ? 'bg-[#ff4d4d]' : ''
+                pathname.includes('manage-airplanes') ? 'bg-[#ff4d4d]' : ''
               }`}
             >
               <span>✈️</span>
@@ -55,9 +55,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
           </li>
           <li>
             <NavLink
-              to="/admin/add-flights"
+              to="/admin/manage-flights"
               className={`flex items-center gap-3 rounded-lg p-3 text-sm font-medium transition hover:bg-[#ff4d4d] ${
-                pathname.includes('add-flights') ? 'bg-[#ff4d4d]' : ''
+                pathname.includes('manage-flights') ? 'bg-[#ff4d4d]' : ''
               }`}
             >
               <span>🛫</span>
@@ -66,9 +66,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
           </li>
           <li>
             <NavLink
-              to="/admin/view-statistics"
+              to="/admin/statistics"
               className={`flex items-center gap-3 rounded-lg p-3 text-sm font-medium transition hover:bg-[#ff4d4d] ${
-                pathname.includes('view-statistics') ? 'bg-[#ff4d4d]' : ''
+                pathname.includes('statistics') ? 'bg-[#ff4d4d]' : ''
               }`}
             >
               <span>📊</span>

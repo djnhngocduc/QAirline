@@ -7,7 +7,7 @@ import {
   TableRow,
 } from '../ui/Table';
 
-function BookingTable({ bookings }) {
+export function BookingTable({ bookings }) {
   return (
     <div className="rounded-md border">
       <Table>
@@ -56,6 +56,4 @@ function BookingTable({ bookings }) {
       </Table>
     </div>
   );
-};
-
-export default BookingTable;
+}
