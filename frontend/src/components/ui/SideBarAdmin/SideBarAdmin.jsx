@@ -17,7 +17,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
 
   return (
     <aside
-      className={`absolute left-0 top-0 z-50 flex h-screen w-72 flex-col bg-secondary-foreground p-5 text-white transition-transform duration-300 lg:static lg:translate-x-0 ${
+      className={`absolute left-0 top-0 z-50 flex h-screen w-72 flex-col bg-[#f9f7f3] p-5 text-[#0a0a0a] transition-transform duration-300 lg:static lg:translate-x-0 ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}
     >
@@ -25,11 +25,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
         <img
           src="/assets/logo.png" // Path to your image
           alt="Logo"
-          className="h-10 w-12" // Adjust size and ensure it fits inside the circle
+          className="ml-3 h-[40px]" // Adjust size and ensure it fits inside the circle
         />
-
-        {/* Tên hãng */}
-        <span className="font-serif text-2xl tracking-wider">QAirline</span>
       </div>
 
       <nav className="flex flex-col space-y-4">
@@ -37,8 +34,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
           <li>
             <NavLink
               to="/admin/post-information"
-              className={`flex items-center gap-3 rounded-lg p-3 text-sm font-medium transition hover:bg-secondary ${
-                pathname.includes('post-information') ? 'bg-secondary' : ''
+              className={`flex items-center gap-3 rounded-lg p-3 text-sm font-medium transition hover:bg-[#ff4d4d] ${
+                pathname.includes('post-information') ? 'bg-[#ff4d4d]' : ''
               }`}
             >
               <span>📋</span>
@@ -48,8 +45,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
           <li>
             <NavLink
               to="/admin/add-airplanes"
-              className={`flex items-center gap-3 rounded-lg p-3 text-sm font-medium transition hover:bg-secondary ${
-                pathname.includes('add-airplanes') ? 'bg-secondary' : ''
+              className={`flex items-center gap-3 rounded-lg p-3 text-sm font-medium transition hover:bg-[#ff4d4d] ${
+                pathname.includes('add-airplanes') ? 'bg-[#ff4d4d]' : ''
               }`}
             >
               <span>✈️</span>
@@ -59,8 +56,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
           <li>
             <NavLink
               to="/admin/add-flights"
-              className={`flex items-center gap-3 rounded-lg p-3 text-sm font-medium transition hover:bg-secondary ${
-                pathname.includes('add-flights') ? 'bg-secondary' : ''
+              className={`flex items-center gap-3 rounded-lg p-3 text-sm font-medium transition hover:bg-[#ff4d4d] ${
+                pathname.includes('add-flights') ? 'bg-[#ff4d4d]' : ''
               }`}
             >
               <span>🛫</span>
@@ -70,8 +67,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
           <li>
             <NavLink
               to="/admin/view-statistics"
-              className={`flex items-center gap-3 rounded-lg p-3 text-sm font-medium transition hover:bg-secondary ${
-                pathname.includes('view-statistics') ? 'bg-secondary' : ''
+              className={`flex items-center gap-3 rounded-lg p-3 text-sm font-medium transition hover:bg-[#ff4d4d] ${
+                pathname.includes('view-statistics') ? 'bg-[#ff4d4d]' : ''
               }`}
             >
               <span>📊</span>

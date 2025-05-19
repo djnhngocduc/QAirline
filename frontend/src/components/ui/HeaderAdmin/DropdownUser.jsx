@@ -7,7 +7,7 @@ const DropdownUser = () => {
         name="Admin" 
         size="40" 
         round={true} 
-        color="#ff4d4d" // Tùy chỉnh màu sắc
+        color="#10a7cd" // Tùy chỉnh màu sắc
         fgColor="#ffffff" // Màu chữ
       />
     </div>

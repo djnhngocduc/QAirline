@@ -1,7 +1,11 @@
+import Layout from "./Layout";
+
 function Admin() {
   return (
     <>
-      Admin
+      <Layout>
+        
+      </Layout>
     </>
   )
 }
