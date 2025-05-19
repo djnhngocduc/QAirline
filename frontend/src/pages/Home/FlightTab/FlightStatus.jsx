@@ -59,8 +59,8 @@ const FlightStatus = () => {
             onClick={() => setActiveTab('route')}
             className={`flex-1 py-1 text-center text-lg font-medium ${
               activeTab === 'route'
-                ? 'rounded-none border-b-2 border-purple-600 text-purple-600 hover:bg-transparent'
-                : 'text-gray-600 hover:bg-transparent hover:text-purple-500'
+                ? 'rounded-none border-b-2 border-[#ff4d4d] text-[#ff4d4d] hover:text-[#ff4d4d] hover:bg-transparent'
+                : 'text-gray-600 hover:bg-transparent hover:text-[#ff4d4d]'
             }`}
           >
             By Route
@@ -70,8 +70,8 @@ const FlightStatus = () => {
             onClick={() => setActiveTab('flightNumber')}
             className={`flex-1 py-2 text-center text-lg font-medium ${
               activeTab === 'flightNumber'
-                ? 'rounded-none border-b-2 border-purple-600 text-purple-600 hover:bg-transparent'
-                : 'text-gray-600 hover:bg-transparent hover:text-purple-500'
+                ? 'rounded-none border-b-2 border-[#ff4d4d] text-[#ff4d4d] hover:text-[#ff4d4d] hover:bg-transparent'
+                : 'text-gray-600 hover:bg-transparent hover:text-[#ff4d4d]'
             }`}
           >
             By Flight Number
@@ -166,7 +166,7 @@ const FlightStatus = () => {
             <div className="mt-6 flex justify-center">
               <Button
                 onClick={handleSearch}
-                className="rounded-lg bg-purple-600 px-8 py-3 text-white hover:bg-purple-700"
+                className="rounded-lg bg-[#ff4d4d] px-8 py-3 text-white hover:bg-[#c84c4c]"
               >
                 Check Status
               </Button>
@@ -193,7 +193,7 @@ const FlightStatus = () => {
             <div className="mt-6 flex justify-center">
               <Button
                 onClick={handleSearch}
-                className="rounded-lg bg-purple-600 px-8 py-3 text-white hover:bg-purple-700"
+                className="rounded-lg bg-[#ff4d4d] px-8 py-3 text-white hover:bg-[#c84c4c]"
               >
                 Check Status
               </Button>

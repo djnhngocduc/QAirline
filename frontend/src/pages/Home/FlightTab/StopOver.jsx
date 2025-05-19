@@ -54,8 +54,8 @@ const StopOver = () => {
             onClick={() => setActiveTab('stopover')}
             className={`flex-1 py-1 text-center text-lg font-medium ${
               activeTab === 'stopover'
-                ? 'rounded-none border-b-2 border-purple-600 text-purple-600 hover:bg-transparent'
-                : 'text-gray-600 hover:bg-transparent hover:text-purple-500'
+                ? 'rounded-none border-b-2 border-[#ff4d4d] text-[#ff4d4d] hover:bg-transparent hover:text-[#ff4d4d]'
+                : 'text-gray-600 hover:bg-transparent hover:text-[#ff4d4d]'
             }`}
           >
             Stopover
@@ -65,8 +65,8 @@ const StopOver = () => {
             onClick={() => setActiveTab('flights-hotel')}
             className={`flex-1 py-1 text-center text-lg font-medium ${
               activeTab === 'flights-hotel'
-                ? 'rounded-none border-b-2 border-purple-600 text-purple-600 hover:bg-transparent'
-                : 'text-gray-600 hover:bg-transparent hover:text-purple-500'
+                ? 'rounded-none border-b-2 border-[#ff4d4d] text-[#ff4d4d] hover:text-[#ff4d4d] hover:bg-transparent'
+                : 'text-gray-600 hover:bg-transparent hover:text-[#ff4d4d]'
             }`}
           >
             Flights + Hotel
@@ -88,7 +88,7 @@ const StopOver = () => {
                 <RadioGroupItem
                   value="round-trip"
                   id="round-trip"
-                  className="text-purple-600"
+                  className="text-[#c84c4c]"
                 />
                 <Label htmlFor="round-trip" className="text-lg font-medium">
                   Round Trip
@@ -98,7 +98,7 @@ const StopOver = () => {
                 <RadioGroupItem
                   value="one-way"
                   id="one-way"
-                  className="text-purple-600"
+                  className="text-[#c84c4c]"
                 />
                 <Label htmlFor="one-way" className="text-lg font-medium">
                   One Way
@@ -175,7 +175,8 @@ const StopOver = () => {
               <div className="relative w-full max-w-xs">
                 <Button
                   onClick={toggleDropdown}
-                  className="w-full rounded-md border border-gray-300 bg-white p-2 text-left text-gray-700"
+                  className="w-full rounded-md border border-gray-300 bg-white p-2 text-left text-gray-700
+                  hover:bg-[#ff4d4d]"
                 >
                   {`${passengers.adults + passengers.children + passengers.infants} Passenger${
                     passengers.adults +
@@ -285,7 +286,7 @@ const StopOver = () => {
                     {/* Confirm Button */}
                     <div className="border-t p-4">
                       <Button
-                        className="w-full bg-purple-600 text-white hover:bg-purple-700"
+                        className="w-full bg-[#ff4d4d] text-white hover:bg-[#c84c4c]"
                         onClick={() => setIsOpen(false)}
                       >
                         Confirm
@@ -295,7 +296,7 @@ const StopOver = () => {
                 )}
               </div>
 
-              <Button className="rounded-lg bg-purple-600 py-3 text-white hover:bg-purple-700">
+              <Button className="rounded-lg bg-[#ff4d4d] py-3 text-white hover:bg-[#c84c4c]">
                 Search flights
               </Button>
             </div>
@@ -314,7 +315,7 @@ const StopOver = () => {
                 <RadioGroupItem
                   value="round-trip"
                   id="round-trip"
-                  className="text-purple-600"
+                  className="text-[#c84c4c]"
                 />
                 <Label htmlFor="round-trip" className="text-lg font-medium">
                   Round Trip
@@ -324,7 +325,7 @@ const StopOver = () => {
                 <RadioGroupItem
                   value="one-way"
                   id="one-way"
-                  className="text-purple-600"
+                  className="text-[#c84c4c]"
                 />
                 <Label htmlFor="one-way" className="text-lg font-medium">
                   One Way
@@ -401,7 +402,7 @@ const StopOver = () => {
               <div className="relative w-full pr-0 md:max-w-xs md:pr-4">
                 <Button
                   onClick={toggleDropdown}
-                  className="w-full rounded-md border border-gray-300 bg-white p-2 text-left text-gray-700"
+                  className="w-full rounded-md border border-gray-300 bg-white p-2 text-left text-gray-700 hover:bg-[#ff4d4d]"
                 >
                   {`${passengers.adults + passengers.children + passengers.infants} Passenger${
                     passengers.adults +
@@ -511,7 +512,7 @@ const StopOver = () => {
                     {/* Confirm Button */}
                     <div className="border-t p-4">
                       <Button
-                        className="w-full bg-purple-600 text-white hover:bg-purple-700"
+                        className="w-full bg-[#ff4d4d] text-white hover:bg-[#c84c4c]"
                         onClick={() => setIsOpen(false)}
                       >
                         Confirm
@@ -521,7 +522,7 @@ const StopOver = () => {
                 )}
               </div>
 
-              <Button className="rounded-lg bg-purple-600 px-6 py-3 text-white hover:bg-purple-700">
+              <Button className="rounded-lg bg-[#ff4d4d] px-6 py-3 text-white hover:bg-[#c84c4c]">
                 Search flights & Hotels
               </Button>
             </div>

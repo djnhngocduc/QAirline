@@ -120,7 +120,7 @@ export default function BookAFlight() {
             <RadioGroupItem
               value={type}
               id={`trip-type-${type}`}
-              className="text-secondary"
+              className="text-[#c84c4c] border-[#c84c4c]"
             />
             <Label
               htmlFor={`trip-type-${type}`}
@@ -243,7 +243,8 @@ export default function BookAFlight() {
         <div className="relative w-full pr-0 md:max-w-xs md:pr-4">
           <Button
             onClick={toggleDropdown}
-            className="w-full rounded-md border border-gray-300 bg-white p-2 text-left text-gray-700 hover:bg-white hover:text-secondary"
+            className="w-full rounded-md border border-gray-300 bg-white p-2 text-left text-gray-700 
+            hover:bg-white hover:text-[#ff4d4d]"
           >
             {`${passengers.adults + passengers.children + passengers.infants} Passenger${
               passengers.adults + passengers.children + passengers.infants > 1
@@ -315,7 +316,7 @@ export default function BookAFlight() {
               {/* Confirm Button */}
               <div className="border-t p-4">
                 <Button
-                  className="w-full text-white"
+                  className="w-full text-white bg-[#ff4d4d] hover:bg-[#c84c4c]"
                   onClick={() => setIsOpen(false)}
                 >
                   Confirm
@@ -324,7 +325,7 @@ export default function BookAFlight() {
             </div>
           )}
         </div>
-        <Button className="text-white" onClick={handleSearchFlights}>
+        <Button className="text-white bg-[#ff4d4d] hover:bg-[#c84c4c]" onClick={handleSearchFlights}>
           Search flights
         </Button>
       </div>

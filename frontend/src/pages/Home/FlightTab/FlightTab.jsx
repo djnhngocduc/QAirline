@@ -25,25 +25,25 @@ function FlightTab() {
           <TabsList className="flex justify-between rounded-lg">
             <TabsTrigger
               value="book"
-              className="flex w-full items-center justify-center gap-2 rounded-lg px-6 py-4 text-gray-700 transition duration-200 ease-in-out hover:bg-secondary hover:text-white focus:outline-none"
+              className="flex w-full items-center justify-center gap-2 rounded-lg px-6 py-4 text-gray-700 transition duration-200 ease-in-out hover:bg-[#ff4d4d] hover:text-white focus:outline-none"
             >
-              <FaPlane className="text-xl" /> Book a flight
+              <FaPlane className="text-xl" /> Đặt vé
             </TabsTrigger>
             <TabsTrigger
               value="stopover"
-              className="flex w-full items-center justify-center gap-2 rounded-lg px-6 py-4 text-gray-700 transition duration-200 ease-in-out hover:bg-secondary hover:text-white focus:outline-none"
+              className="flex w-full items-center justify-center gap-2 rounded-lg px-6 py-4 text-gray-700 transition duration-200 ease-in-out hover:bg-[#ff4d4d] hover:text-white focus:outline-none"
             >
               <FaHotel className="text-xl" /> Stopover / Packages
             </TabsTrigger>
             <TabsTrigger
               value="manage"
-              className="flex w-full items-center justify-center gap-2 rounded-lg px-6 py-4 text-gray-700 transition duration-200 ease-in-out hover:bg-secondary hover:text-white focus:outline-none"
+              className="flex w-full items-center justify-center gap-2 rounded-lg px-6 py-4 text-gray-700 transition duration-200 ease-in-out hover:bg-[#ff4d4d] hover:text-white focus:outline-none"
             >
               <FaUserCheck className="text-xl" /> Manage / Check in
             </TabsTrigger>
             <TabsTrigger
               value="status"
-              className="flex w-full items-center justify-center gap-2 rounded-lg px-6 py-4 text-gray-700 transition duration-200 ease-in-out hover:bg-secondary hover:text-white focus:outline-none"
+              className="flex w-full items-center justify-center gap-2 rounded-lg px-6 py-4 text-gray-700 transition duration-200 ease-in-out hover:bg-[#ff4d4d] hover:text-white focus:outline-none"
             >
               <FaInfoCircle className="text-xl" /> Flight status
             </TabsTrigger>
@@ -71,7 +71,7 @@ function FlightTab() {
           <Accordion type="single" collapsible className="space-y-2">
             <AccordionItem value="book">
               <AccordionTrigger className="flex items-center gap-2 rounded-lg bg-gray-100 px-4 py-3 text-gray-700">
-                <FaPlane className="text-xl" /> Book a flight
+                <FaPlane className="text-xl" /> Đặt vé
               </AccordionTrigger>
               <AccordionContent className="px-4 py-3">
                 <BookAFlight />

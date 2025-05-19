@@ -44,8 +44,8 @@ const ManageBooking = () => {
             onClick={() => setActiveTab('manage_booking')}
             className={`flex-1 py-1 text-center text-lg font-medium ${
               activeTab === 'manage_booking'
-                ? 'rounded-none border-b-2 border-purple-600 text-purple-600 hover:bg-transparent'
-                : 'text-gray-600 hover:bg-transparent hover:text-purple-500'
+                ? 'rounded-none border-b-2 border-[#ff4d4d] text-[#ff4d4d] hover:text-[#ff4d4d] hover:bg-transparent'
+                : 'text-gray-600 hover:bg-transparent hover:text-[#ff4d4d]'
             }`}
           >
             Manage Booking
@@ -55,8 +55,8 @@ const ManageBooking = () => {
             onClick={() => setActiveTab('checkin')}
             className={`flex-1 py-2 text-center text-lg font-medium ${
               activeTab === 'checkin'
-                ? 'rounded-none border-b-2 border-purple-600 text-purple-600 hover:bg-transparent'
-                : 'text-gray-600 hover:bg-transparent hover:text-purple-500'
+                ? 'rounded-none border-b-2 border-[#ff4d4d] text-[#ff4d4d] hover:text-[#ff4d4d] hover:bg-transparent'
+                : 'text-gray-600 hover:bg-transparent hover:text-[#ff4d4d]'
             }`}
           >
             Checkin
@@ -104,7 +104,7 @@ const ManageBooking = () => {
           <div className="mt-5 w-full md:w-auto">
             <Button
               onClick={handleSubmit}
-              className="w-full rounded-lg bg-purple-600 py-3 text-white hover:bg-purple-700 md:w-auto"
+              className="w-full rounded-lg bg-[#ff4d4d] py-3 text-white hover:bg-[#c84c4c] md:w-auto"
             >
               {activeTab === 'manage_booking' ? 'Retrieve Booking' : 'Checkin'}
             </Button>

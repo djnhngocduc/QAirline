@@ -3,6 +3,7 @@ import { FlightDeals } from "./FlightDeals";
 import FlightTab from "./FlightTab/FlightTab";
 import StartPlanning from "./StartPlanning";
 import SuggestionHome from "./SuggestionHome";
+import SubscribeForm from "./SubscribeForm";
 
 function Home() {
   return (
@@ -18,6 +19,7 @@ function Home() {
       <StartPlanning />
       <FlightDeals />
       <SuggestionHome />
+      <SubscribeForm />
     </>
   )
 }

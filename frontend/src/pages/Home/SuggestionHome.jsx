@@ -17,7 +17,7 @@ const tabs = [
       'Book flights, manage bookings, and access your e-boarding pass all in one place. Download the QAirline app for ultimate convenience.',
     buttonText: 'Download now',
     image:
-      'https://vnn-imgs-f.vgcloud.vn/2019/06/19/14/ly-ky-vu-mat-tich-may-bay-mh370.jpg',
+      'https://cdn11.dienmaycholon.vn/filewebdmclnew/DMCL21/Picture/News/News_expe_9924/9924.png?version=180812',
   },
   {
     id: 'stopover',
