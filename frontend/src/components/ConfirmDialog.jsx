@@ -16,7 +16,7 @@ const ConfirmDialog = ({ isOpen, onConfirm, onCancel, title, message }) => {
             {title}
           </DialogTitle>
         </DialogHeader>
-        <div className="p-4 text-sm md:text-base">
+        <div className="py-4 text-sm md:text-base">
           <p>{message}</p>
         </div>
         <DialogFooter className="flex flex-col space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0">
@@ -24,10 +24,10 @@ const ConfirmDialog = ({ isOpen, onConfirm, onCancel, title, message }) => {
             onClick={onCancel}
             className="w-full bg-gray-500 text-white hover:bg-gray-600 sm:w-auto"
           >
-            Cancel
+            Hủy
           </Button>
-          <Button onClick={onConfirm} className="w-full text-white sm:w-auto">
-            Confirm
+          <Button onClick={onConfirm} className="w-full text-white sm:w-auto bg-[#ff4d4d] hover:bg-[#c84c4c]">
+            Xác nhận
           </Button>
         </DialogFooter>
       </DialogContent>
