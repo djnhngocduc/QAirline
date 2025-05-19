@@ -158,10 +158,10 @@ const AddAirplanes = () => {
             toast.success('Máy bay đã được cập nhật thành công!');
             setIsEditOpen(false);
           } else {
-            console.error('Lưu lại các thay đổi thất bại.');
+            console.error('Cập nhật máy bay thất bại.');
           }
         } catch (error) {
-          toast.error('Lưu lại các thay đổi thất bại');
+          toast.error('Cập nhật máy bay thất bại');
           console.error('Lỗi khi lưu lại các thay đổi:', error);
         }
         setConfirmDialog({ ...confirmDialog, isOpen: false });
@@ -345,7 +345,7 @@ const AddAirplanes = () => {
         <Dialog open={isEditOpen} onOpenChange={() => setIsEditOpen(false)}>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>Cập nhật máy bay</DialogTitle>
+              <DialogTitle>Chỉnh sửa thông tin máy bay</DialogTitle>
             </DialogHeader>
             <div className="grid grid-cols-1 gap-4">
               <Input

@@ -141,7 +141,7 @@ const PostInfo = () => {
           );
 
           if (!response.ok) {
-            throw new Error('Lưu lại các thay đổi thất bại.');
+            throw new Error('Cập nhật bài đăng thất bại.');
           }
 
           const updatedPost = await response.json();
@@ -153,7 +153,7 @@ const PostInfo = () => {
           setIsEditOpen(false);
           toast.success('Bài đăng đã được cập nhật thành công!');
         } catch (error) {
-          toast.error('Lưu lại các thay đổi thất bại.');
+          toast.error('Cập nhật bài đăng thất bại.');
           console.error('Lỗi khi lưu lại các thay đổi:', error);
         }
         setConfirmDialog({ ...confirmDialog, isOpen: false });
@@ -273,7 +273,7 @@ const PostInfo = () => {
         <Dialog open={isEditOpen} onOpenChange={() => setIsEditOpen(false)}>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>Cập nhật bài đăng</DialogTitle>
+              <DialogTitle>Chỉnh sửa thông tin bài đăng</DialogTitle>
             </DialogHeader>
             <div className="grid grid-cols-1 gap-4">
               <Input
