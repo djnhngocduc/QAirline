@@ -95,7 +95,7 @@ const StartPlanning = () => {
         <Button
           variant="outline"
           size="icon"
-          className="absolute left-0 top-1/2 -translate-x-16 -translate-y-1/2 transform rounded-full"
+          className="absolute left-0 top-1/2 -translate-x-16 -translate-y-1/2 transform rounded-full hover:text-[#ff4d4d]"
           onClick={scrollPrev}
         >
           <ChevronLeft className="h-8 w-8" />
@@ -103,7 +103,7 @@ const StartPlanning = () => {
         <Button
           variant="outline"
           size="icon"
-          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 transform rounded-full"
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 transform rounded-full hover:text-[#ff4d4d]"
           onClick={scrollNext}
         >
           <ChevronRight className="h-8 w-8" />

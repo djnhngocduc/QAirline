@@ -36,7 +36,7 @@ module.exports = {
         },
         accent: {
           DEFAULT: 'hsl(0 0% 96.1%)',
-          foreground: '#ad5389',
+          foreground: '#c84c4c',
         },
         destructive: {
           DEFAULT: 'hsl(0 84.2% 60.2%)',

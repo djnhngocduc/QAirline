@@ -125,7 +125,7 @@ export function FlightDeals() {
   return (
     <div className="container mx-auto p-6">
       <h2 className="mb-4 text-2xl font-bold text-[#ff4d4d]">
-        Tìm vé gía tốt
+        Tìm vé giá tốt
       </h2>
       <div className="mb-8 max-w-xs">
         <Label htmlFor="from">From</Label>
@@ -134,7 +134,7 @@ export function FlightDeals() {
           <Button
             size="icon"
             variant="ghost"
-            className="absolute right-2 top-1/2 -translate-y-1/2"
+            className="absolute right-2 top-1/2 -translate-y-1/2 hover:text-[#ff4d4d] hover:bg-transparent"
           >
             <Edit2 className="h-4 w-4" />
           </Button>
