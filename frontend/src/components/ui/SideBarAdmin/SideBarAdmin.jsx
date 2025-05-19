@@ -39,7 +39,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               }`}
             >
               <span>📋</span>
-              Manage Posts
+              Quản lý bài đăng
             </NavLink>
           </li>
           <li>
@@ -50,7 +50,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               }`}
             >
               <span>✈️</span>
-              Manage Airplanes
+              Quản lý máy bay
             </NavLink>
           </li>
           <li>
@@ -61,7 +61,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               }`}
             >
               <span>🛫</span>
-              Manage Flights
+              Quản lý chuyến bay
             </NavLink>
           </li>
           <li>
@@ -72,7 +72,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
               }`}
             >
               <span>📊</span>
-              View and Analyze Bookings
+              Theo dõi và phân tích đặt vé
             </NavLink>
           </li>
         </ul>

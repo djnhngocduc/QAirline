@@ -25,7 +25,7 @@ const HeaderAdmin = ({ sidebarOpen, setSidebarOpen }) => {
               {/* Search Input */}
               <Input
                 type="text"
-                placeholder="Search..."
+                placeholder="Tìm kiếm..."
                 className="pl-10 pr-4 py-2"
               />
               {/* Search Icon */}
