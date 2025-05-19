@@ -1,7 +1,9 @@
+import { NavbarBooking } from "../../layouts/Navbar/NavbarBooking";
+
 function BookingPage() {
   return (
     <>
-      BookingPage
+      <NavbarBooking />
     </>
   )
 }

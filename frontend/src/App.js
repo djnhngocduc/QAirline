@@ -3,10 +3,11 @@ import Banner from './layouts/Banner';
 import Navbar from './layouts/Navbar';
 import Footer from './layouts/Footer';
 import AppRoutes from './AppRoutes';
+import { NavbarBooking } from './layouts/Navbar/NavbarBooking';
 
 function LayoutSelector() {
   const { pathname } = useLocation();
-  if (pathname.startsWith('/admin')) {
+  if (pathname.startsWith('/admin') || pathname.startsWith('/booking')) {
     return <AppRoutes />
   }
   return (
