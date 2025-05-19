@@ -57,7 +57,7 @@ export function NavbarBooking() {
 
   return (
     <nav
-      className="fixed left-0 right-0 top-0 z-50 transition-colors duration-300 'bg-transparent"
+      className="fixed left-0 right-0 top-0 z-50 transition-colors duration-300 bg-[#f9f7f3]"
     >
       <div className="container mx-auto flex h-16 w-full items-center justify-between px-4">
         {/* Left section */}
