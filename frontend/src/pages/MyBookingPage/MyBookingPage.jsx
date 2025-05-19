@@ -73,8 +73,8 @@ function MyBookingPage() {
   }, []);
 
   return (
-    <div className="to- h-full">
-      <div className="container mx-auto px-3 py-8 pt-24 md:px-28">
+    <div className="h-full">
+      <div className="container mx-auto px-3 py-8 pt-14 md:px-28">
         <h1 className="mb-7 text-3xl font-bold text-center">Manage booking</h1>
 
         <div className="space-y-6">
