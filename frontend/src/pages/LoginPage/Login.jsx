@@ -74,7 +74,7 @@ function Login() {
           isSuccess: true,
           onClose: () => {
             if (email === 'admin@example.com') {
-              navigate('/admin/post-information');
+              navigate('/admin/manage-posts');
             } else {
               setTimeout(() => {
                 navigate('/'); // Điều hướng đến trang chính sau khi hiển thị thông báo
