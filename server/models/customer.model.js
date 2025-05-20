@@ -15,11 +15,11 @@ module.exports = (sequelize, DataTypes) => {
       },
       country_name: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       title: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       country_code: {
         type: DataTypes.INTEGER,
@@ -27,16 +27,16 @@ module.exports = (sequelize, DataTypes) => {
       },
       first_name: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       middle_name: DataTypes.STRING,
       last_name: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       date_of_birth: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       gender: {
         type: DataTypes.ENUM("male", "female", "other"),
