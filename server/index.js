@@ -2,14 +2,30 @@ const express = require('express');
 require('dotenv').config();
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const routeApi = require('./routers/client/index.route');
+const routeApi = require('./routers/index.route');
 const sequelize = require('./config/database');
 sequelize;
 
 const app = express();  
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 routeApi.index(app);
+
+
+// Test API link to fetch users
+app.get("/api/test/users", async (req, res) => {
+  try {
+    const users = await require("./models/index.model").User.findAll();
+    res.status(200).json(users);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Lỗi hệ thống");
+  }
+});
+
+app.get("/", (req, res) => {
+  res.send("Project Qairline Backend");
+});
 
 app.use(cors);
 app.use(bodyParser.json());

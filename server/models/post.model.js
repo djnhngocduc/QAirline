@@ -17,6 +17,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
       },
+    }, {
+      tableName: "posts", // Tên bảng trong cơ sở dữ liệu
+      timestamps: true, // Tự động thêm createdAt và updatedAt
     });
   
     Post.associate = function (models) {

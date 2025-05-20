@@ -30,6 +30,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.ENUM("Scheduled", "Delayed", "Cancelled"),
         allowNull: true,
       },
+    }, {
+      tableName: "flights", // Tên bảng trong cơ sở dữ liệu
+      timestamps: true, // Tự động thêm createdAt và updatedAt
     });
   
     Flight.associate = function (models) {

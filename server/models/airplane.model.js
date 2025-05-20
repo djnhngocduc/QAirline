@@ -13,6 +13,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+    }, {
+      tableName: "airplanes", // Tên bảng trong cơ sở dữ liệu
+      timestamps: true, // Tự động thêm createdAt và updatedAt
     });
   
     Airplane.associate = function (models) {

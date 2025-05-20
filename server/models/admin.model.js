@@ -14,6 +14,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+    }, {
+      tableName: "admins", // Tên bảng trong cơ sở dữ liệu
+      timestamps: true, // Tự động thêm createdAt và updatedAt
     });
   
     Admin.associate = function (models) {

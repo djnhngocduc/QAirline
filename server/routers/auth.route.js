@@ -1,5 +1,5 @@
 const express = require('express');
 const route = express.Router();
-const controller = require("../controllers/flight.controller");
+
 
 module.exports = route;

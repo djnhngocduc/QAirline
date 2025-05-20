@@ -1,3 +1,5 @@
+
+
 module.exports = (sequelize, DataTypes) => {
     const Passenger = sequelize.define("Passenger", {
       first_name: {
@@ -20,6 +22,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+    }, {
+      tableName: "passengers", // Tên bảng trong cơ sở dữ liệu
+      timestamps: true, // Tự động thêm createdAt và updatedAt
     });
   
     Passenger.associate = function (models) {

@@ -1,3 +1,4 @@
+
 // models/bookings.js
 module.exports = (sequelize, DataTypes) => {
     const Booking = sequelize.define("Booking", {
@@ -64,6 +65,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: true,
       },
+    }, {
+      tableName: "bookings", // Tên bảng trong cơ sở dữ liệu
+      timestamps: true, // Tự động thêm createdAt và updatedAt
     });
   
     Booking.associate = function (models) {

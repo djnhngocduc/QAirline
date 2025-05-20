@@ -13,7 +13,7 @@ const sequelize = new Sequelize(
 sequelize.authenticate().then(() => {
    console.log('Kết nối databaset thành công.');
 }).catch((error) => {
-   console.error('Kết nối database thất bạibại', error);
+   console.error('Kết nối database thất bại', error);
 });
 
-module.exports.sequelize
+module.exports = sequelize;

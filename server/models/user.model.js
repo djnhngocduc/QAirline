@@ -24,6 +24,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING, // Change to STRING to store the path
         allowNull: true,
       },
+    }, {
+      tableName: "users", // Tên bảng trong cơ sở dữ liệu
+      timestamps: true, // Tự động thêm createdAt và updatedAt
     });
   
     User.associate = function (models) {
