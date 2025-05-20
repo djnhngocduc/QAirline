@@ -45,7 +45,7 @@ const DetailUser = () => {
   }, []);
 
   if (!userData) {
-    return <div>Dang tải...</div>;
+    return <div>Đang tải...</div>;
   }
 
   const countryCodes = [
@@ -114,21 +114,21 @@ const DetailUser = () => {
 
   return (
     <div className="mb-6 md:border-b md:border-gray-300 md:pb-6">
-      <div className="mb-4 flex items-center justify-between">
-        <h2 className="text-lg font-semibold text-gray-700">
+      <div className="mb-4 flex justify-between">
+        <h2 className="text-xl font-semibold text-gray-700">
           Your contact details
         </h2>
         <div
           className={`flex ${isClickedEditBtn ? 'flex-col items-end' : 'items-center gap-1'}`}
         >
           <button
-            className={`flex items-center gap-1 ${isClickedEditBtn ? 'text-red-600' : 'text-secondary'}`}
+            className={`flex mb-4 items-center gap-1 ${isClickedEditBtn ? 'text-[#ff4d4d]' : 'text-[#0a0a0a]'}`}
             onClick={handleEditBtnChange}
           >
             {isClickedEditBtn ? (
-              <X className="h-4 w-4 text-red-600" />
+              <X className="h-4 w-4 text-[#ff4d4d]" />
             ) : (
-              <Pencil className="h-4 w-4 text-secondary" />
+              <Pencil className="h-4 w-4 text-[#0a0a0a]" />
             )}
             {isClickedEditBtn ? 'Exit' : 'Edit'}
           </button>
@@ -136,9 +136,9 @@ const DetailUser = () => {
           {isClickedEditBtn && (
             <button
               onClick={handleSaveDetails}
-              className="mt-2 flex items-center gap-1 text-secondary"
+              className="mt-2 flex items-center gap-1 text-[#0a0a0a]"
             >
-              <Save className="h-4 w-4 text-secondary" />
+              <Save className="h-4 w-4 text-[#0a0a0a]" />
               Save
             </button>
           )}
@@ -150,7 +150,7 @@ const DetailUser = () => {
           <div>
             <p className="font-semibold text-gray-800">Home address</p>
             <p className="text-gray-600">
-              {homeAddress.length == 0 ? 'N/A' : homeAddress}
+              {homeAddress.length === 0 ? 'N/A' : homeAddress}
             </p>
           </div>
           <div>
@@ -167,10 +167,6 @@ const DetailUser = () => {
             <p className="font-semibold text-gray-800">Gender</p>
             <p className="text-gray-600">{gender}</p>
           </div>
-          {/* <div>
-            <p className="font-semibold text-gray-800">Home/work phone</p>
-            <p className="text-gray-600">N/A</p>
-          </div> */}
         </div>
       ) : (
         <div className="grid grid-cols-2 gap-4">
@@ -181,13 +177,13 @@ const DetailUser = () => {
                 id="email"
                 value={email}
                 onChange={handleEmailChange}
-                className="peer block h-11 w-full rounded-lg border border-border bg-transparent px-3 pb-2 pt-5 text-sm text-foreground focus:border-primary focus:outline-none"
+                className="peer block h-11 w-full rounded-lg border border-border bg-transparent px-3 pb-2 pt-5 text-sm text-foreground focus:border-[#ff4d4d] focus:outline-none"
                 placeholder=""
                 required
               />
               <label
                 htmlFor="email"
-                className="peer-placeholder-shown:top-2.2 absolute left-3 top-2.5 max-w-full truncate pr-4 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-muted-foreground peer-valid:top-0.5 peer-valid:text-sm peer-valid:text-secondary peer-focus:top-0 peer-focus:text-sm peer-focus:text-secondary"
+                className="peer-placeholder-shown:top-2.2 absolute left-3 top-2.5 max-w-full truncate pr-4 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-muted-foreground peer-valid:top-0.5 peer-valid:text-sm peer-valid:text-[#ff4d4d] peer-focus:top-0 peer-focus:text-sm peer-focus:text-[#ff4d4d]"
               >
                 Email
               </label>
@@ -204,8 +200,8 @@ const DetailUser = () => {
                 value={countryCode}
                 className="peer w-full"
               >
-                <SelectTrigger className="peer h-11 w-full rounded-lg border border-border bg-transparent px-3 pb-2 pt-5 text-sm text-foreground focus:border-primary focus:outline-none">
-                  <SelectValue placeholder="Select country code" />
+                <SelectTrigger className="peer h-11 w-full rounded-lg border border-border bg-transparent px-3 pb-5 pt-5 text-sm text-foreground focus:border-[#ff4d4d] focus:outline-none [&>svg]:ml-auto">
+                  <SelectValue placeholder="Country Code"/>
                 </SelectTrigger>
                 <SelectContent>
                   {countryCodes.map((item) => (
@@ -215,12 +211,6 @@ const DetailUser = () => {
                   ))}
                 </SelectContent>
               </Select>
-              <label
-                htmlFor="countrycode"
-                className="peer-placeholder-shown:top-2.2 absolute left-3 top-1 max-w-full truncate pr-4 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-muted-foreground peer-valid:top-0.5 peer-valid:text-sm peer-valid:text-secondary peer-focus:top-0 peer-focus:text-sm peer-focus:text-secondary"
-              >
-                Country Code
-              </label>
             </div>
           </div>
 
@@ -231,13 +221,13 @@ const DetailUser = () => {
                 id="phone"
                 value={phone}
                 onChange={handlePhoneChange}
-                className="peer block h-11 w-full rounded-lg border border-border bg-transparent px-3 pb-2 pt-5 text-sm text-foreground focus:border-primary focus:outline-none"
+                className="peer block h-11 w-full rounded-lg border border-border bg-transparent px-3 pb-2 pt-5 text-sm text-foreground focus:border-[#ff4d4d] focus:outline-none"
                 placeholder=""
                 required
               />
               <label
                 htmlFor="phone"
-                className="peer-placeholder-shown:top-2.2 absolute left-3 top-2.5 max-w-full truncate pr-4 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-muted-foreground peer-valid:top-0.5 peer-valid:text-sm peer-valid:text-secondary peer-focus:top-0 peer-focus:text-sm peer-focus:text-secondary"
+                className="peer-placeholder-shown:top-2.2 absolute left-3 top-2.5 max-w-full truncate pr-4 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-muted-foreground peer-valid:top-0.5 peer-valid:text-sm peer-valid:text-[#ff4d4d] peer-focus:top-0 peer-focus:text-sm peer-focus:text-[#ff4d4d]"
               >
                 Phone number
               </label>
@@ -252,8 +242,8 @@ const DetailUser = () => {
                 value={gender}
                 className="peer w-full"
               >
-                <SelectTrigger className="peer h-11 w-full rounded-lg border border-border bg-transparent px-3 pb-2 pt-5 text-sm text-foreground focus:border-primary focus:outline-none">
-                  <SelectValue placeholder="Select gender" />
+                <SelectTrigger className="peer h-11 w-full rounded-lg border border-border bg-transparent px-3 pb-5 pt-5 text-sm text-foreground focus:border-[#ff4d4d] focus:outline-none [&>svg]:ml-auto">
+                  <SelectValue placeholder="Gender" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="male">Male</SelectItem>
@@ -261,12 +251,6 @@ const DetailUser = () => {
                   <SelectItem value="other">Other</SelectItem>
                 </SelectContent>
               </Select>
-              <label
-                htmlFor="gender"
-                className="peer-placeholder-shown:top-2.2 absolute left-3 top-1 max-w-full truncate pr-4 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-muted-foreground peer-valid:top-0.5 peer-valid:text-sm peer-valid:text-secondary peer-focus:top-0 peer-focus:text-sm peer-focus:text-secondary"
-              >
-                Gender
-              </label>
             </div>
           </div>
 
@@ -277,13 +261,13 @@ const DetailUser = () => {
                 id="homeaddress"
                 value={homeAddress}
                 onChange={handleHomeAddressChange}
-                className="peer block h-11 w-full rounded-lg border border-border bg-transparent px-3 pb-2 pt-5 text-sm text-foreground focus:border-primary focus:outline-none"
+                className="peer block h-11 w-full rounded-lg border border-border bg-transparent px-3 pb-2 pt-5 text-sm text-foreground focus:border-[#ff4d4d] focus:outline-none"
                 placeholder=""
                 required
               />
               <label
                 htmlFor="homeaddress"
-                className="peer-placeholder-shown:top-2.2 absolute left-3 top-2.5 max-w-full truncate pr-4 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-muted-foreground peer-valid:top-0.5 peer-valid:text-sm peer-valid:text-secondary peer-focus:top-0 peer-focus:text-sm peer-focus:text-secondary"
+                className="peer-placeholder-shown:top-2.2 absolute left-3 top-2.5 max-w-full truncate pr-4 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-muted-foreground peer-valid:top-0.5 peer-valid:text-sm peer-valid:text-[#ff4d4d] peer-focus:top-0 peer-focus:text-sm peer-focus:text-[#ff4d4d]"
               >
                 Home address
               </label>

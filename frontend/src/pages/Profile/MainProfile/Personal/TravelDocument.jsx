@@ -2,7 +2,7 @@ const TravelDocument = () => {
   return (
     <div className="md:border-b md:border-gray-300 md:pb-6">
       <div className="mb-4 flex items-center justify-between">
-        <h2 className="text-lg font-semibold text-gray-700">
+        <h2 className="text-xl font-semibold text-gray-700">
           Your travel documents
         </h2>
         {/* <button className="flex items-center gap-1 text-secondary">

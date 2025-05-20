@@ -45,7 +45,7 @@ const SidebarProfile = () => {
 
   return (
     <aside className="w-full px-3 md:w-64 md:max-w-sm md:px-0">
-      <Card className="rounded-md border-none bg-gradient-to-r from-secondary-foreground to-[#ad5389] py-5 text-center text-white">
+      <Card className="rounded-md border-none bg-gradient-to-r from-[#10A7CD] to-[#3DCDF0] py-5 text-center text-white">
         <CardHeader>
           <Avatar className="mx-auto h-24 w-24">
             <AvatarImage
@@ -62,11 +62,11 @@ const SidebarProfile = () => {
           <p className="text-sm">
             Membership number: <strong>{userData.membershipNumber}</strong>
           </p>
-          <div className="mt-4 space-y-1 text-sm">
-            <p>Apoints: 5</p>
-            <p>Qpoints: 10</p>
-            <p>_________________________</p>
+          <div className="mt-4 space-y-1 text-sm text-[#0a0a0a]">
+            <p>Apoints: <span className="text-2xl font-bold">5</span></p>
+            <p>Qpoints: <span className="text-2xl font-bold">10</span></p>
           </div>
+          <p>_________________________</p>
         </CardContent>
       </Card>
     </aside>

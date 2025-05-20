@@ -123,13 +123,13 @@ const Personal = () => {
     }
   };
 
-  const fullName = `${title} ${firstName} ${middleName} ${lastName}`;
+  const fullName = `${title || ''} ${firstName || ''} ${middleName || ''} ${lastName || ''}`;
   const shortName = `${(firstName || '').charAt(0)}${(lastName || '').charAt(0)}`;
 
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-2xl text-secondary">
+        <CardTitle className="text-2xl text-[#ff4d4d] text-center mb-4">
           More about you
         </CardTitle>
         <p>
@@ -156,7 +156,7 @@ const Personal = () => {
               className="absolute bottom-0 right-0 rounded-full bg-white p-1 shadow"
               onClick={handleAvatarClick}
             >
-              <Pencil className="h-4 w-4 text-secondary" />
+              <Pencil className="h-4 w-4 text-[#ff4d4d]" />
             </button>
           </div>
 
@@ -196,30 +196,30 @@ const Personal = () => {
             ) : (
               <>
                 <h1 className="text-xl font-semibold text-gray-800">
-                  {fullName}
+                  Họ và tên: {fullName}
                 </h1>
-                <p className="text-gray-600">Born: {dob}</p>
+                <p className="text-gray-600">Ngày sinh: {dob}</p>
               </>
             )}
           </div>
           <div className="ml-auto flex flex-col items-center gap-1">
             <button
               onClick={handleEditClick}
-              className={`flex items-center gap-1 ${isEditing ? 'text-red-600' : 'text-secondary'}`}
+              className={`flex items-center gap-1 ${isEditing ? 'text-[#ff4d4d]' : 'text-[#0a0a0a]'}`}
             >
               {isEditing ? (
-                <X className="h-4 w-4 text-red-600" />
+                <X className="h-4 w-4 text-[#ff4d4d]" />
               ) : (
-                <Pencil className="h-4 w-4 text-secondary" />
+                <Pencil className="h-4 w-4 text-[#0a0a0a]" />
               )}
               {isEditing ? 'Exit' : 'Edit'}
             </button>
             {isEditing && (
               <button
                 onClick={handleSaveProfile}
-                className="mt-4 flex items-center gap-1 text-secondary"
+                className="mt-4 flex items-center gap-1"
               >
-                <Save className="h-4 w-4 text-secondary" />
+                <Save className="h-4 w-4" />
                 Save
               </button>
             )}
@@ -232,8 +232,8 @@ const Personal = () => {
         {/* Tài liệu du lịch */}
         <TravelDocument />
         {/*  */}
-        <div className="mb-6 mt-6 flex flex-col gap-4 pb-6 md:gap-6">
-          <h2 className="text-lg font-semibold text-gray-700">
+        <div className="mt-6 flex flex-col gap-4 pb-6 md:gap-6">
+          <h2 className="text-xl font-semibold text-gray-700">
             Account settings
           </h2>
           <p>

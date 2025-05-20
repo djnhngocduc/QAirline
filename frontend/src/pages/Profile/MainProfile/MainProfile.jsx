@@ -32,7 +32,7 @@ const MainProfile = () => {
           <AccordionItem value="personalDetails">
             <AccordionTrigger className="flex items-center justify-start gap-4 [&[data-state=open]>svg]:rotate-0">
               <User className="h-6 w-6" />
-              <span className="flex-1">Personal details</span>
+              <span className="flex-1">Thông tin cá nhân</span>
             </AccordionTrigger>
             <AccordionContent>
               <Personal />
@@ -41,7 +41,7 @@ const MainProfile = () => {
           <AccordionItem value="paymentMethods">
             <AccordionTrigger className="flex items-center justify-start gap-4 [&[data-state=open]>svg]:rotate-0">
               <CreditCard className="h-6 w-6" />
-              <span className="flex-1">Payment methods</span>
+              <span className="flex-1">Phương thức thanh toán</span>
             </AccordionTrigger>
             <AccordionContent>
               <PaymentMethods />
@@ -89,14 +89,14 @@ const MainProfile = () => {
               className="flex h-32 w-40 flex-col items-center justify-center"
             >
               <User className="mb-2 h-10 w-10" />
-              Personal details
+              Thông tin cá nhân
             </TabsTrigger>
             <TabsTrigger
               value="paymentMethods"
               className="flex h-32 w-40 flex-col items-center justify-center"
             >
               <CreditCard className="mb-2 h-10 w-10" />
-              Payment methods
+              Hình thức thanh toán
             </TabsTrigger>
             <TabsTrigger
               value="preferences"

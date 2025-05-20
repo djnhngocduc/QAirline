@@ -7,7 +7,7 @@ const Preferences = () => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-2xl text-secondary">
+        <CardTitle className="text-2xl text-center text-[#ff4d4d] mb-4">
           Your travel choices
         </CardTitle>
         <p className="my-2 text-sm text-muted-foreground">
@@ -20,13 +20,13 @@ const Preferences = () => {
           <TabsList className="h-auto w-full justify-start rounded-none border-b">
             <TabsTrigger
               value="travel"
-              className="rounded-none text-base data-[state=active]:border-b-2 data-[state=active]:border-[#693e52] data-[state=active]:text-[#693e52]"
+              className="rounded-none text-base data-[state=active]:border-b-2 data-[state=active]:border-[#c84c4c] data-[state=active]:text-[#c84c4c]"
             >
               Travel Preferences
             </TabsTrigger>
             <TabsTrigger
               value="communication"
-              className="rounded-none text-base data-[state=active]:border-b-2 data-[state=active]:border-[#693e52] data-[state=active]:text-[#693e52]"
+              className="rounded-none text-base data-[state=active]:border-b-2 data-[state=active]:border-[#c84c4c] data-[state=active]:text-[#c84c4c]"
             >
               Communication preferences
             </TabsTrigger>
@@ -42,38 +42,38 @@ const Preferences = () => {
             </div>
             <div className="grid grid-cols-2 gap-8">
               <div className="space-y-2">
-                <h3 className="font-semibold text-[#693e52]">
+                <h3 className="font-semibold text-[#c84c4c]">
                   Preferred airports :
                 </h3>
                 <p className="text-muted-foreground">No preference</p>
               </div>
               <div className="space-y-2">
-                <h3 className="font-semibold text-[#693e52]">
+                <h3 className="font-semibold text-[#c84c4c]">
                   Favourite destinations :
                 </h3>
                 <p className="text-muted-foreground">No preference</p>
               </div>
               <div className="space-y-2">
-                <h3 className="font-semibold text-[#693e52]">
+                <h3 className="font-semibold text-[#c84c4c]">
                   Preferred meal :
                 </h3>
                 <p className="text-muted-foreground">No preference</p>
               </div>
               <div className="space-y-2">
-                <h3 className="font-semibold text-[#693e52]">
+                <h3 className="font-semibold text-[#c84c4c]">
                   Preferred seat :
                 </h3>
                 <p className="text-muted-foreground">No preference</p>
               </div>
             </div>
             <div className="mt-8 space-y-2">
-              <h3 className="font-semibold text-[#693e52]">
+              <h3 className="font-semibold text-[#c84c4c]">
                 Holiday preferences :
               </h3>
               <p className="text-muted-foreground">No preference</p>
             </div>
             <div className="mt-8 space-y-2">
-              <h3 className="font-semibold text-[#693e52]">
+              <h3 className="font-semibold text-[#c84c4c]">
                 Personal interests:
               </h3>
               <p className="text-muted-foreground">No preference</p>
