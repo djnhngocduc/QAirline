@@ -124,7 +124,7 @@ const Personal = () => {
   };
 
   const fullName = `${title} ${firstName} ${middleName} ${lastName}`;
-  const shortName = `${firstName.charAt(0)}${lastName.charAt(0)}`;
+  const shortName = `${(firstName || '').charAt(0)}${(lastName || '').charAt(0)}`;
 
   return (
     <Card>
