@@ -13,10 +13,10 @@ routeApi.index(app);
 
 
 // Test API link to fetch users
-app.get("/api/test/users", async (req, res) => {
+app.get("/api/test/flights", async (req, res) => {
   try {
-    const users = await require("./models/index.model").User.findAll();
-    res.status(200).json(users);
+    const flights = await require("./models/index.model").Flight.findAll();
+    res.status(200).json(flights);
   } catch (error) {
     console.error(error);
     res.status(500).send("Lỗi hệ thống");
