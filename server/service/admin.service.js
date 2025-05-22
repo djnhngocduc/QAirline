@@ -1,0 +1,92 @@
+const { Post, Airplain, Booking, Seat } = require ("../models/index.model");
+
+//[POST] /api/admin/post: Tạo bài viết mới
+
+exports.createPost = async (
+    image,
+    title,
+    content,
+    cta,
+    postType,
+    startDate,
+    endDate,
+    admin_id
+) => {
+    return await Post.create({
+        image,
+        title,
+        content,
+        cta,
+        postType,
+        startDate: startDate || null,
+        endDate: endDate || null,
+        admin_id
+    });
+}
+
+//[POST] /api/admin/airplane: Tạo máy bay mới
+exports.addAirplane = async (
+    model,
+    manufacturer,
+    seat_count,
+    airlineId
+) => {
+    return await Airplain.create({
+        model,
+        manufacturer,
+        seat_count,
+        airlineId
+    });
+}
+
+//[POST] /api/admin/flight: Tạo chuyến bay mới
+exports.addFlight = async (
+    flightNumber,
+    airplaneId,
+    origin,
+    destination,
+    departureTime,
+    arrivalTime,
+) => {
+    return await Flight.create({
+        flight_number,
+        airplane_id,
+        origin,
+        destination,
+        departure_time,
+        arrival_time,
+        status: "scheduled"
+    })
+}
+
+//[GET] /api/admin/bookings: Lấy danh sách đặt chỗ
+exports.viewBookings = async () => {
+    return await Booking.findAll({
+        include: [Customer, Flight, Seat],
+    })
+}
+
+//[PUT] api/admin/flight/:flightId/status Cập nhật trạng thái chuyến bay
+exports.updateFlightStatus = async (flightId, newStatus) => {
+    const flight = await Flight.findByPk(flightId);
+    if(!flight) {
+        throw new Error("Flight not found");
+    }
+    flight.status = newStatus;
+    await flight.save();
+    return flight;
+}
+
+//[PUT] api/admin/airplane/seatCount: Cập nhật số lượng ghế ngồi
+exports.updateSeatCount = async (airplaneId, newSeatCount) => {
+    const airplane = await Airplain.findByPk(airplaneId);
+    if(!airplane) {
+        throw new Error("Airplane not found");
+    }
+    airplane.seat_count = newSeatCount;
+    await airplane.save();
+    return airplane;
+}
+
+
+

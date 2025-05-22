@@ -11,14 +11,18 @@ route.post("/post",verifyAdmin, verifyToken, controller.createPost);
 //Them may bay
 route.post("/airplane",verifyAdmin, verifyToken,  controller.addAirplane);
 
+//Them chuyen bay
+route.post("/flight",verifyAdmin, verifyToken, controller.addFlight);
+
 //Xem booking
 route.get("/bookings",verifyAdmin, verifyToken,  controller.viewBookings);
 
 
 //Cap nhat trang thai chuyen bay
-route.put("/flight/:flightId/status",verifyAdmin, verifyToken, controller.updateFlightStatus);
+route.patch("/flight/:flightId/status",verifyAdmin, verifyToken, controller.updateFlightStatus);
 
 //Cap nhat so luong ghe ngoi
-route.put("/airplane/seatCount",verifyAdmin, verifyToken, controller.updateSeatCount);
+route.patch("/airplane/seatCount",verifyAdmin, verifyToken, controller.updateSeatCount);
+
 
 module.exports = route;
