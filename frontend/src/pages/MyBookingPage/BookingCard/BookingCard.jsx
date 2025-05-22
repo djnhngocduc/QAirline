@@ -60,7 +60,7 @@ const BookingCard = ({ booking, index }) => {
     <Card className="w-full">
       <CardHeader>
         <CardTitle className="flex items-center justify-between">
-          <span>Booking #{index + 1}</span> {/* Display booking number */}
+          <span>Đặt chỗ #{index + 1}</span> {/* Display booking number */}
           <div className="flex items-center">
             <Badge
               variant={booking.status === 'Confirmed' ? 'success' : 'warning'}
@@ -75,12 +75,12 @@ const BookingCard = ({ booking, index }) => {
               {isExpanded ? (
                 <>
                   <ChevronUp size={20} />
-                  <span className="ml-1 text-sm font-normal">Hide details</span>
+                  <span className="ml-1 text-sm font-normal">Ẩn chi tiết</span>
                 </>
               ) : (
                 <>
                   <ChevronDown size={20} />
-                  <span className="ml-1 text-sm font-normal">More details</span>
+                  <span className="ml-1 text-sm font-normal">Xem chi tiết</span>
                 </>
               )}
             </div>
@@ -117,10 +117,10 @@ const BookingCard = ({ booking, index }) => {
               </div>
 
               <div className="pl-2 md:pl-0">
-                <h3 className="mb-2 text-lg font-semibold">Booking Details</h3>
-                <p>Booking Date: {formatDate(booking.booking_date)}</p>
-                <p>Passengers: {booking.passengers}</p>
-                <p>Total Price: ${booking.total_price}</p>
+                <h3 className="mb-2 text-lg font-semibold">Chi tiết đặt chỗ</h3>
+                <p>Ngày đặt: {formatDate(booking.booking_date)}</p>
+                <p>Hành khách: {booking.passengers}</p>
+                <p>Tổng giá: ${booking.total_price}</p>
               </div>
             </div>
             <Separator className="my-4" />
@@ -136,13 +136,13 @@ const BookingCard = ({ booking, index }) => {
               disabled={isCancelling}
               variant="destructive"
             >
-              {isCancelling ? 'Cancelling...' : 'Cancel Booking'}
+              {isCancelling ? 'Đang hủy...' : 'Hủy đặt chỗ'}
             </Button>
           </div>
         )}
         {isCancelled && (
           <div className="mt-4 text-right font-semibold text-red-500">
-            This booking has been cancelled.
+            Đã hủy đặt chỗ.
           </div>
         )}
       </CardContent>

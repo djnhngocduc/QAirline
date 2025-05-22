@@ -5,31 +5,7 @@ function MyBookingPage() {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  const handleScroll = () => {
-    if (typeof window !== 'undefined') {
-      const currentScrollY = window.scrollY;
-
-      // If the current scroll position is greater than the last scroll position, hide the Navbar
-      if (currentScrollY >= lastScrollY) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-
-      setLastScrollY(currentScrollY);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [lastScrollY]);
-
+  
   useEffect(() => {
     const fetchBookings = async () => {
       try {
@@ -75,15 +51,15 @@ function MyBookingPage() {
   return (
     <div className="h-full">
       <div className="container mx-auto px-3 py-8 pt-14 md:px-28">
-        <h1 className="mb-7 text-3xl font-bold text-center">Manage booking</h1>
+        <h1 className="mb-7 text-3xl font-bold text-center">Quản lý đặt chỗ</h1>
 
         <div className="space-y-6">
-          {loading && <div className="py-8 text-center">Loading...</div>}
+          {loading && <div className="py-8 text-center">Đang tải...</div>}
           {error && (
-            <div className="py-8 text-center text-red-500">Error: {error}</div>
+            <div className="py-8 text-center text-red-500">Lỗi: {error}</div>
           )}
           {!loading && !error && bookings.length === 0 && (
-            <div className="py-8 text-center">No bookings found!</div>
+            <div className="py-8 text-center">Không tìm thấy đặt chỗ!</div>
           )}
           {!loading && !error && bookings.length > 0 && bookings.map((booking, index) => (
               <BookingCard key={booking.id} booking={booking} index={index} />

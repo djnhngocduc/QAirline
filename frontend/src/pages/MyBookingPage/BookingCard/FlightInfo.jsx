@@ -32,7 +32,7 @@ const FlightInfo = ({ type, flight, seat }) => {
                 } transition-transform`}
               />
               <span className="text-sm">
-                {type === 'outbound' ? 'Outbound flight' : 'Return flight'}
+                {type === 'outbound' ? 'Chuyến bay đi' : 'Chuyến bay về'}
               </span>
             </div>
 
@@ -59,7 +59,7 @@ const FlightInfo = ({ type, flight, seat }) => {
             <div className="mb-6 grid grid-cols-[1fr,auto,1fr] md:gap-4">
               {/* Departure */}
               <div>
-                <h3 className="mb-1 text-gray-600">Departure</h3>
+                <h3 className="mb-1 text-gray-600">Khởi hành</h3>
                 <p className="mb-2 text-3xl font-bold text-accent-foreground">
                   {formatDateTime(flight.departure_time)}
                 </p>
@@ -78,7 +78,7 @@ const FlightInfo = ({ type, flight, seat }) => {
 
               {/* Arrival */}
               <div className="text-right">
-                <h3 className="mb-1 text-gray-600">Arrival</h3>
+                <h3 className="mb-1 text-gray-600">Hạ cánh</h3>
                 <p className="mb-2 text-3xl font-bold text-accent-foreground">
                   {formatDateTime(flight.arrival_time)}
                 </p>
@@ -94,10 +94,10 @@ const FlightInfo = ({ type, flight, seat }) => {
 
         {/* Footer */}
         <div className="flex items-center justify-between">
-          <span className="text-gray-600">Seat ({seat.seat_type})</span>
+          <span className="text-gray-600">Ghế ({seat.seat_type})</span>
           <div className="text-right">
             <span className={`text-sm font-medium`}>
-              Flight status: {flight.status}
+              Trạng thái chuyến bay: {flight.status}
             </span>
           </div>
         </div>
