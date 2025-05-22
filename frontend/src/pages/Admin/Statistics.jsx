@@ -17,7 +17,7 @@ const Statistics = () => {
         setLoading(false);
       })
       .catch((error) => {
-        console.error('Error fetching bookings:', error);
+        console.error('Lỗi khi tải các lượt đặt chỗ:', error);
         setLoading(false);
       });
   }, []);
@@ -60,17 +60,17 @@ const Statistics = () => {
               icon={<Calendar className="h-4 w-4 text-muted-foreground" />}
             />
             <StatisticsCard
-              title="Total Passengers"
+              title="Tổng số hành khách"
               value={totalPassengers}
               icon={<Users className="h-4 w-4 text-muted-foreground" />}
             />
             <StatisticsCard
-              title="Total Revenue"
+              title="Tổng doanh thu"
               value={`$${totalRevenue.toLocaleString()}`}
               icon={<CreditCard className="h-4 w-4 text-muted-foreground" />}
             />
             <StatisticsCard
-              title="Average Booking Value"
+              title="Giá trị đặt vé trung bình"
               value={`$${averageBookingValue.toLocaleString()}`}
               icon={<Plane className="h-4 w-4 text-muted-foreground" />}
             />
@@ -78,7 +78,7 @@ const Statistics = () => {
 
           {/* Bookings Table */}
           <div className="space-y-4">
-            <h2 className="text-2xl font-bold">Recent Bookings</h2>
+            <h2 className="text-2xl font-bold">Đặt vé gần đây</h2>
             <div className="overflow-x-auto">
               <BookingTable bookings={bookingsData} />
             </div>

@@ -133,15 +133,15 @@ function BookingPage() {
         <div className="mb-8">
           <h1 className="text-3xl text-center font-bold mb-4">
             {isSelectingReturnFlight
-              ? 'Select your return flight'
-              : 'Select your departure flight'}
+              ? 'Chọn chuyến bay trở về'
+              : 'Chọn chuyến bay khởi hành'}
           </h1>
           <p className="text-xl font-medium text-muted-foreground">
-            from{' '}
+            từ{' '}
             <span className="text-[#ff4d4d]">
               {isSelectingReturnFlight ? destination : origin}
             </span>{' '}
-            to{' '}
+            đến{' '}
             <span className="text-[#ff4d4d]">
               {isSelectingReturnFlight ? origin : destination}
             </span>
@@ -236,7 +236,7 @@ function BookingPage() {
                             </div>
                             <div className="mt-4 flex space-x-4 md:mt-0">
                               <div className="text-center">
-                                <p className="text-sm text-gray-500">Economy</p>
+                                <p className="text-sm text-gray-500">Phổ thông</p>
                                 <p className="text-lg font-bold">
                                   {economySeat
                                     ? `$${economySeat.price}`
@@ -248,11 +248,11 @@ function BookingPage() {
                                     handleSelectFare(flight, 'economy')
                                   }
                                 >
-                                  Select fare
+                                  Chọn giá vé
                                 </Button>
                               </div>
                               <div className="text-center">
-                                <p className="text-sm text-gray-500">First</p>
+                                <p className="text-sm text-gray-500">Cao cấp</p>
                                 <p className="text-lg font-bold">
                                   {premiumSeat
                                     ? `$${premiumSeat.price}`
@@ -264,7 +264,7 @@ function BookingPage() {
                                     handleSelectFare(flight, 'premium')
                                   }
                                 >
-                                  Select fare
+                                  Chọn giá vé
                                 </Button>
                               </div>
                             </div>
@@ -296,8 +296,8 @@ function BookingPage() {
                   }`}
                 >
                   {selectedFareType === 'economy'
-                    ? 'Economy Fare Details'
-                    : 'Premium Fare Details'}
+                    ? 'Chi tiết giá vé phổ thông'
+                    : 'Chi tiết giá vé cao cấp'}
                 </DialogTitle>
                 {selectedFareType === 'premium' && (
                   <Crown className="h-6 w-6 text-yellow-300" /> // Thêm icon bên phải
@@ -310,7 +310,7 @@ function BookingPage() {
                     : 'text-gray-500'
                 }`}
               >
-                Review your selected fare details before proceeding
+                Vui lòng kiểm tra chi tiết giá vé đã chọn trước khi tiếp tục
               </DialogDescription>
             </DialogHeader>
             {(selectedOutgoingFlight || selectedReturnFlight) && (
@@ -325,7 +325,7 @@ function BookingPage() {
                     }`}
                   >
                     <Briefcase className="h-5 w-5" />
-                    Flight Details
+                    Chi tiết chuyến bay
                   </p>
                   <p>
                     {isSelectingReturnFlight && selectedReturnFlight
@@ -365,7 +365,7 @@ function BookingPage() {
                     }`}
                   >
                     <CheckCircle className="h-5 w-5 text-green-500" />
-                    Included Benefits
+                    Tiện ích kèm theo
                   </p>
                   <ul
                     className={`space-y-3 pl-4 text-sm ${
@@ -382,7 +382,7 @@ function BookingPage() {
                             : 'text-blue-500'
                         }`}
                       />
-                      Checked baggage allowance
+                      Hành lý ký gửi miễn cước
                     </li>
                     <li className="flex items-center gap-2">
                       <Briefcase
@@ -392,7 +392,7 @@ function BookingPage() {
                             : 'text-blue-500'
                         }`}
                       />
-                      Cabin baggage allowance
+                      Hành lý xách tay miễn cước
                     </li>
                     <li className="flex items-center gap-2">
                       <Utensils
@@ -402,7 +402,7 @@ function BookingPage() {
                             : 'text-yellow-500'
                         }`}
                       />
-                      Complimentary gourmet meals
+                      Suất ăn cao cấp miễn phí
                     </li>
                     <li className="flex items-center gap-2">
                       <Armchair
@@ -412,7 +412,7 @@ function BookingPage() {
                             : 'text-purple-500'
                         }`}
                       />
-                      Wider and more comfortable seats
+                      Ghế rộng và thoải mái hơn
                     </li>
                   </ul>
                 </div>
@@ -426,7 +426,7 @@ function BookingPage() {
                   }`}
                   onClick={handleConfirmBooking}
                 >
-                  Confirm Selection
+                  Xác nhận lựa chọn
                 </Button>
               </div>
             )}

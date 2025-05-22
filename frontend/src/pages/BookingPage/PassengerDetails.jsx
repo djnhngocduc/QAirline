@@ -57,13 +57,13 @@ export default function PassengerDetails() {
             <div className="col-span-3 lg:col-span-2">
               <Card className="px-3 py-6 shadow-lg">
                 <CardHeader>
-                  <CardTitle className="text-center text-xl">Passenger Details</CardTitle>
+                  <CardTitle className="text-center text-xl">Thông tin hành khách</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid gap-4 md:grid-cols-2">
                       <div className="space-y-2">
-                        <Label htmlFor="firstName">First Name</Label>
+                        <Label htmlFor="firstName">Họ</Label>
                         <Input
                           id="firstName"
                           value={formData.firstName}
@@ -77,7 +77,7 @@ export default function PassengerDetails() {
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="lastName">Last Name</Label>
+                        <Label htmlFor="lastName">Tên</Label>
                         <Input
                           id="lastName"
                           value={formData.lastName}
@@ -126,7 +126,7 @@ export default function PassengerDetails() {
               <Card className="rounded-lg border border-gray-200 shadow-lg">
                 <CardHeader className="text-center">
                   <CardTitle className="text-xl font-bold text-[#ff4d4d]">
-                    Your trip review
+                    Tóm tắt chuyến đi
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
@@ -134,7 +134,7 @@ export default function PassengerDetails() {
                   {outboundFlight && (
                     <div className="space-y-2">
                       <h3 className="text-sm font-medium text-gray-700">
-                        Outbound flight
+                        Chuyến bay đi
                       </h3>
                       <div className="flex justify-between text-sm font-medium">
                         <div className="w-1/3 text-center">
@@ -185,7 +185,7 @@ export default function PassengerDetails() {
                   {returnFlight && (
                     <div className="space-y-2">
                       <h3 className="text-sm font-medium text-gray-700">
-                        Return flight
+                        Chuyến bay về
                       </h3>
                       <div className="flex justify-between text-sm font-medium">
                         <div className="w-1/3 text-center">
@@ -235,7 +235,7 @@ export default function PassengerDetails() {
                   {/* Total Price */}
                   <div className="border-t pt-4">
                     <div className="flex items-center justify-between">
-                      <span className="font-medium">Total trip price:</span>
+                      <span className="font-medium">Tổng giá chuyến đi:</span>
                       <span className="text-xl font-medium">
                         {totalPrice.toFixed(2)} USD
                       </span>

@@ -83,8 +83,8 @@ const AddFlights = () => {
       const data = await response.json();
       setAirplaneModels(data);
     } catch (error) {
-      toast.error('Failed to fetch airplane models.');
-      console.error('Error fetching airplane models:', error);
+      toast.error('Tải máy bay thất bại.');
+      console.error('Lỗi khi tải máy bay:', error);
     }
   };
 
@@ -286,7 +286,7 @@ const AddFlights = () => {
                 onChange={(e) =>
                   setNewFlight({ ...newFlight, flight_number: e.target.value })
                 }
-                placeholder="Flight Number"
+                placeholder="Mã chuyến bay"
               />
 
               {/* Origin */}
@@ -295,7 +295,7 @@ const AddFlights = () => {
                 onChange={(e) =>
                   setNewFlight({ ...newFlight, origin: e.target.value })
                 }
-                placeholder="Origin"
+                placeholder="Điểm khởi hành"
               />
 
               {/* Destination */}
@@ -304,7 +304,7 @@ const AddFlights = () => {
                 onChange={(e) =>
                   setNewFlight({ ...newFlight, destination: e.target.value })
                 }
-                placeholder="Destination"
+                placeholder="Điểm đến"
               />
 
               {/* Departure Time */}
@@ -313,7 +313,7 @@ const AddFlights = () => {
                 setDateTime={(date) =>
                   setNewFlight({ ...newFlight, departure_time: date })
                 }
-                title="Departure Time"
+                title="Giờ khởi hành"
               />
 
               {/* Arrival Time */}
@@ -322,12 +322,12 @@ const AddFlights = () => {
                 setDateTime={(date) =>
                   setNewFlight({ ...newFlight, arrival_time: date })
                 }
-                title="Arrival Time"
+                title="Giờ đến"
               />
 
               {/* Duration */}
               <div className="flex items-center">
-                <span className="text-gray-700">Duration:</span>
+                <span className="text-gray-700">Thời lượng:</span>
                 <span className="ml-2">
                   {newFlight.departure_time && newFlight.arrival_time
                     ? calculateDuration(
@@ -349,9 +349,9 @@ const AddFlights = () => {
                 }
                 className="w-full rounded-md border p-2"
               >
-                <option value="Scheduled">Scheduled</option>
-                <option value="Delayed">Delayed</option>
-                <option value="Cancelled">Cancelled</option>
+                <option value="Scheduled">Đã lên lịch</option>
+                <option value="Delayed">Chậm chuyến</option>
+                <option value="Cancelled">Đã hủy</option>
               </select>
 
               {/* Aircraft Type */}
@@ -363,7 +363,7 @@ const AddFlights = () => {
                 }}
                 className="w-full rounded-md border p-2"
               >
-                <option value="">Select Aircraft Type</option>
+                <option value="">Chọn loại máy bay</option>
                 {airplaneModels.map((airplane) => (
                   <option key={airplane.model} value={airplane.model}>
                     {airplane.model}
@@ -408,7 +408,7 @@ const AddFlights = () => {
                     className="cursor-pointer whitespace-nowrap px-4 py-2 text-center"
                     onClick={() => handleSort('flight_number')}
                   >
-                    Flight Number
+                    Mã chuyến bay
                     {sortConfig.key === 'flight_number' &&
                       (sortConfig.direction === 'ascending' ? (
                         <ArrowUp className="ml-1 inline" size={16} />
@@ -420,7 +420,7 @@ const AddFlights = () => {
                     className="cursor-pointer whitespace-nowrap px-4 py-2 text-center"
                     onClick={() => handleSort('origin')}
                   >
-                    Origin
+                    Điểm khởi hành
                     {sortConfig.key === 'origin' &&
                       (sortConfig.direction === 'ascending' ? (
                         <ArrowUp className="ml-1 inline" size={16} />
@@ -432,7 +432,7 @@ const AddFlights = () => {
                     className="cursor-pointer whitespace-nowrap px-4 py-2 text-center"
                     onClick={() => handleSort('destination')}
                   >
-                    Destination
+                    Điểm đến
                     {sortConfig.key === 'destination' &&
                       (sortConfig.direction === 'ascending' ? (
                         <ArrowUp className="ml-1 inline" size={16} />
@@ -444,7 +444,7 @@ const AddFlights = () => {
                     className="cursor-pointer whitespace-nowrap px-4 py-2 text-center"
                     onClick={() => handleSort('departure_time')}
                   >
-                    Departure
+                    Giờ khởi hành
                     {sortConfig.key === 'departure_time' &&
                       (sortConfig.direction === 'ascending' ? (
                         <ArrowUp className="ml-1 inline" size={16} />
@@ -456,7 +456,7 @@ const AddFlights = () => {
                     className="cursor-pointer whitespace-nowrap px-4 py-2 text-center"
                     onClick={() => handleSort('arrival_time')}
                   >
-                    Arrival
+                    Giờ đến
                     {sortConfig.key === 'arrival_time' &&
                       (sortConfig.direction === 'ascending' ? (
                         <ArrowUp className="ml-1 inline" size={16} />
@@ -468,7 +468,7 @@ const AddFlights = () => {
                     className="cursor-pointer whitespace-nowrap px-4 py-2 text-center"
                     onClick={() => handleSort('status')}
                   >
-                    Status
+                    Trạng thái
                     {sortConfig.key === 'status' &&
                       (sortConfig.direction === 'ascending' ? (
                         <ArrowUp className="ml-1 inline" size={16} />
@@ -480,7 +480,7 @@ const AddFlights = () => {
                     className="cursor-pointer whitespace-nowrap px-4 py-2 text-center"
                     onClick={() => handleSort('aircraft_type')}
                   >
-                    Aircraft
+                    Máy bay
                     {sortConfig.key === 'aircraft_type' &&
                       (sortConfig.direction === 'ascending' ? (
                         <ArrowUp className="ml-1 inline" size={16} />
@@ -492,7 +492,7 @@ const AddFlights = () => {
                     className="cursor-pointer whitespace-nowrap px-4 py-2 text-center"
                     onClick={() => handleSort('duration')}
                   >
-                    Duration
+                    Thời lượng
                     {sortConfig.key === 'duration' &&
                       (sortConfig.direction === 'ascending' ? (
                         <ArrowUp className="ml-1 inline" size={16} />
@@ -501,7 +501,7 @@ const AddFlights = () => {
                       ))}
                   </TableHead>
                   <TableHead className="whitespace-nowrap px-4 py-2 text-center">
-                    Actions
+                    Hành động
                   </TableHead>
                 </TableRow>
               </TableHeader>
@@ -568,7 +568,7 @@ const AddFlights = () => {
                   flight_number: e.target.value,
                 })
               }
-              placeholder="Flight Number"
+              placeholder="Mã chuyến bay"
             />
             <Input
               value={selectedFlight.origin}
@@ -578,7 +578,7 @@ const AddFlights = () => {
                   origin: e.target.value,
                 })
               }
-              placeholder="Origin"
+              placeholder="Điểm khởi hành"
             />
             <Input
               value={selectedFlight.destination}
@@ -588,24 +588,24 @@ const AddFlights = () => {
                   destination: e.target.value,
                 })
               }
-              placeholder="Destination"
+              placeholder="Điểm đến"
             />
             <DateTimePicker
               dateTime={selectedFlight.departure_time}
               setDateTime={(date) =>
                 setSelectedFlight({ ...selectedFlight, departure_time: date })
               }
-              title="Departure Time"
+              title="Giờ khởi hành"
             />
             <DateTimePicker
               dateTime={selectedFlight.arrival_time}
               setDateTime={(date) =>
                 setSelectedFlight({ ...selectedFlight, arrival_time: date })
               }
-              title="Arrival Time"
+              title="Giờ đến"
             />
             <div className="flex items-center text-center">
-              <span className="text-gray-700"> Duration: </span>
+              <span className="text-gray-700"> Thời lượng: </span>
               <span className="ml-2">
                 {selectedFlight.departure_time && selectedFlight.arrival_time
                   ? calculateDuration(
@@ -625,9 +625,9 @@ const AddFlights = () => {
               }
               className="w-full rounded-md border p-2"
             >
-              <option value="Scheduled">Scheduled</option>
-              <option value="Delayed">Delayed</option>
-              <option value="Cancelled">Cancelled</option>
+              <option value="Scheduled">Đã lên lịch</option>
+              <option value="Delayed">Chậm chuyến</option>
+              <option value="Cancelled">Đã hủy</option>
             </select>
             <select
               value={selectedFlight.aircraft_type}
@@ -639,7 +639,7 @@ const AddFlights = () => {
               }
               className="w-full rounded-md border p-2"
             >
-              <option value="">Select Aircraft Type</option>
+              <option value="">Chọn loại máy bay</option>
               {airplaneModels.map((airplane) => (
                 <option key={airplane.model} value={airplane.model}>
                   {airplane.model}

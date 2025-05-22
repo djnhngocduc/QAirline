@@ -37,14 +37,14 @@ const FlightStatus = () => {
 
   const handleSearch = () => {
     if (activeTab === 'route' && (!route.from || !route.to || !date)) {
-      alert('Please fill in all required fields for route search.');
+      alert('Vui lòng nhập đầy đủ thông tin cần thiết để tìm kiếm theo chặng bay.');
     } else if (activeTab === 'flightNumber' && (!flightNumber || !date)) {
-      alert('Please fill in all required fields for flight number search.');
+      alert('Vui lòng nhập đầy đủ thông tin cần thiết để tìm kiếm theo mã chuyến bay.');
     } else {
       alert(
         activeTab === 'route'
-          ? `Searching flights from ${route.from} to ${route.to} on ${date}.`
-          : `Searching flight ${flightNumber} on ${date}.`
+          ? `Đang tìm chuyến bay từ ${route.from} đến ${route.to} vào ngày ${date}.`
+          : `Đang tìm chuyến bay số ${flightNumber} vào ngày ${date}.`
       );
     }
   };

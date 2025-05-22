@@ -70,7 +70,7 @@ export default function Payment() {
         setAlert({
           open: true,
           title: 'QAirline',
-          message: 'Booking confirmed! Thank you for your purchase.',
+          message: 'Đặt chỗ thành công! Cảm ơn bạn đã mua vé.',
           isSuccess: true,
         });
 
@@ -84,24 +84,24 @@ export default function Payment() {
           setAlert({
             open: true,
             title: 'QAirline',
-            message: `Error: ${errorData.message}`,
+            message: `Lỗi: ${errorData.message}`,
             isSuccess: false,
           });
         } catch {
           setAlert({
             open: true,
             title: 'QAirline',
-            message: `Error: ${errorText}`,
+            message: `Lỗi: ${errorText}`,
             isSuccess: false,
           });
         }
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Lỗi:', error);
       setAlert({
         open: true,
         title: 'QAirline',
-        message: `An error occurred while processing your booking.`,
+        message: `Đã xảy ra lỗi khi xử lý đặt chỗ cho bạn.`,
         isSuccess: false,
       });
     }
@@ -117,12 +117,12 @@ export default function Payment() {
             <div className="col-span-3 lg:col-span-2">
               <Card className="px-3 py-6 shadow-lg">
                 <CardHeader>
-                  <CardTitle className="text-center text-xl">Payment Details</CardTitle>
+                  <CardTitle className="text-center text-xl">Thông tin thanh toán</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="space-y-2">
-                      <Label htmlFor="cardholderName">Cardholder Name</Label>
+                      <Label htmlFor="cardholderName">Tên chủ thẻ</Label>
                       <Input
                         id="cardholderName"
                         value={paymentData.cardholderName}
@@ -136,7 +136,7 @@ export default function Payment() {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="cardNumber">Card Number</Label>
+                      <Label htmlFor="cardNumber">Số thẻ</Label>
                       <Input
                         id="cardNumber"
                         value={paymentData.cardNumber}
@@ -151,7 +151,7 @@ export default function Payment() {
                     </div>
                     <div className="grid gap-4 md:grid-cols-2">
                       <div className="space-y-2">
-                        <Label htmlFor="expiryDate">Expiry Date</Label>
+                        <Label htmlFor="expiryDate">Ngày hết hạn</Label>
                         <Input
                           id="expiryDate"
                           placeholder="MM/YY"
@@ -199,14 +199,14 @@ export default function Payment() {
             <div className="col-span-3 lg:col-span-1">
               <Card className="shadow-lg">
                 <CardHeader className="text-center">
-                  <CardTitle className="text-xl font-bold text-[#ff4d4d]">Payment Summary</CardTitle>
+                  <CardTitle className="text-xl font-bold text-[#ff4d4d]">Tóm tắt thanh toán</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   {/* Outbound Flight */}
                   {outboundFlight && (
                     <div className="space-y-2">
                       <h3 className="text-sm font-medium text-gray-700">
-                        Outbound flight
+                        Chuyến bay đi
                       </h3>
                       <div className="flex justify-between text-sm font-medium">
                         <div className="w-1/3 text-center">
@@ -257,7 +257,7 @@ export default function Payment() {
                   {returnFlight && (
                     <div className="space-y-2">
                       <h3 className="text-sm font-medium text-gray-700">
-                        Return flight
+                        Chuyến bay về
                       </h3>
                       <div className="flex justify-between text-sm font-medium">
                         <div className="w-1/3 text-center">
@@ -307,7 +307,7 @@ export default function Payment() {
                   {/* Total Price */}
                   <div className="border-t pt-4">
                     <div className="flex items-center justify-between">
-                      <span className="font-medium">Total trip price:</span>
+                      <span className="font-medium">Tổng giá chuyển đi:</span>
                       <span className="text-xl font-medium">
                         {totalPrice.toFixed(2)} USD
                       </span>

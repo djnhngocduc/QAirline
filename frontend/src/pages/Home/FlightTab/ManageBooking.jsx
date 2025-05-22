@@ -24,12 +24,12 @@ const ManageBooking = () => {
       toast({
         title:
           activeTab === 'manage_booking'
-            ? 'Booking Found'
-            : 'Check-in Successful',
+            ? 'Đã tìm thấy đặt chỗ'
+            : 'Làm thủ tục thành công',
         description:
           activeTab === 'manage_booking'
-            ? `Booking for ${lastName} with reference ${bookingCode} retrieved.`
-            : `Check-in for ${lastName} with reference ${bookingCode} completed.`,
+            ? `Thông tin đặt chỗ của ${lastName} với mã đặt chỗ ${bookingCode} đã được tìm thấy.`
+            : `Đã hoàn tất thủ tục cho ${lastName} với mã đặt chỗ ${bookingCode}.`,
         variant: 'success',
       });
     }

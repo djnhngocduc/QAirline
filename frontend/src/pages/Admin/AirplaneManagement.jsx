@@ -206,7 +206,7 @@ const AddAirplanes = () => {
                 onChange={(e) =>
                   setNewAirplane({ ...newAirplane, model: e.target.value })
                 }
-                placeholder="Airplane Model"
+                placeholder="Loại máy bay"
                 required
               />
               <Input
@@ -217,7 +217,7 @@ const AddAirplanes = () => {
                     manufacturer: e.target.value,
                   })
                 }
-                placeholder="Manufacturer (Optional)"
+                placeholder="Hãng sản xuất (không bắt buộc)"
               />
               <Input
                 type="number"
@@ -225,7 +225,7 @@ const AddAirplanes = () => {
                 onChange={(e) =>
                   setNewAirplane({ ...newAirplane, seat_count: e.target.value })
                 }
-                placeholder="Seat Count"
+                placeholder="Số ghế"
                 required
               />
             </div>
@@ -253,7 +253,7 @@ const AddAirplanes = () => {
                     className="w-1/4 cursor-pointer text-center"
                     onClick={() => handleSort('model')}
                   >
-                    Model
+                    Loại
                     {sortConfig.key === 'model' &&
                       (sortConfig.direction === 'asc' ? (
                         <ArrowUp className="ml-1 inline" size={16} />
@@ -265,7 +265,7 @@ const AddAirplanes = () => {
                     className="w-1/4 cursor-pointer text-center"
                     onClick={() => handleSort('manufacturer')}
                   >
-                    Manufacturer
+                    Hãng sản xuất
                     {sortConfig.key === 'manufacturer' &&
                       (sortConfig.direction === 'asc' ? (
                         <ArrowUp className="ml-1 inline" size={16} />
@@ -277,7 +277,7 @@ const AddAirplanes = () => {
                     className="w-1/4 cursor-pointer text-center"
                     onClick={() => handleSort('seat_count')}
                   >
-                    Seat Count
+                    Số ghế
                     {sortConfig.key === 'seat_count' &&
                       (sortConfig.direction === 'asc' ? (
                         <ArrowUp className="ml-1 inline" size={16} />
@@ -330,7 +330,7 @@ const AddAirplanes = () => {
                       colSpan="4"
                       className="text-center italic text-gray-500"
                     >
-                      No airplanes available.
+                      Chưa có máy bay nào.
                     </TableCell>
                   </TableRow>
                 )}
@@ -356,7 +356,7 @@ const AddAirplanes = () => {
                     model: e.target.value,
                   })
                 }
-                placeholder="Airplane Model"
+                placeholder="Loại máy bay"
                 required
               />
               <Input
@@ -367,7 +367,7 @@ const AddAirplanes = () => {
                     manufacturer: e.target.value,
                   })
                 }
-                placeholder="Manufacturer (Optional)"
+                placeholder="Hãng sản xuất (không bắt buộc)"
               />
               <Input
                 type="number"
@@ -378,7 +378,7 @@ const AddAirplanes = () => {
                     seat_count: e.target.value,
                   })
                 }
-                placeholder="Seat Count"
+                placeholder="Số ghế"
                 required
               />
             </div>

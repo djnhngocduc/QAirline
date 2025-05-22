@@ -85,12 +85,12 @@ export function NavbarBooking() {
           <div className="hidden h-6 w-px bg-primary/20 xl:block" />
           <div className="hidden items-center gap-2 xl:block">
             <Calendar className="h-4 w-4" />
-            <span>Mon, 9 Dec</span>
+            <span>Thứ 2, 09 Tháng 12</span>
           </div>
           <div className="hidden h-6 w-px bg-primary/20 xl:block" />
           <div className="hidden items-center gap-2 xl:block">
             <Users className="h-4 w-4" />
-            <span>1 passenger</span>
+            <span>1 hành khách</span>
           </div>
           <div className="hidden h-6 w-px bg-primary/20 lg:block" />
           <div>
@@ -99,7 +99,7 @@ export function NavbarBooking() {
               className="hover:text-[#ff4d4d] hover:bg-transparent"
             >
               <Search className="mr-2 h-4 w-4" />
-              Modify search
+              Thay đổi tìm kiếm
             </Button>
           </div>
         </div>
@@ -112,7 +112,7 @@ export function NavbarBooking() {
               onClick={handleLoginClick}
               className="text-[#0a0a0a] font-semibold hover:text-[#ff4d4d]"
             >
-              Login / Sign Up
+              Đăng nhập / Đăng ký
             </Button>
           ) : (
             <UserProfile

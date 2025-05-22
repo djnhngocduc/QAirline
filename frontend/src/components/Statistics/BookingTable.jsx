@@ -13,12 +13,12 @@ export function BookingTable({ bookings }) {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Booking ID</TableHead>
-            <TableHead>Customer</TableHead>
-            <TableHead>Route</TableHead>
-            <TableHead>Date</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead className="text-right">Price</TableHead>
+            <TableHead>Mã đặt vé</TableHead>
+            <TableHead>Khách hàng</TableHead>
+            <TableHead>Hành trình</TableHead>
+            <TableHead>Ngày</TableHead>
+            <TableHead>Trạng thái</TableHead>
+            <TableHead className="text-right">Giá</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
