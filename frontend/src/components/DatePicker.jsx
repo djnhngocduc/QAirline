@@ -4,7 +4,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "./ui/PopOver";
 import { Calendar } from "./ui/Calendar";
 import { format } from "date-fns";
 
-const DatePicker = ({ date, setDate, title = "Pick a date" }) => {
+const DatePicker = ({ date, setDate, title = "Chọn ngày" }) => {
   return (
     <Popover>
       <PopoverTrigger asChild>

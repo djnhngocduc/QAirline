@@ -26,7 +26,6 @@ function Booking() {
           <h2 className="text-xl md:text-2xl font-semibold text-[#cccccc] mt-5">  
             Cảm ơn bạn vì đã lựa chọn chúng tôi!
           </h2>
-          {/* Sử dụng Button từ shadcn */}
         </div>
       </div>
     </div>

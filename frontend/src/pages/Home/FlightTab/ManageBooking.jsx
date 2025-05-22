@@ -16,8 +16,8 @@ const ManageBooking = () => {
   const handleSubmit = () => {
     if (!bookingCode || !lastName || !birthDate) {
       toast({
-        title: 'Error',
-        description: 'Please fill in all fields.',
+        title: 'Lỗi',
+        description: 'Vui lòng điền vào tất cả các ô.',
         variant: 'destructive',
       });
     } else {
@@ -48,7 +48,7 @@ const ManageBooking = () => {
                 : 'text-gray-600 hover:bg-transparent hover:text-[#ff4d4d]'
             }`}
           >
-            Manage Booking
+            Quản lý đặt chỗ
           </Button>
           <Button
             variant="ghost"
@@ -59,7 +59,7 @@ const ManageBooking = () => {
                 : 'text-gray-600 hover:bg-transparent hover:text-[#ff4d4d]'
             }`}
           >
-            Checkin
+            Làm thủ tục
           </Button>
         </div>
       </CardHeader>
@@ -68,10 +68,10 @@ const ManageBooking = () => {
         <form className="flex flex-col gap-4 pt-4 md:flex-row md:gap-6">
           {/* Booking Reference */}
           <div className="w-full flex-1 md:w-auto">
-            <Label htmlFor="bookingCode">Booking Reference</Label>
+            <Label htmlFor="bookingCode">Mã đặt chỗ</Label>
             <Input
               id="bookingCode"
-              placeholder="Enter your booking reference"
+              placeholder="Nhập mã đặt chỗ"
               value={bookingCode}
               onChange={(e) => setBookingCode(e.target.value)}
               className="w-full"
@@ -80,10 +80,10 @@ const ManageBooking = () => {
 
           {/* Last Name */}
           <div className="w-full flex-1 md:w-auto">
-            <Label htmlFor="lastName">Last Name</Label>
+            <Label htmlFor="lastName">Họ</Label>
             <Input
               id="lastName"
-              placeholder="Enter your last name"
+              placeholder="Nhập họ"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
               className="w-full"
@@ -92,7 +92,7 @@ const ManageBooking = () => {
 
           {/* Date of Birth */}
           <div className="w-full flex-1 md:w-auto">
-            <Label htmlFor="birthDate">Date of Birth</Label>
+            <Label htmlFor="birthDate">Ngày sinh</Label>
             <DatePicker
               id="birthDate"
               date={birthDate}
@@ -106,7 +106,7 @@ const ManageBooking = () => {
               onClick={handleSubmit}
               className="w-full rounded-lg bg-[#ff4d4d] py-3 text-white hover:bg-[#c84c4c] md:w-auto"
             >
-              {activeTab === 'manage_booking' ? 'Retrieve Booking' : 'Checkin'}
+              {activeTab === 'manage_booking' ? 'Tra cứu đặt chỗ' : 'Làm thủ tục'}
             </Button>
           </div>
         </form>

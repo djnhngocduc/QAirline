@@ -27,9 +27,9 @@ const DestinationCard = ({ city, image, dates, price, large = false }) => {
         <p className="mb-2 text-sm opacity-90">{dates}</p>
         <div className="flex items-end justify-between">
           <div>
-            <p className="text-sm opacity-90">Economy from</p>
+            <p className="text-sm opacity-90">Hạng phổ thông từ</p>
             <p className={`font-bold ${large ? 'text-xl' : 'text-lg'}`}>
-              USD {price}
+              {price} USD
             </p>
           </div>
 
@@ -60,7 +60,7 @@ export function FlightDeals() {
       city: 'Athens',
       image:
         'https://i.pinimg.com/736x/6d/2d/60/6d2d60cea7de96a5d2aeaac86478d276.jpg',
-      dates: '06 Mar 2025 - 19 Mar 2025',
+      dates: '06 Tháng 3 2025 - 19 Tháng 3 2025',
       price: '977',
       large: true,
     },
@@ -68,56 +68,56 @@ export function FlightDeals() {
       city: 'Barcelona',
       image:
         'https://i.pinimg.com/736x/a8/c5/99/a8c5999494bd2891c1c6b73ddc5f5250.jpg',
-      dates: '06 Mar 2025 - 13 Mar 2025',
+      dates: '06 Tháng 3 2025 - 13 Tháng 3 2025',
       price: '922',
     },
     {
       city: 'Larnaca',
       image:
         'https://i.pinimg.com/736x/07/e4/4e/07e44ebe6285349e0f297a894d7f930d.jpg',
-      dates: '22 Dec 2024 - 30 Dec 2024',
+      dates: '22 Tháng 12 2024 - 30 Tháng 12 2024',
       price: '1478',
     },
     {
       city: 'Milan',
       image:
         'https://i.pinimg.com/736x/d4/3c/94/d43c94855e46b82281ab895923ad7493.jpg',
-      dates: '11 Feb 2025 - 13 Mar 2025',
+      dates: '11 Tháng 2 2025 - 13 Tháng 2 2025',
       price: '934',
     },
     {
       city: 'Nice',
       image:
         'https://i.pinimg.com/736x/6c/df/6b/6cdf6becd7bfb628df4602992fa5eb50.jpg',
-      dates: '24 Mar 2025 - 21 Apr 2025',
+      dates: '24 Tháng 3 2025 - 28 Tháng 3 2025',
       price: '938',
     },
     {
       city: 'Bucharest',
       image:
         'https://i.pinimg.com/736x/62/a3/f9/62a3f9965ddceb233ca0141d6c1aba1e.jpg',
-      dates: '10 Mar 2025 - 16 Mar 2025',
+      dates: '10 Tháng 3 2025 - 16 Tháng 3 2025',
       price: '1074',
     },
     {
       city: 'Prague',
       image:
         'https://i.pinimg.com/736x/c6/63/6d/c6636dbfb0d5c13a3d978b19db83bc2f.jpg',
-      dates: '01 Apr 2025 - 21 Apr 2025',
+      dates: '01 Tháng 4 2025 - 21 Tháng 4 2025',
       price: '805',
     },
     {
       city: 'Sofia',
       image:
         'https://i.pinimg.com/736x/d6/8c/03/d68c032f60b483ece7327591c71dcf3b.jpg',
-      dates: '23 Mar 2025 - 21 Apr 2025',
+      dates: '23 Tháng 3 2025 - 27 Tháng 3 2025',
       price: '812',
     },
     {
       city: 'Venice',
       image:
         'https://i.pinimg.com/736x/61/31/39/61313929e6bce1fe19c9ff5831b2734a.jpg',
-      dates: '13 Mar 2025 - 18 Mar 2025',
+      dates: '13 Tháng 3 2025 - 18 Tháng 3 2025',
       price: '960',
     },
   ];
@@ -128,7 +128,7 @@ export function FlightDeals() {
         Tìm vé giá tốt
       </h2>
       <div className="mb-8 max-w-xs">
-        <Label htmlFor="from">From</Label>
+        <Label htmlFor="from">Từ</Label>
         <div className="relative">
           <Input id="from" value="Hanoi HAN" className="pr-10" />
           <Button

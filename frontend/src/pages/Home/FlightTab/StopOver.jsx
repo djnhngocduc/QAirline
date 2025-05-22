@@ -58,7 +58,7 @@ const StopOver = () => {
                 : 'text-gray-600 hover:bg-transparent hover:text-[#ff4d4d]'
             }`}
           >
-            Stopover
+            Quá cảnh
           </Button>
           <Button
             variant="ghost"
@@ -69,7 +69,7 @@ const StopOver = () => {
                 : 'text-gray-600 hover:bg-transparent hover:text-[#ff4d4d]'
             }`}
           >
-            Flights + Hotel
+            Vé máy bay + Khách sạn
           </Button>
         </div>
       </CardHeader>
@@ -91,7 +91,7 @@ const StopOver = () => {
                   className="text-[#c84c4c]"
                 />
                 <Label htmlFor="round-trip" className="text-lg font-medium">
-                  Round Trip
+                  Khứ hồi
                 </Label>
               </div>
               <div className="flex items-center space-x-2">
@@ -101,7 +101,7 @@ const StopOver = () => {
                   className="text-[#c84c4c]"
                 />
                 <Label htmlFor="one-way" className="text-lg font-medium">
-                  One Way
+                 Một chiều
                 </Label>
               </div>
             </RadioGroup>
@@ -113,11 +113,11 @@ const StopOver = () => {
                   htmlFor="from"
                   className="mb-1 block text-sm text-gray-600"
                 >
-                  From
+                  Từ
                 </Label>
                 <Input
                   id="from"
-                  placeholder="Enter departure city"
+                  placeholder="Chọn điểm khởi hành"
                   value={from}
                   onChange={(e) => setFrom(e.target.value)}
                 />
@@ -141,17 +141,17 @@ const StopOver = () => {
                   htmlFor="to"
                   className="mb-1 block text-sm text-gray-600"
                 >
-                  To
+                  Đến
                 </Label>
                 <Input
                   id="to"
-                  placeholder="Enter destination city"
+                  placeholder="Chọn điểm đến"
                   value={to}
                   onChange={(e) => setTo(e.target.value)}
                 />
               </div>
               <div className="relative w-full md:px-4">
-                <Label htmlFor="departure">Departure</Label>
+                <Label htmlFor="departure">Khởi hành</Label>
                 <DatePicker
                   id="departure"
                   date={departure}
@@ -160,7 +160,7 @@ const StopOver = () => {
               </div>
               {tripType === 'round-trip' && (
                 <div className="relative w-full">
-                  <Label htmlFor="return">Return</Label>
+                  <Label htmlFor="return">Trở về</Label>
                   <DatePicker
                     id="return"
                     date={returnDate}
@@ -178,31 +178,29 @@ const StopOver = () => {
                   className="w-full rounded-md border border-gray-300 bg-white p-2 text-left text-gray-700
                   hover:bg-[#ff4d4d]"
                 >
-                  {`${passengers.adults + passengers.children + passengers.infants} Passenger${
+                  {`${passengers.adults + passengers.children + passengers.infants} Hành khách${
                     passengers.adults +
                       passengers.children +
                       passengers.infants >
                     1
-                      ? 's'
+                      ? ''
                       : ''
-                  } ${passengers.class === 'economy' ? 'Economy' : 'Premium'} | ${passengers.rooms} Room${
-                    passengers.rooms >= 1 ? 's' : '1 Room'
-                  }`}
+                  } hạng ${passengers.class === 'economy' ? 'phổ thông' : 'cao cấp'} | ${passengers.rooms} Phòng`}
                 </Button>
 
                 {isOpen && (
                   <div className="absolute z-10 mt-2 w-full rounded-lg border border-gray-300 bg-white shadow-lg">
                     {/* Passengers Section */}
                     <div className="space-y-4 p-4">
-                      <Label className="text-sm font-medium">Passengers</Label>
+                      <Label className="text-sm font-medium">Hành khách</Label>
 
                       {[
-                        { label: 'Adults', type: 'adults', age: '12+ years' },
-                        { label: 'Child', type: 'children', age: '2-11 years' },
+                        { label: 'Người lớn', type: 'adults', age: '12+ tuổi' },
+                        { label: 'Trẻ em', type: 'children', age: '2-11 tuổi' },
                         {
-                          label: 'Infant',
+                          label: 'Em bé',
                           type: 'infants',
-                          age: 'Under 2 years',
+                          age: 'Dưới 2 tuổi',
                         },
                       ].map(({ label, type, age }) => (
                         <div
@@ -240,7 +238,7 @@ const StopOver = () => {
 
                     {/* Room Section */}
                     <div className="space-y-4 border-t p-4">
-                      <Label className="text-sm font-medium">Rooms</Label>
+                      <Label className="text-sm font-medium">Số phòng</Label>
                       <div className="flex items-center justify-between">
                         <Button
                           variant="outline"
@@ -262,7 +260,7 @@ const StopOver = () => {
 
                     {/* Class Section */}
                     <div className="space-y-4 border-t p-4">
-                      <Label className="text-sm font-medium">Class</Label>
+                      <Label className="text-sm font-medium">Khoang dịch vụ</Label>
                       <RadioGroup
                         value={passengers.class}
                         onValueChange={handleClassChange}
@@ -271,13 +269,13 @@ const StopOver = () => {
                         <div className="flex items-center space-x-2">
                           <RadioGroupItem value="economy" id="economy" />
                           <Label htmlFor="economy" className="text-gray-700">
-                            Economy
+                            Phổ thông
                           </Label>
                         </div>
                         <div className="flex items-center space-x-2">
                           <RadioGroupItem value="premium" id="premium" />
                           <Label htmlFor="premium" className="text-gray-700">
-                            Premium (Business/First)
+                            Cao cấp (Thương gia/Hạng nhất)
                           </Label>
                         </div>
                       </RadioGroup>
@@ -289,7 +287,7 @@ const StopOver = () => {
                         className="w-full bg-[#ff4d4d] text-white hover:bg-[#c84c4c]"
                         onClick={() => setIsOpen(false)}
                       >
-                        Confirm
+                        Xác nhận
                       </Button>
                     </div>
                   </div>
@@ -297,7 +295,7 @@ const StopOver = () => {
               </div>
 
               <Button className="rounded-lg bg-[#ff4d4d] py-3 text-white hover:bg-[#c84c4c]">
-                Search flights
+                Tìm kiếm
               </Button>
             </div>
           </div>
@@ -318,7 +316,7 @@ const StopOver = () => {
                   className="text-[#c84c4c]"
                 />
                 <Label htmlFor="round-trip" className="text-lg font-medium">
-                  Round Trip
+                  Khứ hồi
                 </Label>
               </div>
               <div className="flex items-center space-x-2">
@@ -328,7 +326,7 @@ const StopOver = () => {
                   className="text-[#c84c4c]"
                 />
                 <Label htmlFor="one-way" className="text-lg font-medium">
-                  One Way
+                  Một chiều
                 </Label>
               </div>
             </RadioGroup>
@@ -340,11 +338,11 @@ const StopOver = () => {
                   htmlFor="from"
                   className="mb-1 block text-sm text-gray-600"
                 >
-                  From
+                  Từ
                 </Label>
                 <Input
                   id="from"
-                  placeholder="Enter departure city"
+                  placeholder="Chọn điểm khởi hành"
                   value={from}
                   onChange={(e) => setFrom(e.target.value)}
                 />
@@ -368,17 +366,17 @@ const StopOver = () => {
                   htmlFor="to"
                   className="mb-1 block text-sm text-gray-600"
                 >
-                  To
+                  Đến
                 </Label>
                 <Input
                   id="to"
-                  placeholder="Enter destination city"
+                  placeholder="Chọn điểm đến"
                   value={to}
                   onChange={(e) => setTo(e.target.value)}
                 />
               </div>
               <div className="relative w-full md:px-4">
-                <Label htmlFor="departure">Departure</Label>
+                <Label htmlFor="departure">Khởi hành</Label>
                 <DatePicker
                   id="departure"
                   date={departure}
@@ -387,7 +385,7 @@ const StopOver = () => {
               </div>
               {tripType === 'round-trip' && (
                 <div className="relative w-full">
-                  <Label htmlFor="return">Return</Label>
+                  <Label htmlFor="return">Trở về</Label>
                   <DatePicker
                     id="return"
                     date={returnDate}
@@ -404,31 +402,29 @@ const StopOver = () => {
                   onClick={toggleDropdown}
                   className="w-full rounded-md border border-gray-300 bg-white p-2 text-left text-gray-700 hover:bg-[#ff4d4d]"
                 >
-                  {`${passengers.adults + passengers.children + passengers.infants} Passenger${
+                  {`${passengers.adults + passengers.children + passengers.infants} Hành khách${
                     passengers.adults +
                       passengers.children +
                       passengers.infants >
                     1
-                      ? 's'
+                      ? ''
                       : ''
-                  } ${passengers.class === 'economy' ? 'Economy' : 'Premium'} | ${passengers.rooms} Room${
-                    passengers.rooms >= 1 ? 's' : '1 Room'
-                  }`}
+                  } ${passengers.class === 'economy' ? 'phổ thông' : 'cao cấp'} | ${passengers.rooms} Phòng`}
                 </Button>
 
                 {isOpen && (
                   <div className="absolute z-10 mt-2 w-full rounded-lg border border-gray-300 bg-white shadow-lg">
                     {/* Passengers Section */}
                     <div className="space-y-4 p-4">
-                      <Label className="text-sm font-medium">Passengers</Label>
+                      <Label className="text-sm font-medium">Hành khách</Label>
 
                       {[
-                        { label: 'Adults', type: 'adults', age: '12+ years' },
-                        { label: 'Child', type: 'children', age: '2-11 years' },
+                        { label: 'Người lớn', type: 'adults', age: '12+ tuổi' },
+                        { label: 'Trẻ em', type: 'children', age: '2-11 tuổi' },
                         {
-                          label: 'Infant',
+                          label: 'Em bé',
                           type: 'infants',
-                          age: 'Under 2 years',
+                          age: 'Dưới 2 tuổi',
                         },
                       ].map(({ label, type, age }) => (
                         <div
@@ -466,7 +462,7 @@ const StopOver = () => {
 
                     {/* Room Section */}
                     <div className="space-y-4 border-t p-4">
-                      <Label className="text-sm font-medium">Rooms</Label>
+                      <Label className="text-sm font-medium">Số phòng</Label>
                       <div className="flex items-center justify-between">
                         <Button
                           variant="outline"
@@ -488,7 +484,7 @@ const StopOver = () => {
 
                     {/* Class Section */}
                     <div className="space-y-4 border-t p-4">
-                      <Label className="text-sm font-medium">Class</Label>
+                      <Label className="text-sm font-medium">Khoang dịch vụ</Label>
                       <RadioGroup
                         value={passengers.class}
                         onValueChange={handleClassChange}
@@ -497,13 +493,13 @@ const StopOver = () => {
                         <div className="flex items-center space-x-2">
                           <RadioGroupItem value="economy" id="economy" />
                           <Label htmlFor="economy" className="text-gray-700">
-                            Economy
+                            Phổ thông
                           </Label>
                         </div>
                         <div className="flex items-center space-x-2">
                           <RadioGroupItem value="premium" id="premium" />
                           <Label htmlFor="premium" className="text-gray-700">
-                            Premium (Business/First)
+                            Cao cấp (Thương gia/Hạng nhất)
                           </Label>
                         </div>
                       </RadioGroup>
@@ -515,7 +511,7 @@ const StopOver = () => {
                         className="w-full bg-[#ff4d4d] text-white hover:bg-[#c84c4c]"
                         onClick={() => setIsOpen(false)}
                       >
-                        Confirm
+                        Xác nhận
                       </Button>
                     </div>
                   </div>
@@ -523,7 +519,7 @@ const StopOver = () => {
               </div>
 
               <Button className="rounded-lg bg-[#ff4d4d] px-6 py-3 text-white hover:bg-[#c84c4c]">
-                Search flights & Hotels
+                Tìm kiếm
               </Button>
             </div>
           </div>

@@ -23,7 +23,7 @@ export default function BookAFlight() {
         setFromCities(origins);
         setToCities(destinations);
       } catch (error) {
-        console.error('Error fetching cities:', error);
+        console.error('Lỗi khi tải thành phố:', error);
       }
     };
 
@@ -100,7 +100,7 @@ export default function BookAFlight() {
         });
         console.log('Flights:', data);
       } else {
-        console.error('Error fetching flights:', data);
+        console.error('Lỗi khi tải chuyến bay:', data);
       }
     } catch (error) {
       console.error('Error:', error);
@@ -127,10 +127,10 @@ export default function BookAFlight() {
               className={`text-lg font-medium`}
             >
               {type === 'return'
-                ? 'Return'
+                ? 'Khứ hồi'
                 : type === 'one-way'
-                  ? 'One way'
-                  : 'Multi-city'}
+                  ? 'Một chiều'
+                  : 'Nhiều chặng'}
             </Label>
           </div>
         ))}
@@ -146,12 +146,12 @@ export default function BookAFlight() {
           {/* From Field */}
           <div className="relative w-full">
             <Label htmlFor="from" className="mb-1 block text-sm text-gray-600">
-              From
+              Từ
             </Label>
             <Input
               id="from"
               type="text"
-              placeholder="From"
+              placeholder="Chọn điểm khởi hành"
               value={from}
               className="w-full"
               onClick={() => setActiveDropdown('from')} // Hiển thị dropdown "from"
@@ -186,12 +186,12 @@ export default function BookAFlight() {
           {/* To Field */}
           <div className="relative w-full">
             <Label htmlFor="to" className="mb-1 block text-sm text-gray-600">
-              To
+              Đến
             </Label>
             <Input
               id="to"
               type="text"
-              placeholder="To"
+              placeholder="Chọn điểm đến"
               value={to}
               className="w-full"
               onClick={() => setActiveDropdown('to')} // Hiển thị dropdown "to"
@@ -219,7 +219,7 @@ export default function BookAFlight() {
             htmlFor="departure"
             className="mb-1 block text-sm text-gray-600"
           >
-            Departure
+            Khởi hành
           </Label>
           <DatePicker id="departure" date={departure} setDate={setDeparture} />
         </div>
@@ -231,7 +231,7 @@ export default function BookAFlight() {
               htmlFor="return"
               className="mb-1 block text-sm text-gray-600"
             >
-              Return
+              Trở về
             </Label>
             <DatePicker id="return" date={returnDate} setDate={setReturnDate} />
           </div>
@@ -246,23 +246,23 @@ export default function BookAFlight() {
             className="w-full rounded-md border border-gray-300 bg-white p-2 text-left text-gray-700 
             hover:bg-white hover:text-[#ff4d4d]"
           >
-            {`${passengers.adults + passengers.children + passengers.infants} Passenger${
+            {`${passengers.adults + passengers.children + passengers.infants} Hành khách${
               passengers.adults + passengers.children + passengers.infants > 1
-                ? 's'
+                ? ''
                 : ''
-            } ${passengers.class === 'economy' ? 'Economy' : 'Premium'}`}
+            } hạng ${passengers.class === 'economy' ? 'phổ thông' : 'cao cấp'}`}
           </Button>
 
           {isOpen && (
             <div className="absolute z-10 mt-2 w-full rounded-lg border border-gray-300 bg-white shadow-lg">
               {/* Passengers Section */}
               <div className="space-y-4 p-4">
-                <Label className="text-sm font-medium">Passengers</Label>
+                <Label className="text-sm font-medium">Hành khách</Label>
 
                 {[
-                  { label: 'Adults', type: 'adults', age: '12+ years' },
-                  { label: 'Child', type: 'children', age: '2-11 years' },
-                  { label: 'Infant', type: 'infants', age: 'Under 2 years' },
+                  { label: 'Người lớn', type: 'adults', age: '12+ tuổi' },
+                  { label: 'Trẻ em', type: 'children', age: '2-11 tuổi' },
+                  { label: 'Em bé', type: 'infants', age: 'Dưới 2 tuổi' },
                 ].map(({ label, type, age }) => (
                   <div key={type} className="flex items-center justify-between">
                     <div>
@@ -292,7 +292,7 @@ export default function BookAFlight() {
 
               {/* Class Section */}
               <div className="space-y-4 border-t p-4">
-                <Label className="text-sm font-medium">Class</Label>
+                <Label className="text-sm font-medium">Khoang dịch vụ</Label>
                 <RadioGroup
                   value={passengers.class}
                   onValueChange={handleClassChange}
@@ -301,13 +301,13 @@ export default function BookAFlight() {
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="economy" id="economy" />
                     <Label htmlFor="economy" className="text-gray-700">
-                      Economy
+                      Phổ thông
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="premium" id="premium" />
                     <Label htmlFor="premium" className="text-gray-700">
-                      Premium (Business/First)
+                      Cao cấp (Thương gia/Hạng nhất)
                     </Label>
                   </div>
                 </RadioGroup>
@@ -319,14 +319,14 @@ export default function BookAFlight() {
                   className="w-full text-white bg-[#ff4d4d] hover:bg-[#c84c4c]"
                   onClick={() => setIsOpen(false)}
                 >
-                  Confirm
+                  Xác nhận
                 </Button>
               </div>
             </div>
           )}
         </div>
         <Button className="text-white bg-[#ff4d4d] hover:bg-[#c84c4c]" onClick={handleSearchFlights}>
-          Search flights
+          Tìm kiếm
         </Button>
       </div>
       {document.addEventListener('click', handleOutsideClick)}

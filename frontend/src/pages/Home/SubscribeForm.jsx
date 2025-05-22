@@ -19,10 +19,10 @@ const SubscribeForm = () => {
         {/* Form section */}
         <div className="w-full text-white lg:w-1/2">
           <h2 className="mb-4 text-center text-3xl font-bold lg:text-left lg:text-4xl">
-            Never miss an offer
+            Đừng bỏ lỡ bất kì ưu đãi nào
           </h2>
           <p className="mb-6 text-center text-lg text-[#cccccc] lg:text-left">
-            Subscribe and be the first to receive our exclusive offers
+            Đăng ký để trở thành người đầu tiên nhận các ưu đãi độc quyền của chúng tôi
           </p>
           <form className="space-y-4">
             {/* Inputs */}
@@ -35,7 +35,7 @@ const SubscribeForm = () => {
               />
               <Input
                 type="text"
-                placeholder="Preferred city of departure"
+                placeholder="Thành phố khởi hành ưu tiên"
                 className="flex-1 bg-white text-black focus:outline-none focus:ring focus:ring-blue-500"
                 required
               />
@@ -48,13 +48,12 @@ const SubscribeForm = () => {
                 htmlFor="agreement"
                 className="text-sm leading-relaxed text-[#cccccc]"
               >
-                I would like to get offers and news from QAirline. I have read
-                and understood the{' '}
+                Tôi muốn nhận ưu đãi và tin tức từ QAirlIne. Tôi đã đọc và hiểu về{' '}
                 <a
                   href="#"
                   className="text-[#10a7cd] hover:underline focus:outline-none"
                 >
-                  privacy notice
+                  quyền riêng tư
                 </a>
               </Label>
             </div>
@@ -64,7 +63,7 @@ const SubscribeForm = () => {
               type="submit"
               className="w-full rounded-md bg-[#ff4d4d] py-3 text-lg text-white hover:bg-[#c84c4c]"
             >
-              Subscribe
+              Đăng ký
             </Button>
           </form>
         </div>

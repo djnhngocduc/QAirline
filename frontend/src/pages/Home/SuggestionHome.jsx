@@ -5,35 +5,35 @@ const tabs = [
     id: 'privilege',
     title: 'Privilege Club',
     description:
-      'Earn Avios and enjoy exclusive benefits such as free flights, upgrades, priority check-in, and more. Elevate your travel experience with QAirline.',
-    buttonText: 'Join now',
+      'Tích lũy Avios và tận hưởng những đặc quyền như vé bay miễn phí, thăng hạng, ưu tiên làm thủ tục và nhiều ưu đãi khác. Nâng tầm trải nghiệm chuyến đi của bạn cùng QAirline.',
+    buttonText: 'Tham gia ngay',
     image:
       'https://c.ekstatic.net/ecl/photo-gallery/a380/economy-class/dining/emirates-a380-economy-class-dining-inflight-meal-720x480.jpg?h=SH-0t5qnKXrW539DzbBbqge',
   },
   {
     id: 'mobile',
-    title: 'Mobile App',
+    title: 'Ứng dụng di động',
     description:
-      'Book flights, manage bookings, and access your e-boarding pass all in one place. Download the QAirline app for ultimate convenience.',
-    buttonText: 'Download now',
+      'Đặt vé máy bay, quản lý đặt chỗ và nhận vé bay online – tất cả chỉ trong một ứng dụng. Tải ngay ứng dụng QAirline để tận hưởng sự tiện lợi tối đa.',
+    buttonText: 'Tải ngay',
     image:
       'https://cdn11.dienmaycholon.vn/filewebdmclnew/DMCL21/Picture/News/News_expe_9924/9924.png?version=180812',
   },
   {
     id: 'stopover',
-    title: 'QAirline Stopover',
+    title: 'Gói dừng chân QAirline',
     description:
-      'Experience the best of our hub city with our stopover packages starting at $14. Discover the culture, cuisine, and attractions like never before.',
-    buttonText: 'Explore more',
+      'Trải nghiệm trọn vẹn thành phố trung chuyển của chúng tôi với gói dừng chân chỉ từ 14 USD. Khám phá văn hoá, ẩm thực và những điểm tham quan độc đáo như chưa từng có trước đây.',
+    buttonText: 'Khám phá thêm',
     image:
       'https://cellphones.com.vn/sforum/wp-content/uploads/2023/07/hinh-nen-ai-1.jpg',
   },
   {
     id: 'student',
-    title: 'Student Club',
+    title: 'Câu lạc bộ sinh viên',
     description:
-      'Enjoy special discounts and benefits as a student. Travel smarter with exclusive offers designed just for you.',
-    buttonText: 'Join now',
+      'Tận hưởng ưu đãi giảm giá và quyền lợi đặc biệt dành riêng cho sinh viên. Du lịch thông minh hơn với những khuyến mãi độc quyền được thiết kế chỉ dành cho bạn.',
+    buttonText: 'Tham gia ngay',
     image:
       'https://cdn.baohatinh.vn/images/77aa7d2e98b7f36166ba739628db583d914ebed3e3a748f37b351256ef230d3b0c4bae7e2d2e7774ea2fb1eedeed2720/105d3145200t51452205l4.jpg',
   },

@@ -33,19 +33,19 @@ function FlightTab() {
               value="stopover"
               className="flex w-full items-center justify-center gap-2 rounded-lg px-6 py-4 text-gray-700 transition duration-200 ease-in-out hover:bg-[#ff4d4d] hover:text-white focus:outline-none"
             >
-              <FaHotel className="text-xl" /> Stopover / Packages
+              <FaHotel className="text-xl" /> Quá cảnh / Gói dừng chân
             </TabsTrigger>
             <TabsTrigger
               value="manage"
               className="flex w-full items-center justify-center gap-2 rounded-lg px-6 py-4 text-gray-700 transition duration-200 ease-in-out hover:bg-[#ff4d4d] hover:text-white focus:outline-none"
             >
-              <FaUserCheck className="text-xl" /> Manage / Check in
+              <FaUserCheck className="text-xl" /> Quản lý / Làm thủ tục
             </TabsTrigger>
             <TabsTrigger
               value="status"
               className="flex w-full items-center justify-center gap-2 rounded-lg px-6 py-4 text-gray-700 transition duration-200 ease-in-out hover:bg-[#ff4d4d] hover:text-white focus:outline-none"
             >
-              <FaInfoCircle className="text-xl" /> Flight status
+              <FaInfoCircle className="text-xl" /> Tình trạng chuyến bay
             </TabsTrigger>
           </TabsList>
 
@@ -80,7 +80,7 @@ function FlightTab() {
 
             <AccordionItem value="stopover">
               <AccordionTrigger className="flex items-center gap-2 rounded-lg bg-gray-100 px-4 py-3 text-gray-700">
-                <FaHotel className="text-xl" /> Stopover / Packages
+                <FaHotel className="text-xl" /> Quá cảnh / Gói dừng chân
               </AccordionTrigger>
               <AccordionContent className="px-4 py-3">
                 <Stopover />
@@ -89,7 +89,7 @@ function FlightTab() {
 
             <AccordionItem value="manage">
               <AccordionTrigger className="flex items-center gap-2 rounded-lg bg-gray-100 px-4 py-3 text-gray-700">
-                <FaUserCheck className="text-xl" /> Manage / Check in
+                <FaUserCheck className="text-xl" /> Quản lý / Làm thủ tục
               </AccordionTrigger>
               <AccordionContent className="px-4 py-3">
                 <ManageBooking />
@@ -98,7 +98,7 @@ function FlightTab() {
 
             <AccordionItem value="status">
               <AccordionTrigger className="flex items-center gap-2 rounded-lg bg-gray-100 px-4 py-3 text-gray-700">
-                <FaInfoCircle className="text-xl" /> Flight status
+                <FaInfoCircle className="text-xl" /> Tình trạng chuyến bay
               </AccordionTrigger>
               <AccordionContent className="px-4 py-3">
                 <FlightStatus />

@@ -28,7 +28,7 @@ const FlightStatus = () => {
         setFromCities(origins);
         setToCities(destinations);
       } catch (error) {
-        console.error('Error fetching cities:', error);
+        console.error('Lỗi khi tải thành phố :', error);
       }
     };
 
@@ -63,7 +63,7 @@ const FlightStatus = () => {
                 : 'text-gray-600 hover:bg-transparent hover:text-[#ff4d4d]'
             }`}
           >
-            By Route
+            Theo chặng bay
           </Button>
           <Button
             variant="ghost"
@@ -74,7 +74,7 @@ const FlightStatus = () => {
                 : 'text-gray-600 hover:bg-transparent hover:text-[#ff4d4d]'
             }`}
           >
-            By Flight Number
+            Theo mã chuyến bay
           </Button>
         </div>
       </CardHeader>
@@ -89,11 +89,11 @@ const FlightStatus = () => {
                 htmlFor="from"
                 className="mb-1 block text-sm text-gray-600"
               >
-                From
+                Từ
               </Label>
               <Input
                 id="from"
-                placeholder="Enter departure city"
+                placeholder="Chọn điểm khởi hành"
                 value={from}
                 onClick={() => setActiveDropdown('from')}
                 onChange={(e) => setFrom(e.target.value)}
@@ -130,11 +130,11 @@ const FlightStatus = () => {
             {/* To */}
             <div className="relative w-full">
               <Label htmlFor="to" className="mb-1 block text-sm text-gray-600">
-                To
+                Đến
               </Label>
               <Input
                 id="to"
-                placeholder="Enter destination city"
+                placeholder="Chọn điểm đến"
                 value={to}
                 onClick={() => setActiveDropdown('to')}
                 onChange={(e) => setTo(e.target.value)}
@@ -159,7 +159,7 @@ const FlightStatus = () => {
 
             {/* Date */}
             <div className="relative w-full md:px-4">
-              <Label htmlFor="date">Date</Label>
+              <Label htmlFor="date">Ngày</Label>
               <DatePicker date={date} setDate={setDate} />
             </div>
             {/* Search Button */}
@@ -168,7 +168,7 @@ const FlightStatus = () => {
                 onClick={handleSearch}
                 className="rounded-lg bg-[#ff4d4d] px-8 py-3 text-white hover:bg-[#c84c4c]"
               >
-                Check Status
+                Xem trạng thái
               </Button>
             </div>
           </form>
@@ -176,17 +176,17 @@ const FlightStatus = () => {
           <form className="flex flex-col gap-4 md:flex-row">
             {/* Flight Number */}
             <div className="flex-1">
-              <Label htmlFor="flightNumber">Flight Number</Label>
+              <Label htmlFor="flightNumber">Mã chuyến bay</Label>
               <Input
                 id="flightNumber"
-                placeholder="Enter flight number"
+                placeholder="Nhập mã chuyến bay"
                 value={flightNumber}
                 onChange={(e) => setFlightNumber(e.target.value)}
               />
             </div>
             {/* Date */}
             <div className="flex-1">
-              <Label htmlFor="flightDate">Date</Label>
+              <Label htmlFor="flightDate">Ngày</Label>
               <DatePicker date={date} setDate={setDate} />
             </div>
             {/* Search Button */}
@@ -195,7 +195,7 @@ const FlightStatus = () => {
                 onClick={handleSearch}
                 className="rounded-lg bg-[#ff4d4d] px-8 py-3 text-white hover:bg-[#c84c4c]"
               >
-                Check Status
+                Xem trạng thái
               </Button>
             </div>
           </form>
