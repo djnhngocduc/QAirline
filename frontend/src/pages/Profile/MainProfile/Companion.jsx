@@ -7,7 +7,7 @@ const Companion = () => {
     <Card>
       <CardHeader>
         <CardTitle className="text-2xl text-[#ff4d4d] text-center">
-          Add Co-traveller(s)
+          Thêm bạn đồng hành
         </CardTitle>
       </CardHeader>
       <CardContent>
@@ -19,7 +19,7 @@ const Companion = () => {
             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted">
               <Plus className="h-6 w-6" />
             </div>
-            <span className="text-muted-foreground">Add co-traveller</span>
+            <span className="text-muted-foreground">Thêm bạn đồng hành</span>
           </div>
         </Button>
       </CardContent>

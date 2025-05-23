@@ -50,7 +50,7 @@ const MainProfile = () => {
           <AccordionItem value="preferences">
             <AccordionTrigger className="flex items-center justify-start gap-4 [&[data-state=open]>svg]:rotate-0">
               <Settings2 className="h-6 w-6" />
-              <span className="flex-1">Preferences</span>
+              <span className="flex-1">Tùy chọn</span> 
             </AccordionTrigger>
             <AccordionContent>
               <Preferences />
@@ -59,7 +59,7 @@ const MainProfile = () => {
           <AccordionItem value="travelCompanion">
             <AccordionTrigger className="flex items-center justify-start gap-4 [&[data-state=open]>svg]:rotate-0">
               <UserPlus className="h-6 w-6" />
-              <span className="flex-1">Travel Companion</span>
+              <span className="flex-1">Bạn đồng hành</span>
             </AccordionTrigger>
             <AccordionContent>
               <Companion />
@@ -68,7 +68,7 @@ const MainProfile = () => {
           <AccordionItem value="myFamily">
             <AccordionTrigger className="flex items-center justify-start gap-4 [&[data-state=open]>svg]:rotate-0">
               <UsersRound className="h-6 w-6" />
-              <span className="flex-1">My Family</span>
+              <span className="flex-1">Gia đình của tôi</span>
             </AccordionTrigger>
             <AccordionContent>
               <Family />
@@ -103,21 +103,21 @@ const MainProfile = () => {
               className="flex h-32 w-40 flex-col items-center justify-center"
             >
               <Settings2 className="mb-2 h-10 w-10" />
-              Preferences
+              Tùy chọn
             </TabsTrigger>
             <TabsTrigger
               value="travelCompanion"
               className="flex h-32 w-40 flex-col items-center justify-center"
             >
               <UserPlus className="mb-2 h-10 w-10" />
-              Travel Companion
+              Bạn đồng hành
             </TabsTrigger>
             <TabsTrigger
               value="myFamily"
               className="flex h-32 w-40 flex-col items-center justify-center"
             >
               <UsersRound className="mb-2 h-10 w-10" />
-              My Family
+              Gia đình của tôi
             </TabsTrigger>
           </TabsList>
           <TabsContent

@@ -7,19 +7,16 @@ const Family = () => {
     <Card>
       <CardHeader>
         <CardTitle className="text-2xl text-[#ff4d4d] text-center">
-          Nominate family member
+          Đề cử thành viên gia đình
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
         <div className="space-y-4">
           <p className="text-muted-foreground">
-            You can nominate up to nine family members including and limited to
-            your spouse, children older than 2 years, parents and the parents of
-            your spouse to your Privilege Club membership.
+            Bạn có thể đề cử tối đa 9 thành viên gia đình (vợ/chồng, con từ 2 tuổi trở lên, cha mẹ bạn và cha mẹ vợ/chồng) vào hội viên Privilege Club của mình.
           </p>
           <p className="text-[#c84c4c] font-medium">
-            The higher your Privilege Club membership tier, the more Avios your
-            family members will earn.
+            Hạng hội viên Privilege Club càng cao, thành viên gia đình bạn càng nhận được nhiều Avios.
           </p>
         </div>
 
@@ -31,7 +28,7 @@ const Family = () => {
             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted">
               <Plus className="h-6 w-6" />
             </div>
-            <span className="text-muted-foreground">Add family member</span>
+            <span className="text-muted-foreground">Thêm thành viên gia đình</span>
           </div>
         </Button>
 
@@ -39,7 +36,7 @@ const Family = () => {
           variant="link"
           className="text-[#c84c4c] hover:text-[#ff4d4d]"
         >
-          → More about the family programme
+          → Tìm hiểu thêm về các gói gia đình
         </Button>
       </CardContent>
     </Card>

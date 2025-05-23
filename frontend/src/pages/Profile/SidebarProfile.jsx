@@ -60,7 +60,7 @@ const SidebarProfile = () => {
         </CardHeader>
         <CardContent className="p-0">
           <p className="text-sm">
-            Membership number: <strong>{userData.membershipNumber}</strong>
+            Thành viên số: <strong>{userData.membershipNumber}</strong>
           </p>
           <div className="mt-4 space-y-1 text-sm text-[#0a0a0a]">
             <p>Apoints: <span className="text-2xl font-bold">5</span></p>

@@ -8,11 +8,10 @@ const Preferences = () => {
     <Card>
       <CardHeader>
         <CardTitle className="text-2xl text-center text-[#ff4d4d] mb-4">
-          Your travel choices
+          Lựa chọn du lịch của bạn
         </CardTitle>
         <p className="my-2 text-sm text-muted-foreground">
-          To tailor your experience with us, please select your preferred
-          airports, destinations and travel preferences below.
+          Để cá nhân hoá trải nghiệm của bạn, vui lòng chọn sân bay, điểm đến và các tuỳ chọn du lịch ưa thích bên dưới.
         </p>
       </CardHeader>
       <CardContent>
@@ -22,13 +21,13 @@ const Preferences = () => {
               value="travel"
               className="rounded-none text-base data-[state=active]:border-b-2 data-[state=active]:border-[#c84c4c] data-[state=active]:text-[#c84c4c]"
             >
-              Travel Preferences
+              Tùy chọn du lịch
             </TabsTrigger>
             <TabsTrigger
               value="communication"
               className="rounded-none text-base data-[state=active]:border-b-2 data-[state=active]:border-[#c84c4c] data-[state=active]:text-[#c84c4c]"
             >
-              Communication preferences
+              Tùy chọn liên lạc
             </TabsTrigger>
           </TabsList>
           <TabsContent
@@ -43,40 +42,40 @@ const Preferences = () => {
             <div className="grid grid-cols-2 gap-8">
               <div className="space-y-2">
                 <h3 className="font-semibold text-[#c84c4c]">
-                  Preferred airports :
+                  Sân bay ưa thích :
                 </h3>
-                <p className="text-muted-foreground">No preference</p>
+                <p className="text-muted-foreground">Chưa chọn</p>
               </div>
               <div className="space-y-2">
                 <h3 className="font-semibold text-[#c84c4c]">
-                  Favourite destinations :
+                  Điểm đến yêu thích :
                 </h3>
-                <p className="text-muted-foreground">No preference</p>
+                <p className="text-muted-foreground">Chưa chọn</p>
               </div>
               <div className="space-y-2">
                 <h3 className="font-semibold text-[#c84c4c]">
-                  Preferred meal :
+                  Suất ăn ưa thích :
                 </h3>
-                <p className="text-muted-foreground">No preference</p>
+                <p className="text-muted-foreground">Chưa chọn</p>
               </div>
               <div className="space-y-2">
                 <h3 className="font-semibold text-[#c84c4c]">
-                  Preferred seat :
+                  Ghế ngồi ưa thích :
                 </h3>
-                <p className="text-muted-foreground">No preference</p>
+                <p className="text-muted-foreground">Chưa chọn</p>
               </div>
             </div>
             <div className="mt-8 space-y-2">
               <h3 className="font-semibold text-[#c84c4c]">
-                Holiday preferences :
+                Tùy chọn kỳ nghỉ :
               </h3>
-              <p className="text-muted-foreground">No preference</p>
+              <p className="text-muted-foreground">Chưa chọn</p>
             </div>
             <div className="mt-8 space-y-2">
               <h3 className="font-semibold text-[#c84c4c]">
-                Personal interests:
+                Sở thích cá nhân :
               </h3>
-              <p className="text-muted-foreground">No preference</p>
+              <p className="text-muted-foreground">Chưa chọn</p>
             </div>
           </TabsContent>
         </Tabs>

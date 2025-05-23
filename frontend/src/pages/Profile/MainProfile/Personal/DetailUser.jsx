@@ -44,9 +44,9 @@ const DetailUser = () => {
     fetchData();
   }, []);
 
-  if (!userData) {
-    return <div>Đang tải...</div>;
-  }
+  // if (!userData) {
+  //   return <div>Đang tải...</div>;
+  // }
 
   const countryCodes = [
     { code: '1', country: 'United States' },
@@ -116,7 +116,7 @@ const DetailUser = () => {
     <div className="mb-6 md:border-b md:border-gray-300 md:pb-6">
       <div className="mb-4 flex justify-between">
         <h2 className="text-xl font-semibold text-gray-700">
-          Your contact details
+          Thông tin liên hệ của bạn
         </h2>
         <div
           className={`flex ${isClickedEditBtn ? 'flex-col items-end' : 'items-center gap-1'}`}
@@ -130,7 +130,7 @@ const DetailUser = () => {
             ) : (
               <Pencil className="h-4 w-4 text-[#0a0a0a]" />
             )}
-            {isClickedEditBtn ? 'Exit' : 'Edit'}
+            {isClickedEditBtn ? 'Thoát' : 'Chỉnh sửa'}
           </button>
 
           {isClickedEditBtn && (
@@ -139,7 +139,7 @@ const DetailUser = () => {
               className="mt-2 flex items-center gap-1 text-[#0a0a0a]"
             >
               <Save className="h-4 w-4 text-[#0a0a0a]" />
-              Save
+              Lưu
             </button>
           )}
         </div>
@@ -148,7 +148,7 @@ const DetailUser = () => {
       {!isClickedEditBtn ? (
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <p className="font-semibold text-gray-800">Home address</p>
+            <p className="font-semibold text-gray-800">Địa chỉ nhà</p>
             <p className="text-gray-600">
               {homeAddress.length === 0 ? 'N/A' : homeAddress}
             </p>
@@ -158,13 +158,13 @@ const DetailUser = () => {
             <p className="text-gray-600">{email}</p>
           </div>
           <div>
-            <p className="font-semibold text-gray-800">Mobile</p>
+            <p className="font-semibold text-gray-800">Số điện thoại</p>
             <p className="text-gray-600">
               {countryCode} {phone}
             </p>
           </div>
           <div>
-            <p className="font-semibold text-gray-800">Gender</p>
+            <p className="font-semibold text-gray-800">Giới tính</p>
             <p className="text-gray-600">{gender}</p>
           </div>
         </div>
@@ -201,7 +201,7 @@ const DetailUser = () => {
                 className="peer w-full"
               >
                 <SelectTrigger className="peer h-11 w-full rounded-lg border border-border bg-transparent px-3 pb-5 pt-5 text-sm text-foreground focus:border-[#ff4d4d] focus:outline-none [&>svg]:ml-auto">
-                  <SelectValue placeholder="Country Code"/>
+                  <SelectValue placeholder="Mã quốc gia"/>
                 </SelectTrigger>
                 <SelectContent>
                   {countryCodes.map((item) => (
@@ -229,7 +229,7 @@ const DetailUser = () => {
                 htmlFor="phone"
                 className="peer-placeholder-shown:top-2.2 absolute left-3 top-2.5 max-w-full truncate pr-4 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-muted-foreground peer-valid:top-0.5 peer-valid:text-sm peer-valid:text-[#ff4d4d] peer-focus:top-0 peer-focus:text-sm peer-focus:text-[#ff4d4d]"
               >
-                Phone number
+                Số điện thoại
               </label>
             </div>
           </div>
@@ -243,12 +243,12 @@ const DetailUser = () => {
                 className="peer w-full"
               >
                 <SelectTrigger className="peer h-11 w-full rounded-lg border border-border bg-transparent px-3 pb-5 pt-5 text-sm text-foreground focus:border-[#ff4d4d] focus:outline-none [&>svg]:ml-auto">
-                  <SelectValue placeholder="Gender" />
+                  <SelectValue placeholder="Giới tính" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="male">Male</SelectItem>
-                  <SelectItem value="female">Female</SelectItem>
-                  <SelectItem value="other">Other</SelectItem>
+                  <SelectItem value="male">Nam</SelectItem>
+                  <SelectItem value="female">Nữ</SelectItem>
+                  <SelectItem value="other">Khác</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -269,7 +269,7 @@ const DetailUser = () => {
                 htmlFor="homeaddress"
                 className="peer-placeholder-shown:top-2.2 absolute left-3 top-2.5 max-w-full truncate pr-4 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-muted-foreground peer-valid:top-0.5 peer-valid:text-sm peer-valid:text-[#ff4d4d] peer-focus:top-0 peer-focus:text-sm peer-focus:text-[#ff4d4d]"
               >
-                Home address
+                Địa chỉ nhà
               </label>
             </div>
           </div>

@@ -3,7 +3,7 @@ const TravelDocument = () => {
     <div className="md:border-b md:border-gray-300 md:pb-6">
       <div className="mb-4 flex items-center justify-between">
         <h2 className="text-xl font-semibold text-gray-700">
-          Your travel documents
+          Tài liệu du lịch của bạn
         </h2>
         {/* <button className="flex items-center gap-1 text-secondary">
           <Pencil className="h-4 w-4 text-secondary" />
@@ -12,32 +12,32 @@ const TravelDocument = () => {
       </div>
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <p className="font-semibold text-gray-800">Passport Details</p>
-          <p className="text-gray-600">N/A</p>
+          <p className="font-semibold text-gray-800">Chi tiết hộ chiếu</p>
+          <p className="text-gray-600">Chưa có thông tin</p>
         </div>
         <div>
-          <p className="font-semibold text-gray-800">Nationality</p>
-          <p className="text-gray-600">N/A</p>
+          <p className="font-semibold text-gray-800">Quốc tịch</p>
+          <p className="text-gray-600">Chưa có thông tin</p>
         </div>
         <div>
-          <p className="font-semibold text-gray-800">Passport number</p>
-          <p className="text-gray-600">N/A</p>
+          <p className="font-semibold text-gray-800">Số hộ chiếu</p>
+          <p className="text-gray-600">Chưa có thông tin</p>
         </div>
         <div>
-          <p className="font-semibold text-gray-800">Expiry date</p>
-          <p className="text-gray-600">N/A</p>
+          <p className="font-semibold text-gray-800">Ngày hết hạn</p>
+          <p className="text-gray-600">Chưa có thông tin</p>
         </div>
         <div>
-          <p className="font-semibold text-gray-800">National ID number</p>
-          <p className="text-gray-600">N/A</p>
+          <p className="font-semibold text-gray-800">Số CMND/CCCD</p>
+          <p className="text-gray-600">Chưa có thông tin</p>
         </div>
         <div>
-          <p className="font-semibold text-gray-800">Redress number</p>
-          <p className="text-gray-600">N/A</p>
+          <p className="font-semibold text-gray-800">Mã khiếu nại an ninh</p>
+          <p className="text-gray-600">Chưa có thông tin</p>
         </div>
         <div>
-          <p className="font-semibold text-gray-800">Known traveler number</p>
-          <p className="text-gray-600">N/A</p>
+          <p className="font-semibold text-gray-800">Số nhận dạng hành khách</p>
+          <p className="text-gray-600">Chưa có thông tin</p>
         </div>
       </div>
     </div>

@@ -130,11 +130,10 @@ const Personal = () => {
     <Card>
       <CardHeader>
         <CardTitle className="text-2xl text-[#ff4d4d] text-center mb-4">
-          More about you
+          Thêm thông tin về bạn
         </CardTitle>
         <p>
-          Fill in your details to complete your profile. For a smooth travel
-          experience, ensure your passport number and expiry date are valid.
+          Vui lòng điền thông tin để hoàn thiện hồ sơ. Để có trải nghiệm du lịch suôn sẻ, hãy đảm bảo số hộ chiếu và ngày hết hạn hợp lệ.
         </p>
       </CardHeader>
       <CardContent>
@@ -212,7 +211,7 @@ const Personal = () => {
               ) : (
                 <Pencil className="h-4 w-4 text-[#0a0a0a]" />
               )}
-              {isEditing ? 'Exit' : 'Edit'}
+              {isEditing ? 'Thoát' : 'Chỉnh sửa'}
             </button>
             {isEditing && (
               <button
@@ -220,7 +219,7 @@ const Personal = () => {
                 className="mt-4 flex items-center gap-1"
               >
                 <Save className="h-4 w-4" />
-                Save
+                Lưu
               </button>
             )}
           </div>
@@ -234,11 +233,10 @@ const Personal = () => {
         {/*  */}
         <div className="mt-6 flex flex-col gap-4 pb-6 md:gap-6">
           <h2 className="text-xl font-semibold text-gray-700">
-            Account settings
+            Cài đặt tài khoản
           </h2>
           <p>
-            <strong>Delete account:</strong> Any bookings linked to this account
-            will remain valid, even if you delete your account.
+            <strong>Xóa tài khoản:</strong> Các lần đặt chỗ liên kết với tài khoản này vẫn giữ hiệu lực, ngay cả khi bạn xóa tài khoản.
           </p>
         </div>
       </CardContent>
