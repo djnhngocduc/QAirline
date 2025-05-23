@@ -96,7 +96,7 @@ exports.viewBookings = async (req, res) => {
 }
 
 //[PUT]
-exports.updateFlightStatus = async (req, res) => {
+exports.updateFlightStatus = async () => {
     const { flightId, newStatus } = req.body;
     try {
         const flight = await adminService.updateFlightStatus(flightId, newStatus);
@@ -127,3 +127,5 @@ exports.updateSeatCount = async (req, res) => {
         });
     }
 }
+
+

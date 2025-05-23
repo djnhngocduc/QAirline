@@ -88,5 +88,42 @@ exports.updateSeatCount = async (airplaneId, newSeatCount) => {
     return airplane;
 }
 
+//[GET] api/admin/post: Lấy danh sách bài viết
+exports.getPost = async() => {
+    try {
+        const posts = await Post.findAll();
+        return res.status(200).json({
+            message: "Lấy bài viết thành công",
+            posts
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: "Lấy bài viết thất bại",
+            error: error.message
+        });
+    }
+}
 
+//[DELETE] api/admin/post/:id: Xóa bài viết
+exports.deletePost = async (id) => {
+    const post = await Post.findByPk(id);
+    if(!post) {
+        throw new Error("Bài viết không tồn tại");
+    }
+    await post.destroy();
+    return post;
+}
+
+//[PATCH] api/admin/post/:id: Cập nhật bài viết
+exports.editPost = async(id,title, image, cta) => {
+    const post = await Post.findByPk(id);
+    if(!post) {
+        throw new Error("Bài viết không tồn tại");
+    }
+    post.title = title;
+    post.image = image;
+    post.cta = cta;
+    await post.save();
+    return post;
+}
 
