@@ -88,23 +88,17 @@ exports.updateSeatCount = async (airplaneId, newSeatCount) => {
     return airplane;
 }
 
-//[GET] api/admin/post: Lấy danh sách bài viết
+//[GET] api/post: Lấy danh sách bài viết
 exports.getPost = async() => {
     try {
         const posts = await Post.findAll();
-        return res.status(200).json({
-            message: "Lấy bài viết thành công",
-            posts
-        });
-    } catch (error) {
-        return res.status(500).json({
-            message: "Lấy bài viết thất bại",
-            error: error.message
-        });
+        return posts;
+    } catch(error) {
+        throw new Error("Lấy danh sách bài viết thất bại");
     }
 }
 
-//[DELETE] api/admin/post/:id: Xóa bài viết
+//[DELETE] api/post/:id: Xóa bài viết
 exports.deletePost = async (id) => {
     const post = await Post.findByPk(id);
     if(!post) {
@@ -114,7 +108,7 @@ exports.deletePost = async (id) => {
     return post;
 }
 
-//[PATCH] api/admin/post/:id: Cập nhật bài viết
+//[PATCH] api/post/:id: Cập nhật bài viết
 exports.editPost = async(id,title, image, cta) => {
     const post = await Post.findByPk(id);
     if(!post) {

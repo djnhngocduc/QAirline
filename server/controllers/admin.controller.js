@@ -1,7 +1,7 @@
 const {Post , Airplane, Flight, Booking } = require('../models/index.model');
 const adminService = require('../service/admin.service');
 
-//[POST]
+//[POST]: /api/admin/post: Tạo bài viết mới
 exports.createPost = async (req, res) => {
     const {image, title,content , postType, startDate, endDate} = req.body;
     const adminId = req.userId;
@@ -27,7 +27,7 @@ exports.createPost = async (req, res) => {
     }
 }
 
-//[POST]
+//[POST]:   /api/admin/airplane: Tạo máy bay mới
 exports.addAirplane = async (req, res) => {
     const { model, manufacturer, seatCount , airlineId } = req.body;
     try {
@@ -49,6 +49,7 @@ exports.addAirplane = async (req, res) => {
     }
 }
 
+//[POST]: /api/admin/flight: Tạo chuyến bay mới
 exports.addFlight = async (req, res) => {
     const {
     flightNumber,
@@ -79,7 +80,7 @@ exports.addFlight = async (req, res) => {
     }
 }
 
-//[GET]
+//[GET]: /api/admin/bookings: Lấy danh sách đặt chỗ
 exports.viewBookings = async (req, res) => {
     try {
         const bookings = await adminService.viewBookings();
@@ -95,7 +96,7 @@ exports.viewBookings = async (req, res) => {
     }
 }
 
-//[PUT]
+//[PATCH]: /api/admin/flight/:flightId/status: Cập nhật trạng thái chuyến bay
 exports.updateFlightStatus = async () => {
     const { flightId, newStatus } = req.body;
     try {
@@ -112,6 +113,7 @@ exports.updateFlightStatus = async () => {
     }
 }
 
+//[PATCH]: /api/admin/airplane/seatCount: Cập nhật số lượng ghế ngồi
 exports.updateSeatCount = async (req, res) => {
     const { airplaneId, newSeatCount } = req.body;
     try {
@@ -128,4 +130,37 @@ exports.updateSeatCount = async (req, res) => {
     }
 }
 
+//[DELETE]: /api/admin/post/delete/:id: Xóa bài viết theo id
+exports.deletePost = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const post = await adminService.deletePost(id);
+        return res.status(200).json({
+            message: "Xóa bài viết thành công",
+            post
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: "Xóa bài viết thất bại",
+            error: error.message
+        });
+    }
+}
 
+//[PATCH]: /api/admin/post/edit/:id: Cập nhật bài viết theo id
+exports.editPatch = async (req, res) => {
+    const id = req.params.id;
+    const { title, image, cta } = req.body;
+    try {
+        const post = await adminService.editPost(id, title, image, cta);
+        return res.status(200).json({
+            message: "Cập nhật bài viết thành công",
+            post
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: "Cập nhật bài viết thất bại",
+            error: error.message
+        });
+    }
+}
