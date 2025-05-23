@@ -66,22 +66,22 @@ function Navbar() {
           </li>
 
           <li className="nav__item">
-            <p className="nav__item__link">Book</p>
+            <p className="nav__item__link">Đặt vé</p>
 
             <ul className="nav__subMenu">
               <li className="nav__subMenu__item">
                 <Link to="/" className="nav__subMenu__item__link">
-                  Flights
+                  Chuyến bay
                 </Link>
               </li>
               <li className="nav__subMenu__item">
                 <Link to="/" className="nav__subMenu__item__link">
-                 Manage Booking
+                 Quản lý đặt chỗ
                 </Link>
               </li>
               <li className="nav__subMenu__item">
                 <Link to="/" className="nav__subMenu__item__link">
-                  Special Offers
+                  Ưu đãi đặc biệt
                 </Link>
               </li>
             </ul>
@@ -89,13 +89,13 @@ function Navbar() {
 
           <li className="nav__item">
             <p className="nav__item__link">
-              Discover
+              Khám phá
             </p>
           </li>
 
           <li className="nav__item">
             <p className="nav__item__link">
-              Help
+              Trợ giúp
             </p>
           </li>
 

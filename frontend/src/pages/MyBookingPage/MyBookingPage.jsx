@@ -5,7 +5,7 @@ function MyBookingPage() {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
+
   useEffect(() => {
     const fetchBookings = async () => {
       try {
@@ -51,7 +51,7 @@ function MyBookingPage() {
   return (
     <div className="h-full">
       <div className="container mx-auto px-3 py-8 pt-14 md:px-28">
-        <h1 className="mb-7 text-3xl font-bold text-center">Quản lý đặt chỗ</h1>
+        <h1 className="mb-7 text-3xl font-bold text-center">Đặt chỗ của tôi</h1>
 
         <div className="space-y-6">
           {loading && <div className="py-8 text-center">Đang tải...</div>}

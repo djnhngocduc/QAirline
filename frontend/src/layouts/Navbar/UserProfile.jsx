@@ -45,16 +45,16 @@ const UserProfile = ({
         <div className="flex justify-self-center border-t p-4">
           <Link to="/mybooking" className="text-gray-700 hover:text-[#ff4d4d] hover:underline mr-3"
           >
-            My bookings
+            Đặt chỗ của tôi
           </Link>
           <Link to="/profile"
           className="text-gray-700 hover:text-[#ff4d4d] hover:underline mr-3" 
           >
-            Edit profile
+            Sửa hồ sơ
           </Link>
           <Link onClick={onLogout}className="text-gray-700 hover:text-[#ff4d4d] hover:underline mr-3"
           >
-            Logout
+            Đăng xuất
           </Link>
         </div>
       </PopoverContent>
