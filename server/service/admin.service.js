@@ -122,3 +122,33 @@ exports.editPost = async(id,title, image, cta) => {
     return post;
 }
 
+//[POST] /api/admin/airplane Them máy bay mới
+exports.addAirplane = async (model, manufacturer, seat_count) => {
+    return await Airplain.create({
+        model,
+        manufacturer,
+        seat_count,
+    });
+}
+
+//[PATCH] /api/admin/airplane/:id Cap nhật máy bay theo id
+exports.updateAirplane = async (id, model, manufacturer, seat_count) => {
+    const airplane = await Airplain.findByPk(id);
+    if (!airplane) {
+        throw new Error("Máy bay không tồn tại");
+    }
+    airplane.model = model;
+    airplane.manufacturer = manufacturer;
+    airplane.seat_count = seat_count;
+    await airplane.save();
+    return airplane;
+}
+
+// [DELETE] /api/admin/airplane/:id Xoa máy bay theo id
+exports.deleteAirplane = async (id) => {
+    const airplane = await Airplain.findByPk(id);
+    if (!airplane) {
+        throw new Error("Máy bay không tồn tại");
+    }
+    await airplane.destroy();
+}

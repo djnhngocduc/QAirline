@@ -6,23 +6,23 @@ const { verifyAdmin } = require("../middlewares/admin.middleware");
 
 
 //Dang thong tin 
-route.post("/post",verifyAdmin, verifyToken, adminController.createPost);
+route.post("/post",verifyToken, verifyAdmin, adminController.createPost);
 
 //Them may bay
-route.post("/airplane",verifyAdmin, verifyToken,  adminController.addAirplane);
+route.post("/airplane",verifyToken, verifyAdmin,  adminController.addAirplane);
 
 //Them chuyen bay
-route.post("/flight",verifyAdmin, verifyToken, adminController.addFlight);
+route.post("/flight",verifyToken, verifyAdmin, adminController.addFlight);
 
 //Xem booking
-route.get("/bookings",verifyAdmin, verifyToken,  adminController.viewBookings);
+route.get("/bookings",verifyToken, verifyAdmin,  adminController.viewBookings);
 
 
 //Cap nhat trang thai chuyen bay
-route.patch("/flight/:flightId/status",verifyAdmin, verifyToken, adminController.updateFlightStatus);
+route.patch("/flight/:flightId/status",verifyToken, verifyAdmin, adminController.updateFlightStatus);
 
 //Cap nhat so luong ghe ngoi
-route.patch("/airplane/seatCount",verifyAdmin, verifyToken, adminController.updateSeatCount);
+route.patch("/airplane/seatCount",verifyToken, verifyAdmin, adminController.updateSeatCount);
 
 
 //[DELETE] /api/admin/post/delete/:id: Xóa bài viết theo id

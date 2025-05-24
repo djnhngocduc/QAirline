@@ -168,16 +168,53 @@ exports.editPost = async (req, res) => {
 
 //[POST] /api/admin/airplane Them máy bay mới
 exports.addAirplane = async (req,res) => {
-
+    const { model, manufacturer, seat_count} = req.body;
+    try {
+        const airplane = await adminService.addAirplane(model, manufacturer, seat_count);
+        return res.status(201).json({
+            message: "Thêm máy bay thành công",
+            airplane
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: "Thêm máy bay thất bại",
+            error: error.message
+        });
+    }
 }
 
 //[PATCH] /api/admin/airplane/:id Cap nhật máy bay theo id
 
 exports.updateAirplane = async (req,res) => {
-
+    const id = req.params.id;
+    const { model, manufacturer, seat_count } = req.body;
+    try {
+        const newAirplane = await adminService.updateAirplane(id, model, manufacturer, seat_count);
+        return res.status(200).json({
+            message: "Cập nhật máy bay thành công",
+            airplane: newAirplane
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: "Cập nhật máy bay thất bại",
+            error: error.message
+        });
+    }
 }
 
 // [DELETE] /api/admin/airplane/:id Xoa máy bay theo id
 exports.deleteAirplane = async (req, res) => {
-
+    const id = req.params.id;
+    try {
+        const airplane = await adminService.deleteAirplane(id);
+        return res.status(200).json({
+            message: "Xóa máy bay thành công",
+            airplane
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: "Xóa máy bay thất bại",
+            error: error.message
+        });
+    }
 }
