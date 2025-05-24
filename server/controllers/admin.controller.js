@@ -97,7 +97,7 @@ exports.viewBookings = async (req, res) => {
 }
 
 //[PATCH]: /api/admin/flight/:flightId/status: Cập nhật trạng thái chuyến bay
-exports.updateFlightStatus = async () => {
+exports.updateFlightStatus = async (req,res) => {
     const { flightId, newStatus } = req.body;
     try {
         const flight = await adminService.updateFlightStatus(flightId, newStatus);
@@ -164,3 +164,5 @@ exports.editPatch = async (req, res) => {
         });
     }
 }
+
+

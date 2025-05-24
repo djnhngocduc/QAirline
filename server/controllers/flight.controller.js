@@ -66,11 +66,12 @@ exports.deleteFlight = async (req, res) => {
     const flightId = req.params.id;
     try {
         const deletedFlight = await flightService.deleteFlight(flightId);
-        if(!deletedFlight) {
+        if (!deletedFlight) {
             return res.status(404).json({ message: "Chuyến bay không tồn tại" });
         }
-        res.status(200).json({ message: "Chuyến bay đã được xóa thành công" });
-    } catch (error) {
+        return res.status(200).json({ message: "Xóa chuyến bay thành công" });
+    }
+    catch (error) {
         return res.status(500).json({ message: "Lỗi khi xóa chuyến bay" });
     }
 }

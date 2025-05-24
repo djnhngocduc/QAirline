@@ -1,5 +1,7 @@
 const express = require('express');
 const route = express.Router();
-const controller = require("../controllers/airplane.controller");
+const airplaneController = require("../controllers/airplane.controller");
+
+route.get("/", airplaneController.getAllAirplanes);
 
 module.exports = route;

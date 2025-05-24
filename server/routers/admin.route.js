@@ -32,4 +32,6 @@ route.delete("/post/:id",verifyToken, verifyAdmin, controller.deletePost);
 route.patch("/post/:id",verifyToken, verifyAdmin, controller.editPatch);
 
 
+
+
 module.exports = route;
