@@ -26,10 +26,10 @@ route.patch("/airplane/seatCount",verifyAdmin, verifyToken, controller.updateSea
 
 
 //[DELETE] /api/admin/post/delete/:id: Xóa bài viết theo id
-route.delete("/post/delete/:id",verifyToken, verifyAdmin, controller.deletePost);
+route.delete("/post/:id",verifyToken, verifyAdmin, controller.deletePost);
 
 //[PATCH] /api/admin/post/edit/:id: Cập nhật bài viết theo id
-route.patch("/post/edit/:id",verifyToken, verifyAdmin, controller.editPatch);
+route.patch("/post/:id",verifyToken, verifyAdmin, controller.editPatch);
 
 
 module.exports = route;
