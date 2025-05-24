@@ -29,8 +29,7 @@ route.patch("/airplane/seatCount",verifyAdmin, verifyToken, controller.updateSea
 route.delete("/post/:id",verifyToken, verifyAdmin, controller.deletePost);
 
 //[PATCH] /api/admin/post/edit/:id: Cập nhật bài viết theo id
-route.patch("/post/:id",verifyToken, verifyAdmin, controller.editPatch);
-
+route.patch("/post/:id",verifyToken, verifyAdmin, controller.editPost);
 
 
 

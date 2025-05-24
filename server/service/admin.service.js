@@ -1,4 +1,4 @@
-const { Post, Airplain, Booking, Seat } = require ("../models/index.model");
+const { Post, Flight, Booking , Airplain} = require('../models/index.model');
 
 //[POST] /api/admin/post: Tạo bài viết mới
 
@@ -89,11 +89,12 @@ exports.updateSeatCount = async (airplaneId, newSeatCount) => {
 }
 
 //[GET] api/post: Lấy danh sách bài viết
-exports.getPost = async() => {
+exports.getPosts = async() => {
     try {
         const posts = await Post.findAll();
         return posts;
     } catch(error) {
+        console.error(error);
         throw new Error("Lấy danh sách bài viết thất bại");
     }
 }

@@ -13,10 +13,12 @@ const Booking = require("./booking.model")(
   require("sequelize").DataTypes
 );
 const Seat = require("./seat.model")(sequelize, require("sequelize").DataTypes);
+
 const Airplane = require("./airplane.model")(
   sequelize,
   require("sequelize").DataTypes
 );
+
 const Airline = require("./airline.model")(
   sequelize,
   require("sequelize").DataTypes

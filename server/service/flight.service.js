@@ -16,7 +16,6 @@ exports.getAllFlights = async () => {
             include:[
                 {
                     model: Airplane,
-                    as: 'airplane',
                     attributes: ['model', 'manufacturer']
                 },
             ],
@@ -88,7 +87,6 @@ exports.editFlight = async (
             include: [
                 {
                     model: Airplane,
-                    as: 'airplane',
                     attributes: ['model']
                 },
             ]

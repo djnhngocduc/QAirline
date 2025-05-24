@@ -148,7 +148,7 @@ exports.deletePost = async (req, res) => {
 }
 
 //[PATCH]: /api/admin/post/edit/:id: Cập nhật bài viết theo id
-exports.editPatch = async (req, res) => {
+exports.editPost = async (req, res) => {
     const id = req.params.id;
     const { title, image, cta } = req.body;
     try {

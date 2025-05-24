@@ -2,7 +2,7 @@ const express = require('express');
 require('dotenv').config();
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const routeApi = require('./routers/index.route');
+const routeApi = require("./routers/index.route");
 const sequelize = require('./config/database');
 sequelize;
 
@@ -13,10 +13,10 @@ routeApi.index(app);
 
 
 // Test API link to fetch users
-app.get("/api/test/flights", async (req, res) => {
+app.get("/api/test/post", async (req, res) => {
   try {
-    const flights = await require("./models/index.model").Flight.findAll();
-    res.status(200).json(flights);
+    const posts = await require("./models/index.model").Post.findAll();
+    res.status(200).json(posts);
   } catch (error) {
     console.error(error);
     res.status(500).send("Lỗi hệ thống");
@@ -30,6 +30,8 @@ app.get("/", (req, res) => {
 app.use(cors);
 app.use(bodyParser.json());
 app.use(express.json());
+
+
 
 
 app.listen(port, () => {
