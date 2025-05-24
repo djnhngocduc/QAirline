@@ -1,4 +1,4 @@
-const {Post , Airplane, Flight, Booking } = require('../models/index.model');
+const {Post , Airplane, Flight, Booking} = require('../models/index.model');
 const adminService = require('../service/admin.service');
 
 //[POST]: /api/admin/post: Tạo bài viết mới
@@ -166,3 +166,18 @@ exports.editPost = async (req, res) => {
 }
 
 
+//[POST] /api/admin/airplane Them máy bay mới
+exports.addAirplane = async (req,res) => {
+
+}
+
+//[PATCH] /api/admin/airplane/:id Cap nhật máy bay theo id
+
+exports.updateAirplane = async (req,res) => {
+
+}
+
+// [DELETE] /api/admin/airplane/:id Xoa máy bay theo id
+exports.deleteAirplane = async (req, res) => {
+
+}

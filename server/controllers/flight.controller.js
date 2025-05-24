@@ -14,7 +14,17 @@ exports.getAllFlights = async (req, res) => {
 
 //[POST] /api/flight
 exports.addFlight = async (req, res) => {
-        const {
+    const {
+        flightNumber,
+        origin,
+        destination,
+        departureTime,
+        arrivalTime,
+        status,
+        airplaneModel
+    } = req.body;
+    try {
+        const newFlight = await flightService.addFlight(
             flightNumber,
             origin,
             destination,
@@ -22,13 +32,11 @@ exports.addFlight = async (req, res) => {
             arrivalTime,
             status,
             airplaneModel
-        } = req.body; 
-        try {
-            const newFlight = await flightService.addFlight(req.body);
-            return res.status(201).json(newFlight);
-        } catch (error) {
-            return res.status(500).json({ message: "Lỗi khi thêm chuyến bay" });
-        }
+        );
+        return res.status(201).json(newFlight);
+    } catch (error) {
+        return res.status(500).json({ message: "Lỗi khi thêm chuyến bay" });
+    }
 }
 
 //[PATCH] /api/flight/:id
