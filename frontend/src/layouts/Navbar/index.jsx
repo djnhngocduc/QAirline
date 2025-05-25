@@ -78,9 +78,11 @@ function Navbar() {
           </li>
 
           <li className="nav__item">
-            <p className="nav__item__link">
-              Điều kiện giá vé
-            </p>
+            <Link to="/farerules">
+              <p className="nav__item__link">
+                Điều kiện giá vé
+              </p>
+            </Link>
           </li>
 
           <li className="nav__item">

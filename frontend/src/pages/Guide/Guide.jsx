@@ -156,24 +156,23 @@ const Guide = () => {
                   thanh toán của mình và thực hiện thanh toán. Chúng tôi hỗ trợ
                   các hình thức thanh toán khả dụng bao gồm Thẻ tín dụng/ghi nợ
                   (Visa, Mastercard, JCB), Ví điện tử (MoMo, ZaloPay, PayPal).
-                  <br></br> Đối với quý khách sử dụng thẻ ghi nợ, vui lòng Nhập
+                  <br></br> Đối với quý khách sử dụng thẻ ghi nợ, vui lòng nhập
                   Tên chủ thẻ, Số thẻ, Ngày hết hạn, và Mã CVV (3 số ở mặt sau
                   thẻ). Đối với dùng ví điện tử, quý khách quét mã QR hoặc đăng
                   nhập tài khoản ví điện tử để xác nhận thanh toán.
                 </li>
                 <li>
-                  Sau khi điền thông tin thanh toán, nhấn vào nút Thanh toán
-                  ngay. Hệ thống sẽ xử lý giao dịch trong vài giây. Trong thời
+                  Sau khi điền thông tin thanh toán, nhấn vào nút Thanh toán. Hệ thống sẽ xử lý giao dịch trong vài giây. Trong thời
                   gian này, không đóng trang web hoặc ứng dụng để tránh lỗi
                   thanh toán.
                 </li>
                 <li>
                   {" "}
                   Sau khi thanh toán thành công, quý khách vui lòng truy cập vào
-                  mục Quản lý vé trên trang web hoặc ứng dụng QAirline.
+                  mục Đặt chỗ của tôi trên trang web hoặc ứng dụng QAirline.
                   <br></br>Nếu có bất kỳ vấn đề nào liên quan đến thanh toán
                   hoặc trạng thái vé, vui lòng liên hệ bộ phận hỗ trợ qua tổng
-                  đài: 1900 123 456.
+                  đài: +84 123 456 789.
                 </li>
               </ol>
             </div>
