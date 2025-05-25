@@ -85,6 +85,7 @@ exports.login = async (req, res) => {
         if (!isPasswordValid) {
             return res.status(400).json({ message: "Mật khẩu không đúng" });
         }
+        
         const token = jwt.sign({ id: user.id, role: user.role }, process.env.JWT_SECRET, {
             expiresIn: 86400 // 24 hours
         });
