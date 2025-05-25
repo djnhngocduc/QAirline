@@ -139,7 +139,7 @@ const Guide = () => {
               <p>
                 {" "}
                 Quý khách vui lòng lưu ý các bước thanh toán trực tuyến khi mua
-                vé điện tử tại hãng hàng không QAirline như sau:{" "}
+                vé điện tử như sau:{" "}
               </p>
               <ol>
                 <li>
