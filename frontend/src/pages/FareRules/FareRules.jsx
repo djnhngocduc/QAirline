@@ -12,7 +12,7 @@ const FareRules = () => {
           "Được mang theo tối đa 7 kg, gồm 1 túi xách lớn và 1 túi nhỏ (ví dụ: túi laptop hoặc túi cá nhân). Kích thước hành lý không vượt quá 56 x 36 x 23 cm.",
       },
       {
-        criteria: "Hành lý ký gửi (Người lớn/ Trẻ em)",
+        criteria: "Hành lý ký gửi (Người lớn/Trẻ em)",
         value:
           "Không bao gồm trong giá vé. Hành khách có thể mua thêm gói hành lý ký gửi với giá từ 120.000 VNĐ cho mỗi 10 kg, áp dụng tùy theo chặng bay.",
       },
@@ -60,7 +60,7 @@ const FareRules = () => {
           "Được mang theo tối đa 7 kg, bao gồm 1 túi xách lớn và 1 túi nhỏ. Hành lý được ưu tiên kiểm tra tại quầy thủ tục. Kích thước không vượt quá 56 x 36 x 23 cm.",
       },
       {
-        criteria: "Hành lý ký gửi (Người lớn/ Trẻ em)",
+        criteria: "Hành lý ký gửi (Người lớn/Trẻ em)",
         value:
           "Bao gồm 20 kg hành lý ký gửi miễn phí. Hành khách có thể mua thêm hành lý ký gửi với mức phí ưu đãi (80.000 VNĐ cho mỗi 10 kg).",
       },
@@ -104,7 +104,7 @@ const FareRules = () => {
 
   return (
     <div className="pageIf">
-      <div className="container">
+      <div className="frContainer">
         {/* Phần 1: Lựa chọn Hạng vé */}
         <section className="ticketSelectionSection">
           <div className="ticketSelection">

@@ -66,7 +66,7 @@ function Navbar() {
           </li>
 
           <li className="nav__item">
-            <Link to="/">
+            <Link to="/book">
               <p className="nav__item__link">Đặt vé</p>
             </Link>
           </li>

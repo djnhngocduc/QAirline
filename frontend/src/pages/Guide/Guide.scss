@@ -1,5 +1,5 @@
 /* Container chính */
-.container {
+.guideContainer {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -136,7 +136,7 @@
 }
 
 @media (max-width: 480px) {
-  .container {
+  .guideContainer {
     margin-top: 60px;
   }
 

@@ -9,7 +9,7 @@ const Guide = () => {
   };
 
   return (
-    <div className="container">
+    <div className="guideContainer">
       <div className="content">
         {/* Left Section: Button Area */}
         <div className="buttons">

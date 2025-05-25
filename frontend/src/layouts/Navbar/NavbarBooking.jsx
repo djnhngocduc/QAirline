@@ -31,6 +31,10 @@ export function NavbarBooking() {
     navigate('/login');
   };
 
+  const handleSignUp = () => {
+    navigate('/signup');
+  }
+
   const handleLogout = () => {
     localStorage.removeItem('token');
     setIsLoggedIn(false);
@@ -59,7 +63,7 @@ export function NavbarBooking() {
     <nav
       className="fixed left-0 right-0 top-0 z-50 transition-colors duration-300 bg-[#f9f7f3]"
     >
-      <div className="container mx-auto flex h-16 w-full items-center justify-between px-4">
+      <div className="container mx-auto flex h-16 w-full flex-row items-center justify-between px-4">
         {/* Left section */}
         <div className="flex items-center gap-4">
           <a href="/" className="flex items-center gap-5">
@@ -107,13 +111,23 @@ export function NavbarBooking() {
         {/* Right section */}
         <div className="flex items-center gap-4">
           {!isLoggedIn ? (
+          <>
             <Button
               variant="link"
               onClick={handleLoginClick}
               className="text-[#0a0a0a] font-semibold hover:text-[#ff4d4d]"
             >
-              Đăng nhập / Đăng ký
+              Đăng nhập
             </Button>
+            <span className="text-[#cccccc]">|</span>
+            <Button
+              variant="link"
+              onClick={handleSignUp}
+              className="text-[#0a0a0a] font-semibold hover:text-[#ff4d4d]"
+            >
+              Đăng ký
+            </Button>
+          </>
           ) : (
             <UserProfile
               name={userInfo.name}
