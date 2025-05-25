@@ -24,20 +24,20 @@ exports.createPost = async (
     });
 }
 
-//[POST] /api/admin/airplane: Tạo máy bay mới
-exports.addAirplane = async (
-    model,
-    manufacturer,
-    seat_count,
-    airlineId
-) => {
-    return await Airplain.create({
-        model,
-        manufacturer,
-        seat_count,
-        airlineId
-    });
-}
+// //[POST] /api/admin/airplane: Tạo máy bay mới
+// exports.addAirplane = async (
+//     model,
+//     manufacturer,
+//     seat_count,
+//     airlineId
+// ) => {
+//     return await Airplain.create({
+//         model,
+//         manufacturer,
+//         seat_count,
+//         airlineId
+//     });
+// }
 
 //[POST] /api/admin/flight: Tạo chuyến bay mới
 exports.addFlight = async (

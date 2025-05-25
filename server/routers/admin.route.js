@@ -8,9 +8,6 @@ const { verifyAdmin } = require("../middlewares/admin.middleware");
 //Dang thong tin 
 route.post("/post",verifyToken, verifyAdmin, adminController.createPost);
 
-//Them may bay
-route.post("/airplane",verifyToken, verifyAdmin,  adminController.addAirplane);
-
 //Them chuyen bay
 route.post("/flight",verifyToken, verifyAdmin, adminController.addFlight);
 
@@ -40,7 +37,6 @@ route.patch("/airplane/:id",verifyToken, verifyAdmin, adminController.updateAirp
 
 // [DELETE] /api/admin/airplane/:id Route to delete an airplane
 route.delete("/airplane/:id",verifyToken, verifyAdmin, adminController.deleteAirplane);
-
 
 
 module.exports = route;
