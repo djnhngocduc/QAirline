@@ -8,6 +8,7 @@ import BookingPage from './pages/BookingPage/BookingPage';
 import PassengerDetails from './pages/BookingPage/PassengerDetails';
 import PaymentPage from './pages/BookingPage/Payment';
 import MyBookingPage from './pages/MyBookingPage/MyBookingPage';
+import Guide from './pages/Guide/Guide';
 
 function AppRoutes() {
   return (
@@ -17,7 +18,8 @@ function AppRoutes() {
       <Route path="/admin/*" element={<Admin />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<SignUp />} />        
+      <Route path="/signup" element={<SignUp />} />    
+      <Route path="/guide" element={<Guide />} />    
       <Route path="/booking" element={<BookingPage />} />
       <Route
         path="/booking/passenger-details"

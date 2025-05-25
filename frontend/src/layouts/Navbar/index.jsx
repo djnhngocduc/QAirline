@@ -19,7 +19,7 @@ function Navbar() {
       setIsLoggedIn(true); // Người dùng đã đăng nhập
       fetchUserInfo(token); // Fetch user info
     } else {
-      setIsLoggedIn(true) // Người dùng chưa đăng nhập
+      setIsLoggedIn(false) // Người dùng chưa đăng nhập
     }
   }, []);
 
@@ -66,45 +66,40 @@ function Navbar() {
           </li>
 
           <li className="nav__item">
-            <p className="nav__item__link">Đặt vé</p>
+            <Link to="/">
+              <p className="nav__item__link">Đặt vé</p>
+            </Link>
+          </li>
 
-            <ul className="nav__subMenu">
-              <li className="nav__subMenu__item">
-                <Link to="/" className="nav__subMenu__item__link">
-                  Chuyến bay
-                </Link>
-              </li>
-              <li className="nav__subMenu__item">
-                <Link to="/" className="nav__subMenu__item__link">
-                 Quản lý đặt chỗ
-                </Link>
-              </li>
-              <li className="nav__subMenu__item">
-                <Link to="/" className="nav__subMenu__item__link">
-                  Ưu đãi đặc biệt
-                </Link>
-              </li>
-            </ul>
+          <li className="nav__item">
+            <Link to="/guide">
+              <p className="nav__item__link">Hướng dẫn</p>
+            </Link>
           </li>
 
           <li className="nav__item">
             <p className="nav__item__link">
-              Khám phá
+              Điều kiện giá vé
             </p>
           </li>
 
           <li className="nav__item">
             <p className="nav__item__link">
-              Trợ giúp
+              Về chúng tôi
             </p>
           </li>
 
           <li className="nav__item">
             {!isLoggedIn ? (
-              <Link to="/login" className="nav__item__link"
-              >
-                Đăng nhập / Đăng ký
-              </Link>
+              <>
+                <Link to="/login" className="nav__item__link">
+                  Đăng nhập
+                </Link>
+                <span className="text-[#cccccc]">|</span>
+                <Link to="/signup" className="nav__item__link">
+                  Đăng ký
+                </Link>
+              </>
             ) : (
               <UserProfile
                 name={userInfo.name}

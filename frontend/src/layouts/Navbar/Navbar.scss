@@ -175,10 +175,10 @@
 
   @media (max-width: 768px) {
     & {
-      width: 250px;
+      width: 280px;
       height: 100vh;
       position: fixed;
-      left: -250px;
+      left: -280px;
       transition: left 0.3s ease;
       background: #f9f7f3;
     }
