@@ -43,7 +43,7 @@ const Guide = () => {
         <div className="frame">
           {selectedGuide === "onlineBooking" && (
             <div>
-              <h2>Hướng Dẫn Đặt Vé Trực Tuyến</h2>
+              <h2>Hướng dẫn đặt vé trực tuyến</h2>
               <p>
                 Để mua vé trực tuyến, quý khách hàng có thể làm theo các bước
                 dưới đây:
@@ -91,7 +91,7 @@ const Guide = () => {
           )}
           {selectedGuide === "cancelBooking" && (
             <div>
-              <h2>Hướng Dẫn Hủy Vé</h2>
+              <h2>Hướng dẫn hủy vé</h2>
               <p>
                 Để hủy vé, quý khách vui lòng tuân theo các quy định và làm theo
                 các bước sau:
@@ -135,7 +135,7 @@ const Guide = () => {
           )}
           {selectedGuide === "paymentMethod" && (
             <div>
-              <h2>Hướng Dẫn Thanh Toán</h2>
+              <h2>Hướng dẫn thanh toán</h2>
               <p>
                 {" "}
                 Quý khách vui lòng lưu ý các bước thanh toán trực tuyến khi mua

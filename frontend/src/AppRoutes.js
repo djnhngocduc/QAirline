@@ -10,6 +10,7 @@ import PaymentPage from './pages/BookingPage/Payment';
 import MyBookingPage from './pages/MyBookingPage/MyBookingPage';
 import Guide from './pages/Guide/Guide';
 import FareRules from "./pages/FareRules/FareRules";
+import About from "./pages/About/About";
 
 function AppRoutes() {
   return (
@@ -22,6 +23,7 @@ function AppRoutes() {
       <Route path="/signup" element={<SignUp />} />    
       <Route path="/guide" element={<Guide />} />    
       <Route path="/farerules" element={<FareRules />} />  
+      <Route path="/about" element={<About />} />  
       <Route path="/booking" element={<BookingPage />} />
       <Route
         path="/booking/passenger-details"

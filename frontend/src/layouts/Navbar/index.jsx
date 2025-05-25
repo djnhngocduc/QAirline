@@ -86,9 +86,11 @@ function Navbar() {
           </li>
 
           <li className="nav__item">
-            <p className="nav__item__link">
-              Về chúng tôi
-            </p>
+            <Link to="/about">
+              <p className="nav__item__link">
+                Về chúng tôi
+              </p>
+            </Link>
           </li>
 
           <li className="nav__item">
