@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
+const md5 = require('md5');
 const { profile } = require('console');
 
 
@@ -218,7 +218,7 @@ exports.trackBooking = async (req, res) => {
 }
 
 exports.getBookingsDetail = async (req, res) => {
-  
+    
 }
 
 

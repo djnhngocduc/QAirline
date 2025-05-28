@@ -6,6 +6,4 @@ const controller = require("../controllers/flight.controller");
 route.get('/', controller.getAllFlights);
 
 
-
-
 module.exports = route;
