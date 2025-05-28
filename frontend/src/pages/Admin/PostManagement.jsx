@@ -61,7 +61,7 @@ const PostInfo = () => {
       message: 'Bạn có chắc chắn muốn thêm bài đăng này không?',
       onConfirm: async () => {
         try {
-          const response = await fetch('http://localhost:5000/api/posts/', {
+          const response = await fetch('http://localhost:5000/api/admin/post/', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ const PostInfo = () => {
       onConfirm: async () => {
         try {
           const response = await fetch(
-            `http://localhost:5000/api/posts/${id}`,
+            `http://localhost:5000/api/admin/post/${id}`,
             {
               method: 'DELETE',
             }
@@ -130,7 +130,7 @@ const PostInfo = () => {
       onConfirm: async () => {
         try {
           const response = await fetch(
-            `http://localhost:5000/api/posts/${selectedPost.id}`,
+            `http://localhost:5000/api/admin/post/${selectedPost.id}`,
             {
               method: 'PATCH',
               headers: {

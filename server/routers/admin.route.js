@@ -22,10 +22,10 @@ route.patch("/flight/:flightId/status",verifyToken, verifyAdmin, adminController
 route.patch("/airplane/seatCount",verifyToken, verifyAdmin, adminController.updateSeatCount);
 
 
-//[DELETE] /api/admin/post/delete/:id: Xóa bài viết theo id
+//[DELETE] /api/admin/post/:id: Xóa bài viết theo id
 route.delete("/post/:id",verifyToken, verifyAdmin, adminController.deletePost);
 
-//[PATCH] /api/admin/post/edit/:id: Cập nhật bài viết theo id
+//[PATCH] /api/admin/post/:id: Cập nhật bài viết theo id
 route.patch("/post/:id",verifyToken, verifyAdmin, adminController.editPost);
 
 

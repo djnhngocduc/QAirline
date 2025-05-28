@@ -111,7 +111,7 @@ const AddFlights = () => {
       message: 'Bạn có chắc chắn muốn thêm chuyến bay này không?',
       onConfirm: async () => {
         try {
-          const response = await fetch('http://localhost:5000/api/flights', {
+          const response = await fetch('http://localhost:5000/api/admin/flight', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -154,7 +154,7 @@ const AddFlights = () => {
         try {
           // console.log('id', id);
           const response = await fetch(
-            `http://localhost:5000/api/flights/${id}`,
+            `http://localhost:5000/api/admin/flight/${id}`,
             {
               method: 'DELETE',
             }
@@ -197,7 +197,7 @@ const AddFlights = () => {
       onConfirm: async () => {
         try {
           const response = await fetch(
-            `http://localhost:5000/api/flights/${selectedFlight.id}`,
+            `http://localhost:5000/api/admin/flight/${selectedFlight.id}`,
             {
               method: 'PATCH',
               headers: {

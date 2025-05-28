@@ -69,7 +69,7 @@ const AddAirplanes = () => {
       message: 'Bạn có chắc chắn muốn thêm máy bay này không?',
       onConfirm: async () => {
         try {
-          const response = await fetch('http://localhost:5000/api/airplanes/', {
+          const response = await fetch('http://localhost:5000/api/admin/airplane/', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -103,7 +103,7 @@ const AddAirplanes = () => {
       onConfirm: async () => {
         try {
           const response = await fetch(
-            `http://localhost:5000/api/airplanes/${id}`,
+            `http://localhost:5000/api/admin/airplane/${id}`,
             {
               method: 'DELETE',
             }
@@ -138,7 +138,7 @@ const AddAirplanes = () => {
       onConfirm: async () => {
         try {
           const response = await fetch(
-            `http://localhost:5000/api/airplanes/${selectedAirplane.id}`,
+            `http://localhost:5000/api/admin/airplane/${selectedAirplane.id}`,
             {
               method: 'PATCH',
               headers: {
