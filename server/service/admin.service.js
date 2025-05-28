@@ -42,19 +42,18 @@ exports.createPost = async (
 //[POST] /api/admin/flight: Tạo chuyến bay mới
 exports.addFlight = async (
     flightNumber,
-    airplaneId,
     origin,
     destination,
     departureTime,
     arrivalTime,
 ) => {
     return await Flight.create({
-        flight_number,
-        airplane_id,
+        flightNumber,
+        flightNumber,
         origin,
         destination,
-        departure_time,
-        arrival_time,
+        departureTime,
+        arrivalTime,
         status: "scheduled"
     })
 }

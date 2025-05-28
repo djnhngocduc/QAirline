@@ -9,9 +9,9 @@ const customerRoute = require('../routers/customer.route');
 module.exports.index = (app) => { 
     app.use("/api/auth", authRoute);
     app.use("/api/customer", customerRoute);
-    app.use("/api/airplane", airplaneRoute);
+    app.use("/api/airplanes", airplaneRoute);
     app.use("/api/post", postRoute);
     app.use("/api/admin", adminRoute);
-    app.use("/api/flight", flightRoute);
+    app.use("/api/flights", flightRoute);
 }
 

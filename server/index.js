@@ -7,7 +7,12 @@ const sequelize = require('./config/database');
 sequelize;
 
 const app = express();  
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
+
+
+app.use(cors());
+app.use(bodyParser.json());
+app.use(express.json());
 
 routeApi.index(app);
 
@@ -23,15 +28,11 @@ app.get("/api/test/post", async (req, res) => {
   }
 });
 
+
+
 app.get("/", (req, res) => {
   res.send("Project Qairline Backend");
 });
-
-app.use(cors);
-app.use(bodyParser.json());
-app.use(express.json());
-
-
 
 
 app.listen(port, () => {
