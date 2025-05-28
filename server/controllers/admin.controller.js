@@ -1,5 +1,6 @@
 const {Post , Airplane, Flight, Booking} = require('../models/index.model');
 const adminService = require('../service/admin.service');
+const flightService = require('../service/flight.service');
 
 //[POST]: /api/admin/post: Tạo bài viết mới
 exports.createPost = async (req, res) => {
@@ -49,36 +50,36 @@ exports.addAirplane = async (req, res) => {
     }
 }
 
-//[POST]: /api/admin/flight: Tạo chuyến bay mới
-exports.addFlight = async (req, res) => {
-    const {
-    flightNumber,
-    airplaneId,
-    origin,
-    destination,
-    departureTime,
-    arrivalTime } = req.body;
+// //[POST]: /api/admin/flight: Tạo chuyến bay mới
+// exports.addFlight = async (req, res) => {
+//     const {
+//     flightNumber,
+//     airplaneId,
+//     origin,
+//     destination,
+//     departureTime,
+//     arrivalTime } = req.body;
 
-    try {
-        const flight = await adminService.addFlight(
-            flightNumber,
-            airplaneId,
-            origin,
-            destination,
-            departureTime,
-            arrivalTime
-        );
-        return res.status(201).json({
-            message: "Tạo chuyến bay thành công",
-            flight
-        });
-    } catch (error) {
-        return res.status(500).json({
-            message: "Tạo chuyến bay thất bại",
-            error: error.message
-        });
-    }
-}
+//     try {
+//         const flight = await adminService.addFlight(
+//             flightNumber,
+//             airplaneId,
+//             origin,
+//             destination,
+//             departureTime,
+//             arrivalTime
+//         );
+//         return res.status(201).json({
+//             message: "Tạo chuyến bay thành công",
+//             flight
+//         });
+//     } catch (error) {
+//         return res.status(500).json({
+//             message: "Tạo chuyến bay thất bại",
+//             error: error.message
+//         });
+//     }
+// }
 
 //[GET]: /api/admin/bookings: Lấy danh sách đặt chỗ
 exports.viewBookings = async (req, res) => {
@@ -166,22 +167,22 @@ exports.editPost = async (req, res) => {
 }
 
 
-//[POST] /api/admin/airplane Them máy bay mới
-exports.addAirplane = async (req,res) => {
-    const { model, manufacturer, seat_count} = req.body;
-    try {
-        const airplane = await adminService.addAirplane(model, manufacturer, seat_count);
-        return res.status(201).json({
-            message: "Thêm máy bay thành công",
-            airplane
-        });
-    } catch (error) {
-        return res.status(500).json({
-            message: "Thêm máy bay thất bại",
-            error: error.message
-        });
-    }
-}
+// //[POST] /api/admin/airplane Them máy bay mới
+// exports.addAirplane = async (req,res) => {
+//     const { model, manufacturer, seat_count} = req.body;
+//     try {
+//         const airplane = await adminService.addAirplane(model, manufacturer, seat_count);
+//         return res.status(201).json({
+//             message: "Thêm máy bay thành công",
+//             airplane
+//         });
+//     } catch (error) {
+//         return res.status(500).json({
+//             message: "Thêm máy bay thất bại",
+//             error: error.message
+//         });
+//     }
+// }
 
 //[PATCH] /api/admin/airplane/:id Cap nhật máy bay theo id
 
@@ -216,5 +217,77 @@ exports.deleteAirplane = async (req, res) => {
             message: "Xóa máy bay thất bại",
             error: error.message
         });
+    }
+}
+
+//[POST] /api/flight
+exports.addFlight = async (req, res) => {
+    const {
+        flightNumber,
+        origin,
+        destination,
+        departureTime,
+        arrivalTime,
+        status,
+        airplaneModel
+    } = req.body;
+    try {
+        const newFlight = await flightService.addFlight(
+            flightNumber,
+            origin,
+            destination,
+            departureTime,
+            arrivalTime,
+            status,
+            airplaneModel
+        );
+        return res.status(201).json(newFlight);
+    } catch (error) {
+        return res.status(500).json({ message: "Lỗi khi thêm chuyến bay" });
+    }
+}
+
+//[PATCH] /api/flight/:id
+exports.editFlight = async (req, res) => {
+    const flightId = req.params.id;
+    const {
+        flightNumber,
+        origin,
+        destination,
+        departureTime,
+        arrivalTime,
+        status,
+        airplaneModel
+    } = req.body;
+    
+    try {
+        const updatedFlight = await flightService.editFlight(
+            flightId,
+            flightNumber,
+            origin,
+            destination,
+            departureTime,
+            arrivalTime,
+            status,
+            airplaneModel
+        );
+        return res.status(200).json(updatedFlight);
+    } catch (error) {
+        return res.status(500).json({ message: "Lỗi khi cập nhật chuyến bay" });
+    }
+}
+
+//[DELETE] /api/flight/:id
+exports.deleteFlight = async (req, res) => {
+    const flightId = req.params.id;
+    try {
+        const deletedFlight = await flightService.deleteFlight(flightId);
+        if (!deletedFlight) {
+            return res.status(404).json({ message: "Chuyến bay không tồn tại" });
+        }
+        return res.status(200).json({ message: "Xóa chuyến bay thành công" });
+    }
+    catch (error) {
+        return res.status(500).json({ message: "Lỗi khi xóa chuyến bay" });
     }
 }
