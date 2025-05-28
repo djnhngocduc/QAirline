@@ -80,7 +80,7 @@ function BookingPage() {
   }, [outgoingFlights, returnFlights]);
 
   const handleSelectFare = (flight, fare) => {
-    const selectedSeat = flight.Seats.find((seat) => seat.seat_type === fare);
+    const selectedSeat = flight.Seats.find((seat) => seat.seat_type.toLowerCase() === fare.toLowerCase());
     if (selectedSeat) {
       if (isSelectingReturnFlight) {
         setSelectedReturnFlight({
@@ -198,10 +198,10 @@ function BookingPage() {
                   )
                   .map((flight) => {
                     const economySeat = flight.Seats.find(
-                      (seat) => seat.seat_type === 'economy'
+                      (seat) => seat.seat_type.toLowerCase() === 'economy'
                     );
                     const premiumSeat = flight.Seats.find(
-                      (seat) => seat.seat_type === 'premium'
+                      (seat) => seat.seat_type.toLowerCase() === 'premium'
                     );
                     return (
                       <Card key={flight.id} className="mb-3">

@@ -40,14 +40,16 @@ export default function Payment() {
     e.preventDefault();
     const bookingData = {
       totalPrice,
-      outboundFlight: {
-        ...outboundFlight,
-        seat_id: outboundFlight.seatId, // Use the seat ID from state
-      },
+      outboundFlight: outboundFlight
+        ? {
+            ...outboundFlight,
+            seat_id: outboundFlight.seatId,
+          }
+        : null,
       returnFlight: returnFlight
         ? {
             ...returnFlight,
-            seat_id: returnFlight.seatId, // Use the seat ID from state
+            seat_id: returnFlight.seatId,
           }
         : null,
       passengerDetails,
@@ -55,13 +57,13 @@ export default function Payment() {
     };
 
     try {
-      const token = localStorage.getItem('token'); // Retrieve token from localStorage
-      console.log('token: ', token);
+      // const token = localStorage.getItem('token'); // Retrieve token from localStorage
+      // console.log('token: ', token);
       const response = await fetch('http://localhost:5000/api/customer/book', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: token ? `Bearer ${token}` : '', // Include token in headers
+          // Authorization: token ? `Bearer ${token}` : '', // Include token in headers
         },
         body: JSON.stringify(bookingData),
       });
@@ -309,7 +311,7 @@ export default function Payment() {
                     <div className="flex items-center justify-between">
                       <span className="font-medium">Tổng giá chuyển đi:</span>
                       <span className="text-xl font-medium">
-                        {totalPrice.toFixed(2)} USD
+                        {Number(totalPrice).toFixed(2)} USD
                       </span>
                     </div>
                   </div>

@@ -237,7 +237,7 @@ export default function PassengerDetails() {
                     <div className="flex items-center justify-between">
                       <span className="font-medium">Tổng giá chuyến đi:</span>
                       <span className="text-xl font-medium">
-                        {totalPrice.toFixed(2)} USD
+                        {Number(totalPrice).toFixed(2)} USD
                       </span>
                     </div>
                   </div>
