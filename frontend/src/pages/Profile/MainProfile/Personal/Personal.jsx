@@ -72,7 +72,7 @@ const Personal = () => {
       const response = await fetch(
         'http://localhost:5000/api/customer/update-profile',
         {
-          method: 'PUT',
+          method: 'PATCH',
           headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -104,7 +104,7 @@ const Personal = () => {
       const response = await fetch(
         'http://localhost:5000/api/customer/update-profile',
         {
-          method: 'PUT',
+          method: 'PATCH',
           headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem('token')}`,

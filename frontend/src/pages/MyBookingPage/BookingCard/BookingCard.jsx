@@ -32,7 +32,7 @@ const BookingCard = ({ booking, index }) => {
       const response = await fetch(
         `http://localhost:5000/api/customer/cancel/${booking.id}`,
         {
-          method: 'PUT',
+          method: 'PATCH',
           headers: {
             'Content-Type': 'application/json',
             Authorization: token ? `Bearer ${token}` : '',
