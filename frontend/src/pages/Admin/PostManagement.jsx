@@ -40,7 +40,7 @@ const PostInfo = () => {
       try {
         const response = await fetch('http://localhost:5000/api/post/');
         const data = await response.json();
-        setPosts(data);
+        setPosts(data.posts);
       } catch (error) {
         toast.error('Tải bài đăng thất bại.');
         console.error('Lỗi khi tải bài đăng:', error);
