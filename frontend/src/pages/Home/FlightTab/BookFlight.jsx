@@ -5,6 +5,7 @@ import { RadioGroup, RadioGroupItem } from '../../../components/ui/RadioGroup';
 import { Label } from '../../../components/ui/Label';
 import { useNavigate } from 'react-router-dom';
 import DatePicker from '../../../components/DatePicker';
+import { toast } from 'sonner';
 
 export default function BookAFlight() {
   const [activeDropdown, setActiveDropdown] = useState(null); // null | "from" | "to"
@@ -100,6 +101,7 @@ export default function BookAFlight() {
         });
         console.log('Flights:', data);
       } else {
+        toast.error('Không tìm thấy chuyến bay.')
         console.error('Lỗi khi tải chuyến bay:', data);
       }
     } catch (error) {
