@@ -22,7 +22,7 @@ import {
   TableRow,
 } from '../../components/ui/Table';
 
-const AddAirplanes = () => {
+const AirplaneManagement = () => {
   const [airplanes, setAirplanes] = useState([]);
   const [newAirplane, setNewAirplane] = useState({
     model: '',
@@ -42,6 +42,7 @@ const AddAirplanes = () => {
     message: '',
     onConfirm: null,
   });
+  const token = localStorage.getItem('token');
   useEffect(() => {
     // Fetch airplane data from the server
     const fetchAirplanes = async () => {
@@ -73,6 +74,7 @@ const AddAirplanes = () => {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
+              'Authorization': token ? `Bearer ${token}` : ''
             },
             body: JSON.stringify(newAirplane),
           });
@@ -106,6 +108,10 @@ const AddAirplanes = () => {
             `http://localhost:5000/api/admin/airplane/${id}`,
             {
               method: 'DELETE',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token ? `Bearer ${token}` : ''
+              },
             }
           );
 
@@ -143,6 +149,7 @@ const AddAirplanes = () => {
               method: 'PATCH',
               headers: {
                 'Content-Type': 'application/json',
+                'Authorization': token ? `Bearer ${token}` : ''
               },
               body: JSON.stringify(selectedAirplane),
             }
@@ -401,4 +408,4 @@ const AddAirplanes = () => {
   );
 };
 
-export default AddAirplanes;
+export default AirplaneManagement;

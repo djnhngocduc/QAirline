@@ -1,8 +1,8 @@
 import Layout from "./Layout";
 import { Routes, Route } from "react-router-dom";
-import PostInfo from "./PostManagement";
-import AddAirplanes from "./AirplaneManagement";
-import AddFlights from "./FlightManagement";
+import PostManagement from "./PostManagement";
+import AirplaneManagement from "./AirplaneManagement";
+import FlightManagement from "./FlightManagement";
 import Statistics from "./Statistics";
 
 function Admin() {
@@ -10,9 +10,9 @@ function Admin() {
     <>
       <Layout>
         <Routes>
-          <Route path="manage-posts" element={<PostInfo />} />
-          <Route path="manage-airplanes" element={<AddAirplanes />} />
-          <Route path="manage-flights" element={<AddFlights />} />
+          <Route path="manage-posts" element={<PostManagement />} />
+          <Route path="manage-airplanes" element={<AirplaneManagement />} />
+          <Route path="manage-flights" element={<FlightManagement />} />
           <Route path="statistics" element={<Statistics />} />
         </Routes>
       </Layout>

@@ -81,7 +81,7 @@ const MainProfile = () => {
       <div className="hidden md:block">
         <Tabs
           defaultValue="personalDetails"
-          className="h-screen-plus max-w-screen-2xl bg-background"
+          className="h-[150vh] max-w-screen-2xl bg-background"
         >
           <TabsList className="m-0 flex h-auto flex-row rounded-none p-0">
             <TabsTrigger

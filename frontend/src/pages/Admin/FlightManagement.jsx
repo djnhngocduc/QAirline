@@ -37,7 +37,7 @@ const formatDateTime = (dateTime) => {
   return new Date(dateTime).toLocaleDateString(undefined, options);
 };
 
-const AddFlights = () => {
+const FlightManagement = () => {
   const [flights, setFlights] = useState([]);
   const [airplaneModels, setAirplaneModels] = useState([]);
   const [newFlight, setNewFlight] = useState({
@@ -62,6 +62,7 @@ const AddFlights = () => {
     key: null,
     direction: 'ascending',
   });
+  const token = localStorage.getItem('token');
 
   const fetchFlights = async () => {
     try {
@@ -115,6 +116,7 @@ const AddFlights = () => {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
+              'Authorization': token ? `Bearer ${token}` : ''
             },
             body: JSON.stringify({
               flightNumber: newFlight.flight_number,
@@ -157,6 +159,10 @@ const AddFlights = () => {
             `http://localhost:5000/api/admin/flight/${id}`,
             {
               method: 'DELETE',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token ? `Bearer ${token}` : ''
+              },
             }
           );
 
@@ -202,6 +208,7 @@ const AddFlights = () => {
               method: 'PATCH',
               headers: {
                 'Content-Type': 'application/json',
+                'Authorization': token ? `Bearer ${token}` : ''
               },
               body: JSON.stringify({
                 flightNumber: selectedFlight.flight_number,
@@ -676,4 +683,4 @@ const AddFlights = () => {
   );
 };
 
-export default AddFlights;
+export default FlightManagement;

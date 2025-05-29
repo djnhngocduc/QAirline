@@ -22,7 +22,7 @@ import {
   TableRow,
 } from '../../components/ui/Table';
 
-const PostInfo = () => {
+const PostManagement = () => {
   const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState({ title: '', image: '', cta: '' });
   const [selectedPost, setSelectedPost] = useState(null);
@@ -34,6 +34,7 @@ const PostInfo = () => {
     message: '',
     onConfirm: null,
   });
+  const token = localStorage.getItem('token');
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -65,6 +66,7 @@ const PostInfo = () => {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
+              'Authorization': token ? `Bearer ${token}` : ''
             },
             body: JSON.stringify(newPost),
           });
@@ -98,6 +100,10 @@ const PostInfo = () => {
             `http://localhost:5000/api/admin/post/${id}`,
             {
               method: 'DELETE',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token ? `Bearer ${token}` : ''
+              },
             }
           );
 
@@ -135,6 +141,7 @@ const PostInfo = () => {
               method: 'PATCH',
               headers: {
                 'Content-Type': 'application/json',
+                'Authorization': token ? `Bearer ${token}` : ''
               },
               body: JSON.stringify(selectedPost),
             }
@@ -317,4 +324,4 @@ const PostInfo = () => {
   );
 };
 
-export default PostInfo;
+export default PostManagement;

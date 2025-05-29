@@ -1,6 +1,13 @@
 import './Banner.scss';
+import { useNavigate } from 'react-router-dom';
 
 function Banner() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/book');
+  }
+  
   return (
     <div className="banner">
       <div className="banner__content">
@@ -14,7 +21,7 @@ function Banner() {
             </span>
           </div>
         </div>
-        <button className="banner__button">Đặt ngay</button>
+        <button className="banner__button" onClick={handleClick}>Đặt ngay</button>
       </div>
     </div>
   )

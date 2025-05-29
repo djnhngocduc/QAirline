@@ -14,12 +14,12 @@ const FareRules = () => {
       {
         criteria: "Hành lý ký gửi (Người lớn/Trẻ em)",
         value:
-          "Không bao gồm trong giá vé. Hành khách có thể mua thêm gói hành lý ký gửi với giá từ 120.000 VNĐ cho mỗi 10 kg, áp dụng tùy theo chặng bay.",
+          "Không bao gồm trong giá vé. Hành khách có thể mua thêm gói hành lý ký gửi với giá từ 5 USD cho mỗi 10 kg, áp dụng tùy theo chặng bay.",
       },
       {
         criteria: "Thay đổi chuyến bay (trước 03 tiếng)",
         value:
-          "Phí thay đổi là 600.000 VNĐ mỗi vé, cộng thêm chênh lệch giá vé (nếu có). Không áp dụng thay đổi nếu thời gian khởi hành còn dưới 03 tiếng.",
+          "Phí thay đổi là 25 USD mỗi vé, cộng thêm chênh lệch giá vé (nếu có). Không áp dụng thay đổi nếu thời gian khởi hành còn dưới 03 tiếng.",
       },
       {
         criteria: "Hoàn vé (trước 03 tiếng)",
@@ -29,7 +29,7 @@ const FareRules = () => {
       {
         criteria: "Chọn chỗ ngồi",
         value:
-          "Hành khách có thể chọn chỗ ngồi trước với mức phí từ 50.000 VNĐ đến 200.000 VNĐ, tùy thuộc vào vị trí ghế (cửa sổ, lối đi, hàng đầu).",
+          "Hành khách có thể chọn chỗ ngồi trước với mức phí từ 2 USD đến 8 USD, tùy thuộc vào vị trí ghế (cửa sổ, lối đi, hàng đầu).",
       },
       {
         criteria: "Ưu tiên làm thủ tục",
@@ -39,7 +39,7 @@ const FareRules = () => {
       {
         criteria: "Suất ăn trên chuyến bay",
         value:
-          "Không bao gồm trong giá vé. Hành khách có thể mua các suất ăn nhẹ hoặc nước uống trên chuyến bay với giá từ 30.000 VNĐ đến 150.000 VNĐ.",
+          "Không bao gồm trong giá vé. Hành khách có thể mua các suất ăn nhẹ hoặc nước uống trên chuyến bay với giá từ 1 USD đến 6 USD.",
       },
       {
         criteria: "Thời gian hoàn tất thủ tục (check-in)",
@@ -62,12 +62,12 @@ const FareRules = () => {
       {
         criteria: "Hành lý ký gửi (Người lớn/Trẻ em)",
         value:
-          "Bao gồm 20 kg hành lý ký gửi miễn phí. Hành khách có thể mua thêm hành lý ký gửi với mức phí ưu đãi (80.000 VNĐ cho mỗi 10 kg).",
+          "Bao gồm 20 kg hành lý ký gửi miễn phí. Hành khách có thể mua thêm hành lý ký gửi với mức phí ưu đãi (3 USD cho mỗi 10 kg).",
       },
       {
         criteria: "Thay đổi chuyến bay (trước 03 tiếng)",
         value:
-          "Phí thay đổi là 600.000 VNĐ mỗi vé, cộng thêm chênh lệch giá vé (nếu có). Thời gian thay đổi áp dụng tối đa trước 03 tiếng so với giờ khởi hành.",
+          "Phí thay đổi là 25 USD mỗi vé, cộng thêm chênh lệch giá vé (nếu có). Thời gian thay đổi áp dụng tối đa trước 03 tiếng so với giờ khởi hành.",
       },
       {
         criteria: "Hoàn vé (trước 03 tiếng)",
@@ -77,7 +77,7 @@ const FareRules = () => {
       {
         criteria: "Chọn chỗ ngồi",
         value:
-          "Miễn phí chọn chỗ ngồi tiêu chuẩn (ghế gần lối đi hoặc cửa sổ). Các ghế hàng đầu hoặc thêm không gian để chân sẽ có mức phí từ 100.000 VNĐ.",
+          "Miễn phí chọn chỗ ngồi tiêu chuẩn (ghế gần lối đi hoặc cửa sổ). Các ghế hàng đầu hoặc thêm không gian để chân sẽ có mức phí từ 4 USD.",
       },
       {
         criteria: "Ưu tiên làm thủ tục",
@@ -87,7 +87,7 @@ const FareRules = () => {
       {
         criteria: "Suất ăn trên chuyến bay",
         value:
-          "Bao gồm 1 suất ăn nhẹ và 1 phần nước uống miễn phí (nước suối, trà hoặc cà phê). Hành khách có thể nâng cấp suất ăn với mức phí từ 50.000 VNĐ.",
+          "Bao gồm 1 suất ăn nhẹ và 1 phần nước uống miễn phí (nước suối, trà hoặc cà phê). Hành khách có thể nâng cấp suất ăn với mức phí từ 2 USD.",
       },
       {
         criteria: "Thời gian hoàn tất thủ tục (check-in)",

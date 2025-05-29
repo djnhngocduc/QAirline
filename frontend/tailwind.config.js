@@ -53,11 +53,6 @@ module.exports = {
           5: 'hsl(27 87% 67%)',
         },
       },
-      // fontFamily: {
-      //   sans: ['B612', 'sans-serif'],
-      //   serif: ['B612', 'serif'],
-      //   mono: ['B612 Mono', 'monospace'],
-      // },
       keyframes: {
         'accordion-down': {
           from: {
@@ -79,14 +74,6 @@ module.exports = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-      },
-      width: {
-        112: '28rem', // 448px
-        144: '36rem', // 576px
-        192: '48rem', // 768px
-      },
-      height: {
-        'screen-plus': '150vh',
       },
     },
   },
