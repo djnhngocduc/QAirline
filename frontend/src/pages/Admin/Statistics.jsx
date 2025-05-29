@@ -10,10 +10,10 @@ const Statistics = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/customer/bookings')
+    fetch('http://localhost:5000/api/admin/bookings')
       .then((response) => response.json())
       .then((data) => {
-        setBookingsData(data);
+        setBookingsData(Array.isArray(data) ? data : data.bookings || []);
         setLoading(false);
       })
       .catch((error) => {

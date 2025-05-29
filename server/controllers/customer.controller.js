@@ -218,7 +218,62 @@ exports.trackBooking = async (req, res) => {
 }
 
 exports.getBookingsDetail = async (req, res) => {
-    
+    const bookingId = req.params.id;
+    try {
+      const booking = await Booking.findOne({
+        where: { id: bookingId },
+        include: [ 
+          {
+            model: Passenger,
+            attributes: ["first_name", "last_name", "email", "phone"],
+          },
+          {
+            model: Flight,
+            as: "outboundFlight",
+            attributes: [
+              "origin",
+              "destination",
+              "departure_time",
+              "arrival_time",
+              "status",
+              "duration"
+            ]
+          },
+          {
+            model: Flight,
+            as: "returnFlight",
+            attributes: [
+              "origin",
+              "destination",
+              "departure_time",
+              "arrival_time",
+              "status",
+              "duration",
+            ],
+          },
+          {
+            model: Seat,
+            as: "outboundSeat",
+            attributes: ["seat_type", "seat_number"]
+          },
+          {
+            model: Seat,
+            as: "returnSeat",
+            attributes: ["seat_type", "seat_number"]
+          }
+        ]
+      })
+      if(!booking) {
+        return res.status(404).json({ message: "Không tìm thấy booking" });
+      }
+      return res.status(200).json({
+        message: "Lấy thông tin booking thành công",
+        booking: booking
+      });
+    } catch (error) {
+      console.error("Lỗi khi lấy thông tin booking:", error);
+      return res.status(500).json({ message: "Lỗi hệ thống", error: error.message });
+    }
 }
 
 

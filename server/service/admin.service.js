@@ -58,11 +58,49 @@ exports.addFlight = async (
     })
 }
 
-//[GET] /api/admin/bookings: Lấy danh sách đặt chỗ
+// //[GET] /api/admin/bookings: Lấy danh sách đặt chỗ
 exports.viewBookings = async () => {
-    return await Booking.findAll({
-        include: [Customer, Flight, Seat],
-    })
+    const bookings = await Booking.findAll({
+      include: [
+        {
+          model: Passenger,
+          attributes: ["first_name", "last_name", "email", "phone"],
+        },
+        {
+          model: Flight,
+          as: "outboundFlight",
+          attributes: [
+            "origin",
+            "destination",
+            "departure_time",
+            "arrival_time",
+            "status",
+          ],
+        },
+        {
+          model: Flight,
+          as: "returnFlight",
+          attributes: [
+            "origin",
+            "destination",
+            "departure_time",
+            "arrival_time",
+            "status",
+          ],
+        },
+        {
+          model: Seat,
+          as: "outboundSeat",
+          attributes: ["seat_number", "seat_type"],
+        },
+        {
+          model: Seat,
+          as: "returnSeat",
+          attributes: ["seat_number", "seat_type"],
+        },
+      ],
+    });
+    return bookings;
 }
 
 //[PUT] api/admin/flight/:flightId/status Cập nhật trạng thái chuyến bay
