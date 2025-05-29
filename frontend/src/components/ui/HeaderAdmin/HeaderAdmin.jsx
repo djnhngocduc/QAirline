@@ -1,7 +1,7 @@
 import { Input } from "../Input";
 import { Button } from "../Button";
 import { FiMenu, FiSearch } from "react-icons/fi";
-import DropdownUser from "./DropdownUser";
+import AdminProfile from "./AdminProfile";
 
 const HeaderAdmin = ({ sidebarOpen, setSidebarOpen }) => {
   return (
@@ -34,11 +34,9 @@ const HeaderAdmin = ({ sidebarOpen, setSidebarOpen }) => {
           </form>
         </div>
 
-        {/* Icons & User Profile */}
         <div className="flex items-center gap-4">
-
-          {/* User Profile */}
-          <DropdownUser />
+          <AdminProfile tier="Admin" avios={0} qpoints={0}
+          ></AdminProfile>
         </div>
       </div>
     </header>
