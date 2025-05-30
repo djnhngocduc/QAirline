@@ -1,7 +1,7 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '../../../components/ui/Tab';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '../../../components/ui/Accordion';
 import { FaPlane, FaHotel, FaUserCheck, FaInfoCircle } from 'react-icons/fa';
-import BookAFlight from '../FlightTab/BookFlight';
+import BookFlight from '../FlightTab/BookFlight';
 import Stopover from '../FlightTab/StopOver';
 import ManageBooking from '../FlightTab/ManageBooking';
 import FlightStatus from '../FlightTab/FlightStatus';
@@ -51,7 +51,7 @@ function FlightTab() {
 
           {/* Tab Content cho màn hình lớn */}
           <TabsContent value="book">
-            <BookAFlight />
+            <BookFlight />
           </TabsContent>
           <TabsContent value="stopover">
             <Stopover />
@@ -74,7 +74,7 @@ function FlightTab() {
                 <FaPlane className="text-xl" /> Đặt vé
               </AccordionTrigger>
               <AccordionContent className="px-4 py-3">
-                <BookAFlight />
+                <BookFlight />
               </AccordionContent>
             </AccordionItem>
 

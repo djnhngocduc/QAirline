@@ -5,12 +5,19 @@ import { RadioGroup, RadioGroupItem } from '../../../components/ui/RadioGroup';
 import { Label } from '../../../components/ui/Label';
 import { useNavigate } from 'react-router-dom';
 import DatePicker from '../../../components/DatePicker';
-import { toast } from 'sonner';
+import AlertDialog from '../../../components/Notification/AlertDialog';
 
-export default function BookAFlight() {
+export default function BookFlight() {
   const [activeDropdown, setActiveDropdown] = useState(null); // null | "from" | "to"
   const [fromCities, setFromCities] = useState([]);
   const [toCities, setToCities] = useState([]);
+  const [alert, setAlert] = useState({
+    open: false,
+    title: '',
+    message: '',
+    isSuccess: false,
+    onClose: null,
+  });
 
   useEffect(() => {
     const fetchCities = async () => {
@@ -101,11 +108,26 @@ export default function BookAFlight() {
         });
         console.log('Flights:', data);
       } else {
-        toast.error('Không tìm thấy chuyến bay.')
+        const error = await response.json();
+        const errorMessage = error.errors && error.errors.length > 0
+            ? error.errors[0].msg
+            : 'Không tìm thấy chuyến bay!';
+        setAlert({
+          open: true,
+          title: 'QAirline',
+          message: `Không tìm thấy chuyến bay: ${errorMessage}`,
+          isSuccess: false,
+        });
         console.error('Lỗi khi tải chuyến bay:', data);
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Lỗi kết nối:', error);
+      setAlert({
+        open: true,
+        title: 'QAirline',
+        message: `Lỗi kết nối: ${error}. Vui lòng thử lại sau!`,
+        isSuccess: false,
+      });
     }
   };
 
@@ -330,6 +352,18 @@ export default function BookAFlight() {
         <Button className="text-white bg-[#ff4d4d] hover:bg-[#c84c4c]" onClick={handleSearchFlights}>
           Tìm kiếm
         </Button>
+        <AlertDialog
+          open={alert.open}
+          onClose={() => {
+            if (alert.onClose) {
+              alert.onClose();
+            }
+            setAlert({ ...alert, open: false });
+          }}
+          title={alert.title}
+          message={alert.message}
+          isSuccess={alert.isSuccess}
+        />
       </div>
       {document.addEventListener('click', handleOutsideClick)}
     </div>
