@@ -36,11 +36,10 @@ module.exports = (sequelize, DataTypes) => {
     });
   
     Flight.associate = function (models) {
-      Flight.belongsTo(models.Airplane, { foreignKey: "airplane_id" });
+      Flight.belongsTo(models.Airplane, { foreignKey: "airplane_id", onDelete: 'CASCADE' });
       Flight.hasMany(models.Booking, { foreignKey: "flight_id" });
       Flight.hasMany(models.Seat, { foreignKey: "flight_id" });
     };
   
     return Flight;
   };
-  

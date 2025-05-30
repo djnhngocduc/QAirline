@@ -19,12 +19,6 @@ module.exports = (sequelize, DataTypes) => {
     });
   
     Airplane.associate = function (models) {
-      // Mối quan hệ với bảng Airline
-      Airplane.belongsTo(models.Airline, {
-        foreignKey: "airline_id",
-        allowNull: false,
-      }); // Liên kết với bảng Airline
-  
       // Mối quan hệ với bảng Flight
       Airplane.hasMany(models.Flight, { foreignKey: "airplane_id" }); // Liên kết với bảng Flight
     };

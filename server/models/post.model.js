@@ -11,8 +11,14 @@ module.exports = (sequelize, DataTypes) => {
       post_type: {
         type: DataTypes.ENUM("introduction", "promotion", "announcement", "news"),
       },
-      start_date: DataTypes.DATE,
-      end_date: DataTypes.DATE,
+      start_date: {
+        type: DataTypes.DATE,
+        allowNull: true, // Cho phép giá trị null nếu không có ngày bắt đầu
+      }, 
+      end_date: { 
+        type: DataTypes.DATE,
+        allowNull: true, // Cho phép giá trị null nếu không có ngày kết thúc
+      },
       is_published: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
@@ -28,4 +34,3 @@ module.exports = (sequelize, DataTypes) => {
   
     return Post;
   };
-  

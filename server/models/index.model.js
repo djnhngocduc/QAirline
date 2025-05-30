@@ -19,10 +19,6 @@ const Airplane = require("./airplane.model")(
   require("sequelize").DataTypes
 );
 
-const Airline = require("./airline.model")(
-  sequelize,
-  require("sequelize").DataTypes
-);
 const Passenger = require("./passenger.model")(
   sequelize,
   require("sequelize").DataTypes
@@ -36,8 +32,7 @@ Post.associate({ Admin });
 Flight.associate({ Airplane, Booking, Seat });
 Booking.associate({ Customer, Flight, Seat, Passenger });
 Seat.associate({ Flight, Booking });
-Airplane.associate({ Airline, Flight });
-Airline.associate({ Airplane });
+Airplane.associate({ Flight });
 Passenger.associate({ Booking });
 
 module.exports = {
@@ -49,7 +44,6 @@ module.exports = {
   Booking,
   Seat,
   Airplane,
-  Airline,
   Passenger,
   sequelize,
 };

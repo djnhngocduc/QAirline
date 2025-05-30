@@ -16,7 +16,7 @@ exports.getAllAirplaneModels = async (req, res) => {
 exports.getAllAirplanes = async (req, res) => {
     try {
         const airplanes = await Airplane.findAll({
-            attributes: ["model", "manufacturer", "seat_count"],
+            attributes: ["id","model", "manufacturer", "seat_count"],
         })
         return res.status(200).json(airplanes);
     } catch (error) {

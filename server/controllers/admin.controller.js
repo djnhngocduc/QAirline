@@ -1,15 +1,21 @@
-const {Post , Airplane, Flight, Booking} = require('../models/index.model');
+const {Admin, Post , Airplane, Flight, Booking} = require('../models/index.model');
 const adminService = require('../service/admin.service');
 const flightService = require('../service/flight.service');
 
 //[POST]: /api/admin/post: Tạo bài viết mới
 exports.createPost = async (req, res) => {
-    const {image, title,content , postType, startDate, endDate} = req.body;
-    const adminId = req.userId;
+    const { title, image, cta, content, postType, startDate, endDate } = req.body;
+    const userId = req.userId;
     try {
+        const admin = await Admin.findOne({ where: { user_id: userId } });
+        if (!admin) {
+            return res.status(400).json({ message: "Admin không tồn tại" });
+        }
+        const adminId = admin.id;
         const post = await adminService.createPost(
-            image,
             title,
+            image,
+            cta,
             content,
             postType,
             startDate,
@@ -21,6 +27,7 @@ exports.createPost = async (req, res) => {
             post
         });
     } catch (error) {
+        console.error(error);
         return res.status(500).json({
             message: "Tạo bài viết thất bại",
             error: error.message
@@ -30,13 +37,12 @@ exports.createPost = async (req, res) => {
 
 //[POST]:   /api/admin/airplane: Tạo máy bay mới
 exports.addAirplane = async (req, res) => {
-    const { model, manufacturer, seatCount , airlineId } = req.body;
+    const { model, manufacturer, seat_count} = req.body;
     try {
         const airplane = await adminService.addAirplane(
             model,
             manufacturer,
-            seatCount,
-            airlineId
+            seat_count,
         );
         return res.status(201).json({
             message: "Tạo máy bay thành công",
@@ -196,6 +202,7 @@ exports.updateAirplane = async (req,res) => {
             airplane: newAirplane
         });
     } catch (error) {
+        console.error(error);
         return res.status(500).json({
             message: "Cập nhật máy bay thất bại",
             error: error.message
@@ -243,6 +250,7 @@ exports.addFlight = async (req, res) => {
         );
         return res.status(201).json(newFlight);
     } catch (error) {
+        console.error(error);
         return res.status(500).json({ message: "Lỗi khi thêm chuyến bay" });
     }
 }
@@ -279,15 +287,15 @@ exports.editFlight = async (req, res) => {
 
 //[DELETE] /api/flight/:id
 exports.deleteFlight = async (req, res) => {
-    const flightId = req.params.id;
+    const id = req.params.id;
     try {
-        const deletedFlight = await flightService.deleteFlight(flightId);
-        if (!deletedFlight) {
+        await flightService.deleteFlight(id);
+        return res.status(200).json({ message: "Xóa chuyến bay thành công" });
+    } catch (error) {
+        if (error.message === "Chuyến bay không tồn tại") {
             return res.status(404).json({ message: "Chuyến bay không tồn tại" });
         }
-        return res.status(200).json({ message: "Xóa chuyến bay thành công" });
-    }
-    catch (error) {
+        console.error(error);
         return res.status(500).json({ message: "Lỗi khi xóa chuyến bay" });
     }
 }

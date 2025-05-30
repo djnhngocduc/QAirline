@@ -1,26 +1,26 @@
-const { Post, Flight, Booking , Airplain} = require('../models/index.model');
+const { Post, Flight, Booking, Airplane, Passenger, Seat } = require('../models/index.model');
 
 //[POST] /api/admin/post: Tạo bài viết mới
 
 exports.createPost = async (
-    image,
     title,
-    content,
+    image,
     cta,
+    content,
     postType,
     startDate,
     endDate,
-    admin_id
+    adminId
 ) => {
     return await Post.create({
-        image,
         title,
-        content,
+        image,
         cta,
-        postType,
-        startDate: startDate || null,
-        endDate: endDate || null,
-        admin_id
+        content,
+        post_type: postType, // Đúng tên trường trong model
+        start_date: startDate || null,
+        end_date: endDate || null,
+        admin_id: adminId
     });
 }
 
@@ -161,7 +161,7 @@ exports.editPost = async(id,title, image, cta) => {
 
 //[POST] /api/admin/airplane Them máy bay mới
 exports.addAirplane = async (model, manufacturer, seat_count) => {
-    return await Airplain.create({
+    return await Airplane.create({
         model,
         manufacturer,
         seat_count,
@@ -170,7 +170,7 @@ exports.addAirplane = async (model, manufacturer, seat_count) => {
 
 //[PATCH] /api/admin/airplane/:id Cap nhật máy bay theo id
 exports.updateAirplane = async (id, model, manufacturer, seat_count) => {
-    const airplane = await Airplain.findByPk(id);
+    const airplane = await Airplane.findByPk(id);
     if (!airplane) {
         throw new Error("Máy bay không tồn tại");
     }
@@ -183,7 +183,7 @@ exports.updateAirplane = async (id, model, manufacturer, seat_count) => {
 
 // [DELETE] /api/admin/airplane/:id Xoa máy bay theo id
 exports.deleteAirplane = async (id) => {
-    const airplane = await Airplain.findByPk(id);
+    const airplane = await Airplane.findByPk(id);
     if (!airplane) {
         throw new Error("Máy bay không tồn tại");
     }

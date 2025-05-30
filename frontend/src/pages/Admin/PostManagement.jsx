@@ -24,7 +24,14 @@ import {
 
 const PostManagement = () => {
   const [posts, setPosts] = useState([]);
-  const [newPost, setNewPost] = useState({ title: '', image: '', cta: '' });
+  const [newPost, setNewPost] = useState({
+    title: '',
+    image: '',
+    cta: '',
+    content: '',
+    startDate: '',
+    endDate: ''
+  });
   const [selectedPost, setSelectedPost] = useState(null);
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [confirmDialog, setConfirmDialog] = useState({
@@ -52,7 +59,7 @@ const PostManagement = () => {
   }, []);
 
   const handleAddPost = async () => {
-    if (!newPost.title || !newPost.image || !newPost.cta) {
+    if (!newPost.title || !newPost.image || !newPost.cta || !newPost.content || !newPost.startDate || !newPost.endDate) {
       toast.error('Vui lòng điền vào tất cả các ô.');
       return;
     }
@@ -62,22 +69,27 @@ const PostManagement = () => {
       message: 'Bạn có chắc chắn muốn thêm bài đăng này không?',
       onConfirm: async () => {
         try {
-          const response = await fetch('http://localhost:5000/api/admin/post/', {
+          const response = await fetch('http://localhost:5000/api/admin/post', {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': token ? `Bearer ${token}` : ''
-            },
-            body: JSON.stringify(newPost),
+            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+            body: JSON.stringify({
+              title: newPost.title,
+              image: newPost.image,
+              cta: newPost.cta,
+              content: newPost.content,
+              postType: "promotion", // hoặc cho phép chọn loại bài đăng nếu muốn
+              startDate: new Date(newPost.startDate).toISOString().slice(0, 10),
+              endDate: new Date(newPost.endDate).toISOString().slice(0, 10),
+            }),
           });
 
           if (!response.ok) {
-            throw new Error('Thêm bài đăng mới thất bại.')
+            throw new Error('Thêm bài đăng mới thất bại.');
           }
 
           const addedPost = await response.json();
-          setPosts([...posts, addedPost]);
-          setNewPost({ title: '', image: '', cta: '' });
+          setPosts([...posts, addedPost.post]);
+          setNewPost({ title: '', image: '', cta: '', content: '', startDate: '', endDate: '' });
           toast.success('Thêm bài đăng mới thành công!');
         } catch (error) {
           toast.error('Thêm bài đăng mới thất bại.');
@@ -207,6 +219,29 @@ const PostManagement = () => {
                 }
                 placeholder="CTA"
               />
+              <Input
+                value={newPost.content}
+                onChange={(e) =>
+                  setNewPost({ ...newPost, content: e.target.value })
+                }
+                placeholder="Nội dung"
+              />
+              <Input
+                type="date"
+                value={newPost.startDate}
+                onChange={(e) =>
+                  setNewPost({ ...newPost, startDate: e.target.value })
+                }
+                placeholder="Ngày bắt đầu"
+              />
+              <Input
+                type="date"
+                value={newPost.endDate}
+                onChange={(e) =>
+                  setNewPost({ ...newPost, endDate: e.target.value })
+                }
+                placeholder="Ngày kết thúc"
+              />
             </div>
             <div className="text-right">
               <Button
@@ -231,6 +266,9 @@ const PostManagement = () => {
                   <TableHead className="w-1/4 text-center">Tiêu đề</TableHead>
                   <TableHead className="w-1/4 text-center">Ảnh</TableHead>
                   <TableHead className="w-1/4 text-center">CTA</TableHead>
+                  <TableHead className="w-1/4 text-center">Nội dung</TableHead>
+                  <TableHead className="w-1/4 text-center">Ngày bắt đầu</TableHead>
+                  <TableHead className="w-1/4 text-center">Ngày kết thúc</TableHead>
                   <TableHead className="w-1/4 text-center">Hành động</TableHead>
                 </TableRow>
               </TableHeader>
@@ -249,6 +287,13 @@ const PostManagement = () => {
                       />
                     </TableCell>
                     <TableCell className="text-center">{post.cta}</TableCell>
+                    <TableCell className="text-center">{post.content}</TableCell>
+                    <TableCell className="text-center">
+                      {post.start_date ? new Date(post.start_date).toLocaleDateString() : ''}
+                    </TableCell>
+                    <TableCell className="text-center">
+                      {post.end_date ? new Date(post.end_date).toLocaleDateString() : ''}
+                    </TableCell>
                     <TableCell className="text-center">
                       <div className="flex justify-center space-x-2">
                         <Button

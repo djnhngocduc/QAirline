@@ -24,6 +24,7 @@ import {
 
 const AirplaneManagement = () => {
   const [airplanes, setAirplanes] = useState([]);
+  const [airlines, setAirlines] = useState([]);
   const [newAirplane, setNewAirplane] = useState({
     model: '',
     manufacturer: '',
@@ -42,13 +43,16 @@ const AirplaneManagement = () => {
     message: '',
     onConfirm: null,
   });
+
   const token = localStorage.getItem('token');
+
   useEffect(() => {
     // Fetch airplane data from the server
     const fetchAirplanes = async () => {
       try {
         const response = await fetch('http://localhost:5000/api/airplanes/');
         const data = await response.json();
+        console.log('Máy bay:', data);
         setAirplanes(data);
       } catch (error) {
         toast.error('Tải máy bay thất bại.');
@@ -57,6 +61,7 @@ const AirplaneManagement = () => {
     };
 
     fetchAirplanes();
+
   }, []);
 
   const handleAddAirplane = async () => {
@@ -70,6 +75,7 @@ const AirplaneManagement = () => {
       message: 'Bạn có chắc chắn muốn thêm máy bay này không?',
       onConfirm: async () => {
         try {
+          const token = localStorage.getItem('token');
           const response = await fetch('http://localhost:5000/api/admin/airplane/', {
             method: 'POST',
             headers: {
@@ -156,10 +162,10 @@ const AirplaneManagement = () => {
           );
 
           if (response.ok) {
-            const updatedAirplane = await response.json();
+            const result = await response.json();
             setAirplanes(
               airplanes.map((plane) =>
-                plane.id === updatedAirplane.id ? updatedAirplane : plane
+                plane.id === result.airplane.id ? result.airplane : plane
               )
             );
             toast.success('Máy bay đã được cập nhật thành công!');

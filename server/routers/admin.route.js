@@ -5,14 +5,14 @@ const { verifyToken } = require("../middlewares/auth.middleware");
 const { verifyAdmin } = require("../middlewares/admin.middleware");
 
 
-//Dang thong tin 
-route.post("/post",verifyToken, verifyAdmin, adminController.createPost);
+//Them chuyen bay: /api/admin/flight
+route.post("/flight",verifyToken, verifyAdmin,adminController.addFlight);
 
-//Them chuyen bay
-route.post("/flight",verifyToken, verifyAdmin, adminController.addFlight);
+// Edit a flight: /api/admin/flight/:id
+route.patch('/flight/:id',verifyToken, verifyAdmin,adminController.editFlight);
 
-//Xem booking
-route.get("/bookings",verifyToken, verifyAdmin,  adminController.viewBookings);
+// Delete a flight /api/admin/flight/:id
+route.delete('/flight/:id',verifyToken, verifyAdmin,adminController.deleteFlight);
 
 
 //Cap nhat trang thai chuyen bay
@@ -21,6 +21,9 @@ route.patch("/flight/:flightId/status",verifyToken, verifyAdmin, adminController
 //Cap nhat so luong ghe ngoi
 route.patch("/airplane/seatCount",verifyToken, verifyAdmin, adminController.updateSeatCount);
 
+
+//Dang thong tin 
+route.post("/post", verifyToken, verifyAdmin, adminController.createPost);
 
 //[DELETE] /api/admin/post/:id: Xóa bài viết theo id
 route.delete("/post/:id",verifyToken, verifyAdmin, adminController.deletePost);
@@ -38,11 +41,7 @@ route.patch("/airplane/:id",verifyToken, verifyAdmin, adminController.updateAirp
 // [DELETE] /api/admin/airplane/:id Route to delete an airplane
 route.delete("/airplane/:id",verifyToken, verifyAdmin, adminController.deleteAirplane);
 
-// Edit a flight: /api/admin/flight/:id
-route.patch('/flight/:id',verifyToken, verifyAdmin, adminController.editFlight);
-
-// Delete a flight /api/admin/flight/:id
-route.delete('/flight/:id',verifyToken, verifyAdmin, adminController.deleteFlight);
-
+//Xem booking
+route.get("/bookings",verifyToken, verifyAdmin,  adminController.viewBookings);
 
 module.exports = route;

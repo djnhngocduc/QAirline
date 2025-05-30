@@ -9,6 +9,8 @@ const Statistics = () => {
   const [bookingsData, setBookingsData] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const token = localStorage.getItem('token');
+
   useEffect(() => {
     fetch('http://localhost:5000/api/admin/bookings')
       .then((response) => response.json())
