@@ -1,10 +1,14 @@
 import { Button } from '../../components/ui/Button';
 import { Card } from '../../components/ui/Card';
-import { Input } from '../../components/ui/Input';
-import { Label } from '../../components/ui/Label';
-import { Edit2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const DestinationCard = ({ city, image, dates, price, large = false }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/book');
+  }
+
   return (
     <Card
       className={`group relative overflow-hidden ${large ? 'md:col-span-2 md:row-span-2' : ''}`}
@@ -37,15 +41,10 @@ const DestinationCard = ({ city, image, dates, price, large = false }) => {
           <div className="translate-y-4 space-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
             <Button
               variant="outline"
+              onClick={handleClick}
               className={`w-full bg-white text-[#ff4d4d] hover:bg-white/20 hover:text-[#c84c4c] ${large ? 'py-2 text-sm' : 'py-1 text-xs'}`}
             >
-             Đặt ngay
-            </Button>
-            <Button
-              variant="outline"
-              className={`w-full border-white text-[#ff4d4d] hover:bg-white/20 hover:text-[#c84c4c] ${large ? 'py-2 text-sm' : 'py-1 text-xs'}`}
-            >
-              Khám phá
+              Đặt ngay
             </Button>
           </div>
         </div>
@@ -124,22 +123,9 @@ export function FlightDeals() {
 
   return (
     <div className="container mx-auto p-6">
-      <h2 className="mb-4 text-2xl font-bold text-[#ff4d4d]">
-        Tìm vé giá tốt
+      <h2 className="mb-8 text-3xl font-bold text-[#ff4d4d]">
+        Điểm đến phổ biến
       </h2>
-      <div className="mb-8 max-w-xs">
-        <Label htmlFor="from">Từ</Label>
-        <div className="relative">
-          <Input id="from" value="Hanoi HAN" className="pr-10" />
-          <Button
-            size="icon"
-            variant="ghost"
-            className="absolute right-2 top-1/2 -translate-y-1/2 hover:text-[#ff4d4d] hover:bg-transparent"
-          >
-            <Edit2 className="h-4 w-4" />
-          </Button>
-        </div>
-      </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         {destinations.map((destination, index) => (
           <DestinationCard key={destination.city} {...destination} />

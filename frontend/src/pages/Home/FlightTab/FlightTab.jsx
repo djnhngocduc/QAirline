@@ -1,10 +1,8 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '../../../components/ui/Tab';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '../../../components/ui/Accordion';
-import { FaPlane, FaHotel, FaUserCheck, FaInfoCircle } from 'react-icons/fa';
+import { FaPlane, FaUserCheck } from 'react-icons/fa';
 import BookFlight from '../FlightTab/BookFlight';
-import Stopover from '../FlightTab/StopOver';
 import ManageBooking from '../FlightTab/ManageBooking';
-import FlightStatus from '../FlightTab/FlightStatus';
 import { useEffect, useState } from 'react';
 
 function FlightTab() {
@@ -30,22 +28,10 @@ function FlightTab() {
               <FaPlane className="text-xl" /> Đặt vé
             </TabsTrigger>
             <TabsTrigger
-              value="stopover"
-              className="flex w-full items-center justify-center gap-2 rounded-lg px-6 py-4 text-gray-700 transition duration-200 ease-in-out hover:bg-[#ff4d4d] hover:text-white focus:outline-none"
-            >
-              <FaHotel className="text-xl" /> Quá cảnh / Gói dừng chân
-            </TabsTrigger>
-            <TabsTrigger
               value="manage"
               className="flex w-full items-center justify-center gap-2 rounded-lg px-6 py-4 text-gray-700 transition duration-200 ease-in-out hover:bg-[#ff4d4d] hover:text-white focus:outline-none"
             >
-              <FaUserCheck className="text-xl" /> Quản lý / Làm thủ tục
-            </TabsTrigger>
-            <TabsTrigger
-              value="status"
-              className="flex w-full items-center justify-center gap-2 rounded-lg px-6 py-4 text-gray-700 transition duration-200 ease-in-out hover:bg-[#ff4d4d] hover:text-white focus:outline-none"
-            >
-              <FaInfoCircle className="text-xl" /> Tình trạng chuyến bay
+              <FaUserCheck className="text-xl" /> Quản lý đặt vé
             </TabsTrigger>
           </TabsList>
 
@@ -53,14 +39,8 @@ function FlightTab() {
           <TabsContent value="book">
             <BookFlight />
           </TabsContent>
-          <TabsContent value="stopover">
-            <Stopover />
-          </TabsContent>
           <TabsContent value="manage">
             <ManageBooking />
-          </TabsContent>
-          <TabsContent value="status">
-            <FlightStatus />
           </TabsContent>
         </Tabs>
       )}
@@ -78,30 +58,12 @@ function FlightTab() {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="stopover">
-              <AccordionTrigger className="flex items-center gap-2 rounded-lg bg-gray-100 px-4 py-3 text-gray-700">
-                <FaHotel className="text-xl" /> Quá cảnh / Gói dừng chân
-              </AccordionTrigger>
-              <AccordionContent className="px-4 py-3">
-                <Stopover />
-              </AccordionContent>
-            </AccordionItem>
-
             <AccordionItem value="manage">
               <AccordionTrigger className="flex items-center gap-2 rounded-lg bg-gray-100 px-4 py-3 text-gray-700">
-                <FaUserCheck className="text-xl" /> Quản lý / Làm thủ tục
+                <FaUserCheck className="text-xl" /> Quản lý đặt vé
               </AccordionTrigger>
               <AccordionContent className="px-4 py-3">
                 <ManageBooking />
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="status">
-              <AccordionTrigger className="flex items-center gap-2 rounded-lg bg-gray-100 px-4 py-3 text-gray-700">
-                <FaInfoCircle className="text-xl" /> Tình trạng chuyến bay
-              </AccordionTrigger>
-              <AccordionContent className="px-4 py-3">
-                <FlightStatus />
               </AccordionContent>
             </AccordionItem>
           </Accordion>
