@@ -422,7 +422,7 @@ function BookingPage() {
                   className={`w-full ${
                     selectedFareType === 'premium'
                       ? 'bg-yellow-600 text-white hover:bg-yellow-400'
-                      : 'bg-purple-600 text-white hover:bg-purple-700'
+                      : 'bg-[#ff4d4d] text-white hover:bg-[#c84c4c]'
                   }`}
                   onClick={handleConfirmBooking}
                 >

@@ -46,7 +46,7 @@ const FlightManagement = () => {
     destination: '',
     departure_time: '',
     arrival_time: '',
-    status: 'Scheduled',
+    status: 'Đã lên lịch',
     aircraft_type: '',
   });
   const [confirmDialog, setConfirmDialog] = useState({
@@ -138,7 +138,7 @@ const FlightManagement = () => {
           resetForm();
           toast.success('Thêm chuyến bay thành công!');
         } catch (error) {
-          toast.success('Thêm chuyến bay thất bại.');
+          toast.error('Thêm chuyến bay thất bại.');
           console.error('Lỗi khi thêm chuyến bay:', error);
         }
         setConfirmDialog({ ...confirmDialog, isOpen: false });

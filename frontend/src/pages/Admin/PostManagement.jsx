@@ -349,9 +349,32 @@ const PostManagement = () => {
                 }
                 placeholder="Hành động"
               />
+              <Input
+                value={selectedPost.content}
+                onChange={(e) =>
+                  setNewPost({ ...selectedPost, content: e.target.value })
+                }
+                placeholder="Nội dung"
+              />
+              <Input
+                type="date"
+                value={selectedPost.startDate}
+                onChange={(e) =>
+                  setNewPost({ ...selectedPost, startDate: e.target.value })
+                }
+                placeholder="Ngày bắt đầu"
+              />
+              <Input
+                type="date"
+                value={selectedPost.endDate}
+                onChange={(e) =>
+                  setNewPost({ ...selectedPost, endDate: e.target.value })
+                }
+                placeholder="Ngày kết thúc"
+              />
             </div>
             <DialogFooter>
-              <Button onClick={handleSaveEdit} className="text-white">
+              <Button onClick={handleSaveEdit} className="text-white bg-[#ff4d4d] hover:bg-[#c84c4c]">
                 Lưu lại các thay đổi
               </Button>
             </DialogFooter>

@@ -76,58 +76,67 @@ export default function BookFlight() {
   };
 
   const handleSearchFlights = async () => {
-    const encodedFrom = encodeURIComponent(from);
-    const encodedTo = encodeURIComponent(to);
-
-    // Tạo URL API dựa trên thông tin người dùng nhập
-    let apiUrl = `http://localhost:5000/api/customer/search-flights?origin=${encodedFrom}&destination=${encodedTo}`;
-
-    if (departure) {
-      apiUrl += `&departure_date=${departure}`;
-    }
-
-    if (tripType === 'return' && returnDate) {
-      apiUrl += `&return_date=${returnDate}`;
-    }
-
-    // if (passengers.class) {
-    //   apiUrl += `&seat_type=${passengers.class}`;
-    // }
-
-    console.log('API URL:', apiUrl);
-
-    // Gọi API để tìm kiếm chuyến bay
-    try {
-      const response = await fetch(apiUrl);
-      const data = await response.json();
-
-      if (response.ok) {
-        // Truyền data về flights qua navigate
-        navigate('/booking', {
-          state: { flights: data, origin: from, destination: to },
-        });
-        console.log('Flights:', data);
-      } else {
-        const error = await response.json();
-        const errorMessage = error.errors && error.errors.length > 0
-            ? error.errors[0].msg
-            : 'Không tìm thấy chuyến bay!';
-        setAlert({
-          open: true,
-          title: 'QAirline',
-          message: `Không tìm thấy chuyến bay: ${errorMessage}`,
-          isSuccess: false,
-        });
-        console.error('Lỗi khi tải chuyến bay:', data);
-      }
-    } catch (error) {
-      console.error('Lỗi kết nối:', error);
+    if(!from || !to || !departure) {
       setAlert({
         open: true,
         title: 'QAirline',
-        message: `Lỗi kết nối: ${error}. Vui lòng thử lại sau!`,
+        message: `Vui lòng điền vào tất cả các ô`,
         isSuccess: false,
       });
+    } else {
+      const encodedFrom = encodeURIComponent(from);
+      const encodedTo = encodeURIComponent(to);
+
+      // Tạo URL API dựa trên thông tin người dùng nhập
+      let apiUrl = `http://localhost:5000/api/customer/search-flights?origin=${encodedFrom}&destination=${encodedTo}`;
+
+      if (departure) {
+        apiUrl += `&departure_date=${departure}`;
+      }
+
+      if (tripType === 'return' && returnDate) {
+        apiUrl += `&return_date=${returnDate}`;
+      }
+
+      // if (passengers.class) {
+      //   apiUrl += `&seat_type=${passengers.class}`;
+      // }
+
+      console.log('API URL:', apiUrl);
+
+      // Gọi API để tìm kiếm chuyến bay
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+
+        if (response.ok) {
+          // Truyền data về flights qua navigate
+          navigate('/booking', {
+            state: { flights: data, origin: from, destination: to },
+          });
+          console.log('Flights:', data);
+        } else {
+          const error = await response.json();
+          const errorMessage = error.errors && error.errors.length > 0
+              ? error.errors[0].msg
+              : 'Không tìm thấy chuyến bay!';
+          setAlert({
+            open: true,
+            title: 'QAirline',
+            message: `Không tìm thấy chuyến bay: ${errorMessage}`,
+            isSuccess: false,
+          });
+          console.error('Lỗi khi tải chuyến bay:', data);
+        }
+      } catch (error) {
+        console.error('Lỗi kết nối:', error);
+        setAlert({
+          open: true,
+          title: 'QAirline',
+          message: `Lỗi kết nối: ${error}. Vui lòng thử lại sau!`,
+          isSuccess: false,
+        });
+      }
     }
   };
 

@@ -1,36 +1,43 @@
 import { useState } from 'react';
 import { Button } from '../../../components/ui/Button';
 import { Input } from '../../../components/ui/Input';
-import { useToast } from '../../../hooks/useToast';
 import { Card, CardHeader, CardContent } from '../../../components/ui/Card';
 import { Label } from '../../../components/ui/Label';
 import DatePicker from '../../../components/DatePicker';
+import AlertDialog from '../../../components/Notification/AlertDialog';
 
 const ManageBooking = () => {
   const [activeTab, setActiveTab] = useState('manage_booking');
   const [bookingCode, setBookingCode] = useState('');
   const [lastName, setLastName] = useState('');
   const [birthDate, setBirthDate] = useState('');
-  const { toast } = useToast();
+  const [alert, setAlert] = useState({
+    open: false,
+    title: '',
+    message: '',
+    isSuccess: false,
+    onClose: null,
+  });
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (!bookingCode || !lastName || !birthDate) {
-      toast({
-        title: 'Lỗi',
-        description: 'Vui lòng điền vào tất cả các ô.',
-        variant: 'destructive',
+      setAlert({
+        open: true,
+        title: 'QAirline',
+        message: `Vui lòng điền vào tất cả các ô`,
+        isSuccess: false,
       });
     } else {
-      toast({
-        title:
-          activeTab === 'manage_booking'
+      setAlert({
+        open: true,
+        title: activeTab === 'manage_booking'
             ? 'Đã tìm thấy đặt chỗ'
             : 'Làm thủ tục thành công',
-        description:
-          activeTab === 'manage_booking'
+        message: activeTab === 'manage_booking'
             ? `Thông tin đặt chỗ của ${lastName} với mã đặt chỗ ${bookingCode} đã được tìm thấy.`
             : `Đã hoàn tất thủ tục cho ${lastName} với mã đặt chỗ ${bookingCode}.`,
-        variant: 'success',
+        isSuccess: true,
       });
     }
   };
@@ -108,6 +115,18 @@ const ManageBooking = () => {
             >
               {activeTab === 'manage_booking' ? 'Tra cứu đặt chỗ' : 'Làm thủ tục'}
             </Button>
+            <AlertDialog
+              open={alert.open}
+              onClose={() => {
+                if (alert.onClose) {
+                  alert.onClose();
+                }
+                setAlert({ ...alert, open: false });
+              }}
+              title={alert.title}
+              message={alert.message}
+              isSuccess={alert.isSuccess}
+            />
           </div>
         </form>
       </CardContent>
