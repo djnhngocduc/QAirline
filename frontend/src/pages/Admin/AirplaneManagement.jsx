@@ -24,7 +24,6 @@ import {
 
 const AirplaneManagement = () => {
   const [airplanes, setAirplanes] = useState([]);
-  const [airlines, setAirlines] = useState([]);
   const [newAirplane, setNewAirplane] = useState({
     model: '',
     manufacturer: '',
