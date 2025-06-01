@@ -281,7 +281,7 @@ exports.getBookingsDetail = async (req, res) => {
 exports.getProfile = async (req, res) => {
     try {
         const userId = req.userId; // Lấy userId từ token đã xác thực
-        const customer = await Customer.find({
+        const customer = await Customer.findOne({
             where: {user_id: userId},
             include: [
                 {
@@ -298,6 +298,7 @@ exports.getProfile = async (req, res) => {
             customer: customer
         })
     } catch (error) {
+        console.error("Error" + error);
         return res.status(500).json({ message: "Lỗi khi lấy thông tin người dùng" });
     }
 }
