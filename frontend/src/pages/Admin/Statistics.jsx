@@ -8,11 +8,14 @@ import { Toaster } from '../../components/ui/Sonner';
 const Statistics = () => {
   const [bookingsData, setBookingsData] = useState([]);
   const [loading, setLoading] = useState(true);
-
   const token = localStorage.getItem('token');
-
   useEffect(() => {
-    fetch('http://localhost:5000/api/admin/bookings')
+    
+    fetch('http://localhost:5000/api/admin/bookings' , {
+      headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    })
       .then((response) => response.json())
       .then((data) => {
         setBookingsData(Array.isArray(data) ? data : data.bookings || []);
