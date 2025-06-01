@@ -229,7 +229,7 @@ exports.getBookingsDetail = async (req, res) => {
           },
           {
             model: Flight,
-            as: "outboundFlight",
+            as: 'outboundFlight',
             attributes: [
               "origin",
               "destination",
@@ -241,7 +241,7 @@ exports.getBookingsDetail = async (req, res) => {
           },
           {
             model: Flight,
-            as: "returnFlight",
+            as: 'returnFlight',
             attributes: [
               "origin",
               "destination",
@@ -374,7 +374,7 @@ exports.getUserBookings = async (req, res) => {
           where : {user_id: userId},
         });
         if(!customer) {
-          res.status(404).json({
+           return res.status(404).json({
             message: "Không tìm thấy người dùng"
           })
         }
