@@ -79,7 +79,7 @@ exports.searchFlights = async (req, res) => {
     }
 
     // Đánh dấu loại chuyến bay
-    outgoingFlights.forEach(flight => (flight.type = "outgoing"));
+    outgoingFlights.forEach(flight => (flight.type = "outbound"));
     returnFlights.forEach(flight => (flight.type = "return"));
 
     // Trả về kết quả

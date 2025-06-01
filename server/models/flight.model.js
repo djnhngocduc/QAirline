@@ -37,7 +37,8 @@ module.exports = (sequelize, DataTypes) => {
   
     Flight.associate = function (models) {
       Flight.belongsTo(models.Airplane, { foreignKey: "airplane_id", onDelete: 'CASCADE' });
-      Flight.hasMany(models.Booking, { foreignKey: "flight_id" });
+      Flight.hasMany(models.Booking, { foreignKey: "outbound_flight_id", as: "outboundBookings" });
+      Flight.hasMany(models.Booking, { foreignKey: "return_flight_id", as: "returnBookings" });
       Flight.hasMany(models.Seat, { foreignKey: "flight_id" });
     };
   

@@ -68,6 +68,14 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: true,
       },
+      outbound_flight_id: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+      },
+      return_flight_id: {
+          type: DataTypes.INTEGER,
+          allowNull: true,
+      },
     }, {
       tableName: "bookings", // Tên bảng trong cơ sở dữ liệu
       timestamps: true, // Tự động thêm createdAt và updatedAt

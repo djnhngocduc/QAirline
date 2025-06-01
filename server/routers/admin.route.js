@@ -42,6 +42,6 @@ route.patch("/airplane/:id",verifyToken, verifyAdmin, adminController.updateAirp
 route.delete("/airplane/:id",verifyToken, verifyAdmin, adminController.deleteAirplane);
 
 //Xem booking
-route.get("/bookings",verifyToken, verifyAdmin,  adminController.viewBookings);
+route.get("/bookings",verifyToken, verifyAdmin, adminController.viewBookings);
 
 module.exports = route;

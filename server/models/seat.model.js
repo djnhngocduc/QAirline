@@ -27,7 +27,8 @@ module.exports = (sequelize, DataTypes) => {
       Seat.belongsTo(models.Flight, { foreignKey: "flight_id" });
   
       // Mối quan hệ với bảng Booking
-      Seat.hasMany(models.Booking, { foreignKey: "seat_id" });
+      Seat.hasMany(models.Booking, { foreignKey: "outbound_seat_id", as: "outboundBookings" });
+      Seat.hasMany(models.Booking, { foreignKey: "return_seat_id", as: "returnBookings" });
     };
   
     return Seat;
