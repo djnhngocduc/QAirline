@@ -9,8 +9,7 @@ const Statistics = () => {
   const [bookingsData, setBookingsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const token = localStorage.getItem('token');
-  useEffect(() => {
-    
+  useEffect(() => { 
     fetch('http://localhost:5000/api/admin/bookings' , {
       headers: {
       Authorization: `Bearer ${token}`,
@@ -42,7 +41,7 @@ const Statistics = () => {
     0
   );
   const totalRevenue = bookingsData.reduce(
-    (sum, booking) => sum + booking.total_price,
+    (sum, booking) => sum + parseFloat(booking.total_price),
     0
   );
   const averageBookingValue = totalRevenue / totalBookings;

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Popover, PopoverContent, PopoverTrigger } from '../PopOver';
 import Avatar from 'react-avatar';
 
@@ -7,6 +7,15 @@ const AdminProfile = ({
   avios,
   qpoints,
 }) => {
+
+  const navigate = useNavigate();
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    localStorage.removeItem('token');
+    navigate('/');
+  }
+
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -41,10 +50,10 @@ const AdminProfile = ({
         </div>
 
         <div className="flex justify-self-center border-t p-4">
-          <Link to="/" className="text-gray-700 hover:text-[#ff4d4d] hover:underline mr-3"
+          <a href="#" onClick={handleLogout} className="text-gray-700 hover:text-[#ff4d4d] hover:underline mr-3"
           >
             Đăng xuất
-          </Link>
+          </a>
         </div>
       </PopoverContent>
     </Popover>

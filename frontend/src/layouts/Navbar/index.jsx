@@ -1,6 +1,6 @@
 import './Navbar.scss';
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { TiDeleteOutline } from 'react-icons/ti';
 import { FaBars } from 'react-icons/fa';
 import axios from 'axios';
@@ -8,6 +8,7 @@ import UserProfile from './UserProfile';
 
 function Navbar() {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -21,7 +22,7 @@ function Navbar() {
     } else {
       setIsLoggedIn(false) // Người dùng chưa đăng nhập
     }
-  }, []);
+  }, [location]);
 
   const handleLogout = () => {
     localStorage.removeItem('token'); // Remove the token from localStorage
