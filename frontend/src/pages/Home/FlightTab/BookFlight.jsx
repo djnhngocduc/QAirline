@@ -108,8 +108,9 @@ export default function BookFlight() {
       try {
         const response = await fetch(apiUrl);
         const data = await response.json();
+        console.log(data);
 
-        if (response.ok) {
+        if (data.flights.outgoing) {
           // Truyền data về flights qua navigate
           navigate('/booking', {
             state: { flights: data, origin: from, destination: to },
@@ -120,20 +121,20 @@ export default function BookFlight() {
           const errorMessage = error.errors && error.errors.length > 0
               ? error.errors[0].msg
               : 'Không tìm thấy chuyến bay!';
+          console.log(errorMessage);
           setAlert({
             open: true,
             title: 'QAirline',
-            message: `Không tìm thấy chuyến bay: ${errorMessage}`,
+            message: `Không tìm thấy chuyến bay!`,
             isSuccess: false,
           });
-          console.error('Lỗi khi tải chuyến bay:', data);
         }
       } catch (error) {
         console.error('Lỗi kết nối:', error);
         setAlert({
           open: true,
           title: 'QAirline',
-          message: `Lỗi kết nối: ${error}. Vui lòng thử lại sau!`,
+          message: `Lỗi kết nối. Vui lòng thử lại sau!`,
           isSuccess: false,
         });
       }

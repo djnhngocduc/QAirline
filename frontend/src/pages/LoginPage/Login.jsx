@@ -91,7 +91,7 @@ function Login() {
         setAlert({
           open: true,
           title: 'QAirline',
-          message: `Đăng nhập thất bại: ${errorMessage}`,
+          message: `Đăng nhập thất bại!`,
           isSuccess: false,
         });
       }
@@ -100,7 +100,7 @@ function Login() {
       setAlert({
         open: true,
         title: 'QAirline',
-        message: `Lỗi kết nối: ${error}. Vui lòng thử lại sau!`,
+        message: `Lỗi kết nối. Vui lòng thử lại sau!`,
         isSuccess: false,
       });
     }
