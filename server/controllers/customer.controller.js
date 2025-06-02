@@ -2,6 +2,7 @@ const {Op} = require('sequelize');
 const {Booking, Flight, Customer,Seat, Passenger, Airplane, User} = require('../models/index.model');
 const fs = require('fs');
 const path = require('path');
+const generateRandomString = require("../helpers/generateRandomString.helper");
 
 const jwt = require('jsonwebtoken');
 const md5 = require('md5');
@@ -136,6 +137,8 @@ exports.createBooking = async (req, res) => {
         return res.status(404).json({ message: "Return flight not found" });
       }
     }
+    
+    const booking_code = generateRandomString.generateRandomString(6);
 
     // Tạo booking, customer_id có thể null nếu khách không đăng nhập
     const booking = await Booking.create({
@@ -156,6 +159,7 @@ exports.createBooking = async (req, res) => {
       cvv: paymentDetails.cvv,
       outbound_seat_id: outboundFlight.seat_id,
       return_seat_id: returnFlight ? returnFlight.seat_id : null,
+      booking_code: booking_code
     }); 
 
     // Tạo Passenger cho booking
@@ -217,11 +221,12 @@ exports.trackBooking = async (req, res) => {
   }
 }
 
+//[GET] 
 exports.getBookingsDetail = async (req, res) => {
-    const bookingId = req.params.id;
+    const booking_code = req.body;
     try {
       const booking = await Booking.findOne({
-        where: { id: bookingId },
+        where: { booking_code: booking_code },
         include: [ 
           {
             model: Passenger,
@@ -281,7 +286,7 @@ exports.getBookingsDetail = async (req, res) => {
 exports.getProfile = async (req, res) => {
     try {
         const userId = req.userId; // Lấy userId từ token đã xác thực
-        const customer = await Customer.find({
+        const customer = await Customer.findOne({
             where: {user_id: userId},
             include: [
                 {
@@ -293,11 +298,15 @@ exports.getProfile = async (req, res) => {
         if (!customer) {
             return res.status(404).json({ message: "Không tìm thấy thông tin người dùng" });
         }
+        const customerPlain = customer.get({ plain: true});
+        console.log(customerPlain);
         return res.status(200).json({
             message: "Lấy thông tin người dùng thành công",
-            customer: customer
+            customer: customerPlain
         })
+        
     } catch (error) {
+        console.error("Error" + error);
         return res.status(500).json({ message: "Lỗi khi lấy thông tin người dùng" });
     }
 }

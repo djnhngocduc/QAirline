@@ -41,6 +41,7 @@ const PostManagement = () => {
     message: '',
     onConfirm: null,
   });
+  
   const token = localStorage.getItem('token');
 
   useEffect(() => {
@@ -352,7 +353,7 @@ const PostManagement = () => {
               <Input
                 value={selectedPost.content}
                 onChange={(e) =>
-                  setSelectedPost({ ...selectedPost, content: e.target.value })
+                  setNewPost({ ...selectedPost, content: e.target.value })
                 }
                 placeholder="Nội dung"
               />
@@ -360,7 +361,7 @@ const PostManagement = () => {
                 type="date"
                 value={selectedPost.startDate}
                 onChange={(e) =>
-                  setSelectedPost({ ...selectedPost, startDate: e.target.value })
+                  setNewPost({ ...selectedPost, startDate: e.target.value })
                 }
                 placeholder="Ngày bắt đầu"
               />
@@ -368,7 +369,7 @@ const PostManagement = () => {
                 type="date"
                 value={selectedPost.endDate}
                 onChange={(e) =>
-                  setSelectedPost({ ...selectedPost, endDate: e.target.value })
+                  setNewPost({ ...selectedPost, endDate: e.target.value })
                 }
                 placeholder="Ngày kết thúc"
               />
