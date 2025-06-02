@@ -8,6 +8,15 @@ import {
 } from '../ui/Table';
 
 export function BookingTable({ bookings }) {
+  const formatDate = (dateString) => {
+    return new Date(dateString).toLocaleDateString('vi-VN', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    });
+  };
   return (
     <div className="rounded-md border">
       <Table>
@@ -15,9 +24,12 @@ export function BookingTable({ bookings }) {
           <TableRow>
             <TableHead>Mã đặt vé</TableHead>
             <TableHead>Khách hàng</TableHead>
+            <TableHead>Số điện thoại</TableHead>
             <TableHead>Hành trình</TableHead>
-            <TableHead>Ngày</TableHead>
+            <TableHead>Thời gian di chuyển</TableHead>
+            <TableHead>Thời gian đặt vé</TableHead>
             <TableHead>Trạng thái</TableHead>
+            <TableHead>Thanh toán</TableHead>
             <TableHead className="text-right">Giá</TableHead>
           </TableRow>
         </TableHeader>
@@ -31,10 +43,31 @@ export function BookingTable({ bookings }) {
                 ).join(', ')}
               </TableCell>
               <TableCell>
-                {`${booking.outboundFlight.origin} → ${booking.outboundFlight.destination}`}
+                {booking.Passengers.map(
+                  (p) => p.phone
+                )}
               </TableCell>
               <TableCell>
-                {new Date(booking.departure_time).toLocaleDateString()}
+                {`${booking.outboundFlight.origin} → ${booking.outboundFlight.destination}`} 
+                {booking.returnFlight && (
+                  <>
+                    <br /><br />
+                    {`${booking.returnFlight.origin} → ${booking.returnFlight.destination}`}
+                  </>
+                )}
+                
+              </TableCell>
+              <TableCell>
+                {`${formatDate(booking.outboundFlight.departure_time).replace('lúc ', '')} → ${formatDate(booking.outboundFlight.arrival_time).replace('lúc ', '')}`}
+                {booking.returnFlight && (
+                  <>
+                    <br /><br />
+                    {`${formatDate(booking.returnFlight.departure_time).replace('lúc ', '')} → ${formatDate(booking.returnFlight.arrival_time).replace('lúc ', '')}`}
+                  </>
+                )}
+              </TableCell>
+              <TableCell>
+                {formatDate(booking.booking_date).replace('lúc ', '')}
               </TableCell>
               <TableCell>
                 <span
@@ -44,8 +77,11 @@ export function BookingTable({ bookings }) {
                       : 'bg-yellow-100 text-yellow-800'
                   }`}
                 >
-                  {booking.status}
+                  {booking.status === 'Confirmed' ? 'Đã xác nhận' : 'Đã hủy'}
                 </span>
+              </TableCell>
+              <TableCell>
+                {booking.payment_status === 'Paid' ? 'Đã thanh toán' : 'Chưa thanh toán'}
               </TableCell>
               <TableCell className="text-right">
                 ${booking.total_price.toLocaleString()}

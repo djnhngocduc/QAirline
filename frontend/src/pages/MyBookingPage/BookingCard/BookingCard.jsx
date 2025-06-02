@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '../../../components/ui
 import { Separator } from '../../../components/ui/Separator';
 import { Badge } from '../../../components/ui/Badge';
 import { Button } from '../../../components/ui/Button';
-import { ChevronDown, ChevronUp, Clipboard, Star } from 'lucide-react';
+import { ChevronDown, ChevronUp, Clipboard } from 'lucide-react';
 import FlightInfo from './FlightInfo';
 import PaymentInfo from './PaymentInfo';
 import PassengerInfo from './PassengerInfo';
@@ -16,7 +16,7 @@ const BookingCard = ({ booking, index }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
+    return new Date(dateString).toLocaleDateString('vi-VN', {
       year: 'numeric',
       month: 'long',
       day: 'numeric',
@@ -66,7 +66,7 @@ const BookingCard = ({ booking, index }) => {
               variant={booking.status === 'Confirmed' ? 'success' : 'warning'}
               className={`mr-2 ${booking.status === 'Confirmed' ? 'text-green-500' : 'text-red-600'}`}
             >
-              {booking.status}
+              {booking.status === 'Confirmed' ? 'Đã xác nhận' : 'Đã hủy'}
             </Badge>
             <div
               className="flex cursor-pointer items-center"
@@ -118,8 +118,8 @@ const BookingCard = ({ booking, index }) => {
 
               <div className="pl-2 md:pl-0">
                 <h3 className="mb-2 text-lg font-semibold">Chi tiết đặt chỗ</h3>
-                <p>Ngày đặt: {formatDate(booking.booking_date)}</p>
-                <p>Hành khách: {booking.passengers}</p>
+                <p>Thời gian đặt: {formatDate(booking.booking_date).replace('lúc ', '')}</p>
+                <p>Số hành khách: {booking.passengers}</p>
                 <p>Tổng giá: ${booking.total_price}</p>
               </div>
             </div>

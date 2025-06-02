@@ -5,13 +5,12 @@ const FlightInfo = ({ type, flight, seat }) => {
   const formatDateTime = (dateString, format = 'time') => {
     const date = new Date(dateString);
     if (format === 'time') {
-      return date.toLocaleTimeString('en-GB', {
+      return date.toLocaleTimeString('vi-VN', {
         hour: '2-digit',
         minute: '2-digit',
       });
     } else if (format === 'date') {
-      return date.toLocaleDateString('en-GB', {
-        weekday: 'short',
+      return date.toLocaleDateString('vi-VN', {
         day: '2-digit',
         month: 'short',
         year: 'numeric',
@@ -40,11 +39,11 @@ const FlightInfo = ({ type, flight, seat }) => {
             <div className="mb-8 flex items-start justify-between">
               <div className="space-y-1">
                 <div className="flex items-center gap-3">
-                  <span className="text-2xl font-medium text-secondary-foreground">
+                  <span className="text-2xl font-medium">
                     {flight.origin}
                   </span>
                   <span className="text-2xl text-gray-400">›</span>
-                  <span className="text-2xl font-medium text-secondary-foreground">
+                  <span className="text-2xl font-medium">
                     {flight.destination}
                   </span>
                 </div>
@@ -94,7 +93,7 @@ const FlightInfo = ({ type, flight, seat }) => {
 
         {/* Footer */}
         <div className="flex items-center justify-between">
-          <span className="text-gray-600">Ghế ({seat.seat_type})</span>
+          <span className="text-gray-600">Ghế {seat.seat_type === 'Economy' ? 'phổ thông' : 'cao cấp'}</span>
           <div className="text-right">
             <span className={`text-sm font-medium`}>
               Trạng thái chuyến bay: {flight.status}

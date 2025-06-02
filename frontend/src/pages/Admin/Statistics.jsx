@@ -17,6 +17,7 @@ const Statistics = () => {
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         setBookingsData(Array.isArray(data) ? data : data.bookings || []);
         setLoading(false);
       })
