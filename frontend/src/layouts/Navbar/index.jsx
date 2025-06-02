@@ -45,7 +45,7 @@ function Navbar() {
           },
         }
       );
-      const { first_name, last_name, User } = response.data;
+      const { first_name, last_name, User } = response.data.customer;
       setUserInfo({ name: `${first_name} ${last_name}`, email: User.email });
     } catch (error) {
       console.error('Error fetching user info:', error);

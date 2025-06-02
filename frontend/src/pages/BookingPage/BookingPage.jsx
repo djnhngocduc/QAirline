@@ -40,17 +40,27 @@ function BookingPage() {
   const [origin, setOrigin] = useState('Doha'); // Default origin
   const [destination, setDestination] = useState('Al-Baha'); // Default destination
   const [totalPrice, setTotalPrice] = useState(0); // State to track total price
+  const [passengers] = useState(location.state?.passengers || 1);
+  const [searchDeparture, setSearchDeparture] = useState(null);
+  const [searchReturnDate, setSearchReturnDate] = useState(null);
 
   // Lấy dữ liệu chuyến bay từ location.state
   useEffect(() => {
     if (location.state) {
-      const { flights, origin, destination } = location.state;
+      const { flights, origin, destination, departure, returnDate } = location.state;
       if (flights) {
         setOutgoingFlights(flights.flights.outgoing || flights.flights);
         setReturnFlights(flights.flights.return || []);
       }
       if (origin) setOrigin(origin);
       if (destination) setDestination(destination);
+
+      if (departure) {
+        setSearchDeparture(departure);
+      }
+      if (returnDate) {
+        setSearchReturnDate(returnDate);
+      }
     }
   }, [location.state]);
 
@@ -104,7 +114,7 @@ function BookingPage() {
   const handleConfirmBooking = () => {
     if (returnFlights.length > 0 && !isSelectingReturnFlight) {
       setIsSelectingReturnFlight(true);
-      setSelectedOutgoingDate(null);
+      // setSelectedOutgoingDate(null);
       setShowFareDetails(false);
     } else {
       navigate('/booking/passenger-details', {
@@ -127,7 +137,7 @@ function BookingPage() {
 
   return (
     <div>
-      <NavbarBooking />
+      <NavbarBooking origin={origin} destination={destination} outgoingDate={searchDeparture} returnDate={returnFlights.length > 0 ? searchReturnDate : null} passengers={passengers} isSelectingReturnFlight={isSelectingReturnFlight} />
       {/* Main */}
       <div className="h-full px-3 pb-8 pt-28 md:px-10">
         <div className="mb-8">

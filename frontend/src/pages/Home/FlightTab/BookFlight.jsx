@@ -110,18 +110,18 @@ export default function BookFlight() {
         const data = await response.json();
         console.log(data);
 
-        if (data.flights.outgoing) {
-          // Truyền data về flights qua navigate
+        if(data.message !== "No flights found") {
           navigate('/booking', {
-            state: { flights: data, origin: from, destination: to },
+            state: { 
+              flights: data, 
+              origin: from, 
+              destination: to, 
+              passengers: passengers.adults + passengers.children + passengers.infants, 
+              departure: departure, 
+              returnDate: returnDate 
+            },
           });
-          console.log('Flights:', data);
         } else {
-          const error = await response.json();
-          const errorMessage = error.errors && error.errors.length > 0
-              ? error.errors[0].msg
-              : 'Không tìm thấy chuyến bay!';
-          console.log(errorMessage);
           setAlert({
             open: true,
             title: 'QAirline',
@@ -130,11 +130,10 @@ export default function BookFlight() {
           });
         }
       } catch (error) {
-        console.error('Lỗi kết nối:', error);
         setAlert({
           open: true,
           title: 'QAirline',
-          message: `Lỗi kết nối. Vui lòng thử lại sau!`,
+          message: `Không tìm thấy chuyến bay!`,
           isSuccess: false,
         });
       }

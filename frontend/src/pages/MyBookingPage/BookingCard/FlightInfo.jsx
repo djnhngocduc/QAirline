@@ -93,7 +93,7 @@ const FlightInfo = ({ type, flight, seat }) => {
 
         {/* Footer */}
         <div className="flex items-center justify-between">
-          <span className="text-gray-600">Ghế {seat.seat_type === 'Economy' ? 'phổ thông' : 'cao cấp'}</span>
+          <span className="text-gray-600">Ghế: {seat.seat_type === 'Economy' ? 'Phổ thông' : 'Cao cấp'} {seat.seat_number}</span>
           <div className="text-right">
             <span className={`text-sm font-medium`}>
               Trạng thái chuyến bay: {flight.status}

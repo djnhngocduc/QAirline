@@ -16,10 +16,6 @@ const TravelDocument = () => {
           <p className="text-gray-600">Chưa có thông tin</p>
         </div>
         <div>
-          <p className="font-semibold text-gray-800">Quốc tịch</p>
-          <p className="text-gray-600">Chưa có thông tin</p>
-        </div>
-        <div>
           <p className="font-semibold text-gray-800">Số hộ chiếu</p>
           <p className="text-gray-600">Chưa có thông tin</p>
         </div>

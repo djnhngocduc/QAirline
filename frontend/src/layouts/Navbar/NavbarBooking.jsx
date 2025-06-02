@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import UserProfile from './UserProfile';
 import axios from 'axios';
 
-export function NavbarBooking() {
+export const NavbarBooking = ({origin, destination, outgoingDate, returnDate, passengers, isSelectingReturnFlight}) => {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userInfo, setUserInfo] = useState({ name: '', email: '' });
@@ -82,24 +82,29 @@ export function NavbarBooking() {
           className="flex flex-col items-center rounded-2xl px-5 pt-1 md:flex-row md:gap-3 md:border md:py-2 border-gray-500"
         >
           <div className="flex items-center gap-2">
-            <span className="font-medium">HAN</span>
+            <span className="font-medium">{origin}</span>
             <ChevronRight className="h-5 w-5 " />
-            <span className="font-medium">SGN</span>
+            <span className="font-medium">{destination}</span>
           </div>
           <div className="hidden h-6 w-px bg-primary/20 xl:block" />
           <div className="hidden items-center gap-2 xl:block">
             <Calendar className="h-4 w-4" />
-            <span>Thứ 2, 09 Tháng 12</span>
+            <span>{isSelectingReturnFlight ? new Date(returnDate).toLocaleDateString('vi-VN') : new Date(outgoingDate).toLocaleDateString('vi-VN')}</span>
           </div>
           <div className="hidden h-6 w-px bg-primary/20 xl:block" />
           <div className="hidden items-center gap-2 xl:block">
             <Users className="h-4 w-4" />
-            <span>1 hành khách</span>
+            <span>{passengers} hành khách</span>
           </div>
           <div className="hidden h-6 w-px bg-primary/20 lg:block" />
           <div>
             <Button
               variant="ghost"
+              onClick={
+                function() {
+                  navigate('/book');
+                }
+              }
               className="hover:text-[#ff4d4d] hover:bg-transparent"
             >
               <Search className="mr-2 h-4 w-4" />

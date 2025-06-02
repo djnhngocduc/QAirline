@@ -19,8 +19,17 @@ exports.searchFlights = async (req, res) => {
     const whereConditions = {};
     if (origin) whereConditions.origin = origin;
     if (destination) whereConditions.destination = destination;
-    if (departure_date) {
-      whereConditions.departure_time = { [Op.gte]: new Date(departure_date) };
+    if (departure_date && return_date) {
+      whereConditions.departure_time = { 
+        [Op.between]:  [
+          new Date(departure_date),      // >= ngày khởi hành
+          new Date(return_date)          // <= ngày khứ hồi
+        ] 
+      };
+    } else if (departure_date) {
+      whereConditions.departure_time = {
+        [Op.gte]: new Date(departure_date)  // >= ngày khởi hành
+      };
     }
 
     // Điều kiện tìm kiếm chuyến về (nếu có)
@@ -29,7 +38,7 @@ exports.searchFlights = async (req, res) => {
       returnFlightsWhere = {
         origin: destination,
         destination: origin,
-        departure_time: { [Op.gte]: new Date(return_date) },
+        departure_time: { [Op.gte]: new Date(departure_date) },
       };
     }
 
@@ -222,8 +231,8 @@ exports.trackBooking = async (req, res) => {
 }
 
 //[GET] 
-exports.getBookingsDetail = async (req, res) => {
-    const booking_code = req.body;
+  exports.getBookingsDetail = async (req, res) => {
+    const booking_code = req.query.booking_code;
     try {
       const booking = await Booking.findOne({
         where: { booking_code: booking_code },
@@ -337,10 +346,15 @@ exports.updateProfile = async (req, res) => {
         if (!user) {
             return res.status(404).json({ message: "Không tìm thấy người dùng" });
         }
-        user.email = email || user.email;
-        user.phone = phone || user.phone;
-
-        user.profilePicture = profilePicture
+        if (req.body.hasOwnProperty("email")) {
+          user.email = email || user.email;
+        }
+        if (req.body.hasOwnProperty("phone")) {
+          user.phone = phone || user.phone;
+        }
+        if (req.body.hasOwnProperty("profilePicture")) {
+          user.profilePicture = profilePicture;
+        }
         await user.save();
 
         //Cap nhat thong tin khach hang
@@ -350,16 +364,36 @@ exports.updateProfile = async (req, res) => {
         }
 
         const customerUpdates = {};
-        if (address) customerUpdates.address = address;
-        if (country_name) customerUpdates.country_name = country_name;
-        if (title) customerUpdates.title = title;
-        if (country_code) customerUpdates.country_code = country_code;
-        if (first_name) customerUpdates.first_name = first_name;
-        if (middle_name) customerUpdates.middle_name = middle_name;
-        if (last_name) customerUpdates.last_name = last_name;
-        if (date_of_birth) customerUpdates.date_of_birth = date_of_birth;
-        if (gender) customerUpdates.gender = gender;
-        if (promo_code) customerUpdates.promo_code = promo_code;
+        if (req.body.hasOwnProperty("address")) {
+          customerUpdates.address = address;
+        }
+        if (req.body.hasOwnProperty("country_name")) {
+          customerUpdates.country_name = country_name;
+        }
+        if (req.body.hasOwnProperty("title")) {
+          customerUpdates.title = title;
+        }
+        if (req.body.hasOwnProperty("country_code")) {
+          customerUpdates.country_code = country_code;
+        }
+        if (req.body.hasOwnProperty("first_name")) {
+          customerUpdates.first_name = first_name;        // Nếu người dùng xóa trắng ô này, now first_name = ""
+        }
+        if (req.body.hasOwnProperty("middle_name")) {
+          customerUpdates.middle_name = middle_name;
+        }
+        if (req.body.hasOwnProperty("last_name")) {
+          customerUpdates.last_name = last_name;
+        }
+        if (req.body.hasOwnProperty("date_of_birth")) {
+          customerUpdates.date_of_birth = date_of_birth;  // Nếu xóa trắng, date_of_birth = ""
+        }
+        if (req.body.hasOwnProperty("gender")) {
+          customerUpdates.gender = gender;
+        }
+        if (req.body.hasOwnProperty("promo_code")) {
+          customerUpdates.promo_code = promo_code;
+        }
         await customer.update(customerUpdates);
         
          res.status(200).json({

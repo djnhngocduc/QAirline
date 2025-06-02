@@ -26,22 +26,19 @@ const SidebarProfile = () => {
           }
         );
         const data = await response.json();
+        console.log(data);
         setUserData({
-          profilePictureUrl: data.User.profilePicture,
-          fullName: `${data.title} ${data.first_name} ${data.middle_name} ${data.last_name}`,
-          membershipNumber: data.id * data.user_id * 653432,
-          avios: data.avios || 0,
-          qpoints: data.qpoints || 0,
-          qcredits: data.qcredits || 0,
+          profilePictureUrl: data.customer.User.profilePicture,
+          fullName: `${data.customer.first_name} ${data.customer.middle_name ? data.customer.middle_name : ''} ${data.customer.last_name}`,
+          membershipNumber: data.customer.id * data.customer.user_id * 653432,
         });
-        setShortName(data.first_name.charAt(0) + data.last_name.charAt(0));
+        setShortName(data.customer.first_name.charAt(0) + data.customer.last_name.charAt(0));
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
-
     fetchData();
-  }, []);
+  }, [userData]);
 
   return (
     <aside className="w-full px-3 md:w-64 md:max-w-sm md:px-0">

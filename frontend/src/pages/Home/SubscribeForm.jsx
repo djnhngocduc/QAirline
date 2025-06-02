@@ -48,7 +48,7 @@ const SubscribeForm = () => {
                 htmlFor="agreement"
                 className="text-sm leading-relaxed text-[#cccccc]"
               >
-                Tôi muốn nhận ưu đãi và tin tức từ QAirlIne. Tôi đã đọc và hiểu về{' '}
+                Tôi muốn nhận ưu đãi và tin tức từ QAirline. Tôi đã đọc và hiểu về{' '}
                 <a
                   href="#"
                   className="text-[#10a7cd] hover:underline focus:outline-none"

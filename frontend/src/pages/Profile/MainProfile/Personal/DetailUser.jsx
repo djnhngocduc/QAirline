@@ -31,11 +31,11 @@ const DetailUser = () => {
         );
         const data = await response.json();
         setUserData(data);
-        setHomeAddress(data?.address || '');
-        setEmail(data?.User?.email || '');
-        setCountryCode(data?.country_code?.toString() || ''); // Convert to string
-        setPhone(data?.User?.phone || '');
-        setGender(data?.gender || '');
+        setHomeAddress(data?.customer.address || '');
+        setEmail(data?.customer.User?.email || '');
+        setCountryCode(data?.customer.country_code?.toString() || ''); // Convert to string
+        setPhone(data?.customer.User?.phone || '');
+        setGender(data?.customer.gender || '');
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -160,12 +160,12 @@ const DetailUser = () => {
           <div>
             <p className="font-semibold text-gray-800">Số điện thoại</p>
             <p className="text-gray-600">
-              {countryCode} {phone}
+              +{countryCode} {phone.slice(1)}
             </p>
           </div>
           <div>
             <p className="font-semibold text-gray-800">Giới tính</p>
-            <p className="text-gray-600">{gender}</p>
+            <p className="text-gray-600">{gender === 'male' ? 'Nam' : 'Nữ'}</p>
           </div>
         </div>
       ) : (

@@ -25,7 +25,9 @@ export function BookingTable({ bookings }) {
             <TableHead>Mã đặt vé</TableHead>
             <TableHead>Khách hàng</TableHead>
             <TableHead>Số điện thoại</TableHead>
+            <TableHead>Mã chuyến bay</TableHead>
             <TableHead>Hành trình</TableHead>
+            <TableHead>Ghế</TableHead>
             <TableHead>Thời gian di chuyển</TableHead>
             <TableHead>Thời gian đặt vé</TableHead>
             <TableHead>Trạng thái</TableHead>
@@ -36,7 +38,7 @@ export function BookingTable({ bookings }) {
         <TableBody>
           {bookings.map((booking) => (
             <TableRow key={booking.id}>
-              <TableCell className="font-medium">#{booking.id}</TableCell>
+              <TableCell className="font-medium">{booking.booking_code}</TableCell>
               <TableCell>
                 {booking.Passengers.map(
                   (p) => `${p.first_name} ${p.last_name}`
@@ -48,6 +50,15 @@ export function BookingTable({ bookings }) {
                 )}
               </TableCell>
               <TableCell>
+                {booking.outboundFlight.flight_number}
+                {booking.returnFlight && (
+                  <>
+                    <br /><br />
+                    {booking.returnFlight.flight_number}
+                  </>
+                )}
+              </TableCell>
+              <TableCell>
                 {`${booking.outboundFlight.origin} → ${booking.outboundFlight.destination}`} 
                 {booking.returnFlight && (
                   <>
@@ -55,7 +66,20 @@ export function BookingTable({ bookings }) {
                     {`${booking.returnFlight.origin} → ${booking.returnFlight.destination}`}
                   </>
                 )}
-                
+              </TableCell>
+              <TableCell>
+                {booking.outboundSeat && (
+                  <>
+                    {booking.outboundSeat.seat_type === 'Economy' ? 'Phổ thông' : 'Cao cấp'} {booking.outboundSeat.seat_number}
+                  </>
+                )}
+
+                {booking.returnSeat && (
+                  <>
+                    <br /><br />
+                    {booking.returnSeat.seat_type === 'Economy' ? 'Phổ thông' : 'Cao cấp'} {booking.returnSeat.seat_number}
+                  </>
+                )}
               </TableCell>
               <TableCell>
                 {`${formatDate(booking.outboundFlight.departure_time).replace('lúc ', '')} → ${formatDate(booking.outboundFlight.arrival_time).replace('lúc ', '')}`}

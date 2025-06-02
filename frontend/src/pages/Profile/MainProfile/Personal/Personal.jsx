@@ -13,7 +13,7 @@ const Personal = () => {
   const [firstName, setFirstName] = useState('');
   const [middleName, setMiddleName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [dob, setDob] = useState('');
+  const [dob, setDob] = useState(null);
   const [avatar, setAvatar] = useState('');
   const fileInputRef = useRef(null);
 
@@ -29,16 +29,16 @@ const Personal = () => {
           }
         );
         const data = await response.json();
-        setTitle(data.title);
-        setFirstName(data.first_name);
-        setMiddleName(data.middle_name);
-        setLastName(data.last_name);
+        setTitle(data.customer.title);
+        setFirstName(data.customer.first_name);
+        setMiddleName(data.customer.middle_name);
+        setLastName(data.customer.last_name);
         setDob(
-          data.date_of_birth
-            ? new Date(data.date_of_birth).toLocaleDateString()
-            : ''
+          data.customer.date_of_birth
+            ? new Date(data.customer.date_of_birth)
+            : null
         );
-        setAvatar(data.profilePictureUrl);
+        setAvatar(data.customer.User.profilePicture);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -93,11 +93,10 @@ const Personal = () => {
 
   const handleSaveProfile = async () => {
     const profileData = {
-      title,
       first_name: firstName,
       middle_name: middleName,
       last_name: lastName,
-      date_of_birth: dob,
+      date_of_birth: dob ? dob.toISOString() : null,
     };
 
     try {
@@ -123,7 +122,7 @@ const Personal = () => {
     }
   };
 
-  const fullName = `${title || ''} ${firstName || ''} ${middleName || ''} ${lastName || ''}`;
+  const fullName = `${firstName || ''} ${middleName || ''} ${lastName || ''}`;
   const shortName = `${(firstName || '').charAt(0)}${(lastName || '').charAt(0)}`;
 
   return (
@@ -165,27 +164,24 @@ const Personal = () => {
               <>
                 <Input
                   type="text"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                  className="mb-2 w-[300px]"
-                />
-                <Input
-                  type="text"
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                   className="mb-2 w-[300px]"
+                  placeholder="Nhập họ"
                 />
                 <Input
                   type="text"
                   value={middleName}
                   onChange={(e) => setMiddleName(e.target.value)}
                   className="mb-2 w-[300px]"
+                  placeholder="Nhập tên đệm"
                 />
                 <Input
                   type="text"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   className="mb-2 w-[300px]"
+                  placeholder="Nhập tên"
                 />
                 <DatePicker
                   date={dob}
@@ -197,7 +193,7 @@ const Personal = () => {
                 <h1 className="text-xl font-semibold text-gray-800">
                   Họ và tên: {fullName}
                 </h1>
-                <p className="text-gray-600">Ngày sinh: {dob}</p>
+                <p className="text-gray-600">Ngày sinh: {new Date(dob).toLocaleDateString('vi-VN')}</p>
               </>
             )}
           </div>

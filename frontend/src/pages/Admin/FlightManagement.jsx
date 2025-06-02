@@ -666,7 +666,7 @@ const FlightManagement = () => {
             /> */}
           </div>
           <div className="mt-4 text-right">
-            <Button onClick={handleSaveEdit} className="text-white">
+            <Button onClick={handleSaveEdit} className="text-white bg-[#ff4d4d] hover:bg-[#c84c4c]">
               Lưu lại các thay đổi
             </Button>
           </div>

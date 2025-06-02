@@ -60,7 +60,7 @@ const BookingCard = ({ booking, index }) => {
     <Card className="w-full">
       <CardHeader>
         <CardTitle className="flex items-center justify-between">
-          <span>Đặt chỗ #{index + 1}</span> {/* Display booking number */}
+          <span>Mã đặt chỗ: {booking.booking_code}</span> {/* Display booking number */}
           <div className="flex items-center">
             <Badge
               variant={booking.status === 'Confirmed' ? 'success' : 'warning'}
