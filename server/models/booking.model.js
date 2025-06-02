@@ -76,6 +76,10 @@ module.exports = (sequelize, DataTypes) => {
           type: DataTypes.INTEGER,
           allowNull: true,
       },
+      booking_code: {
+          type: DataTypes.STRING,
+          allowNull: true
+      }
     }, {
       tableName: "bookings", // Tên bảng trong cơ sở dữ liệu
       timestamps: true, // Tự động thêm createdAt và updatedAt
