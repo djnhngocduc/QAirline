@@ -70,6 +70,7 @@ exports.viewBookings = async () => {
           model: Flight,
           as: "outboundFlight",
           attributes: [
+            "flight_number",
             "origin",
             "destination",
             "departure_time",
@@ -81,6 +82,7 @@ exports.viewBookings = async () => {
           model: Flight,
           as: "returnFlight",
           attributes: [
+            "flight_number",
             "origin",
             "destination",
             "departure_time",

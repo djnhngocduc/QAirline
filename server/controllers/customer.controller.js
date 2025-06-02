@@ -236,6 +236,7 @@ exports.getBookingsDetail = async (req, res) => {
             model: Flight,
             as: 'outboundFlight',
             attributes: [
+              "flight_number",
               "origin",
               "destination",
               "departure_time",
@@ -248,6 +249,7 @@ exports.getBookingsDetail = async (req, res) => {
             model: Flight,
             as: 'returnFlight',
             attributes: [
+              "flight_number",
               "origin",
               "destination",
               "departure_time",
@@ -401,6 +403,7 @@ exports.getUserBookings = async (req, res) => {
               model: Flight,
               as: "outboundFlight",
               attributes: [
+                "flight_number",
                 "origin",
                 "destination",
                 "departure_time",
@@ -414,6 +417,7 @@ exports.getUserBookings = async (req, res) => {
               model: Flight,
               as: "returnFlight",
               attributes: [
+                "flight_number",
                 "origin",
                 "destination",
                 "departure_time",
