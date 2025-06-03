@@ -149,7 +149,7 @@ exports.deletePost = async (id) => {
 }
 
 //[PATCH] api/post/:id: Cập nhật bài viết
-exports.editPost = async(id,title, image, cta) => {
+exports.editPost = async(id,title, image, cta, content, start_date, end_date) => {
     const post = await Post.findByPk(id);
     if(!post) {
         throw new Error("Bài viết không tồn tại");
@@ -157,6 +157,9 @@ exports.editPost = async(id,title, image, cta) => {
     post.title = title;
     post.image = image;
     post.cta = cta;
+    post.content = content;
+    post.start_date = start_date;
+    post.end_date = end_date;
     await post.save();
     return post;
 }
