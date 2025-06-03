@@ -353,7 +353,7 @@ const PostManagement = () => {
               <Input
                 value={selectedPost.content}
                 onChange={(e) =>
-                  setNewPost({ ...selectedPost, content: e.target.value })
+                  setSelectedPost({ ...selectedPost, content: e.target.value })
                 }
                 placeholder="Nội dung"
               />
@@ -361,7 +361,7 @@ const PostManagement = () => {
                 type="date"
                 value={selectedPost.startDate}
                 onChange={(e) =>
-                  setNewPost({ ...selectedPost, startDate: e.target.value })
+                  setSelectedPost({ ...selectedPost, startDate: e.target.value })
                 }
                 placeholder="Ngày bắt đầu"
               />
@@ -369,7 +369,7 @@ const PostManagement = () => {
                 type="date"
                 value={selectedPost.endDate}
                 onChange={(e) =>
-                  setNewPost({ ...selectedPost, endDate: e.target.value })
+                  setSelectedPost({ ...selectedPost, endDate: e.target.value })
                 }
                 placeholder="Ngày kết thúc"
               />
