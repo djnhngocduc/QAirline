@@ -134,6 +134,7 @@ const FlightManagement = () => {
           }
 
           const addedFlight = await response.json();
+          console.log(addedFlight);
           setFlights([...flights, addedFlight]);
           resetForm();
           toast.success('Thêm chuyến bay thành công!');
