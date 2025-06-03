@@ -134,6 +134,7 @@ const FlightManagement = () => {
           }
 
           const addedFlight = await response.json();
+          console.log(addedFlight);
           setFlights([...flights, addedFlight]);
           resetForm();
           toast.success('Thêm chuyến bay thành công!');
@@ -227,6 +228,7 @@ const FlightManagement = () => {
           }
 
           const updatedFlight = await response.json();
+          console.log(updatedFlight);
           setFlights(
             flights.map((flight) =>
               flight.id === updatedFlight.id ? updatedFlight : flight

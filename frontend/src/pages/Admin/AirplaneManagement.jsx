@@ -86,7 +86,8 @@ const AirplaneManagement = () => {
 
           if (response.ok) {
             const addedAirplane = await response.json();
-            setAirplanes([...airplanes, addedAirplane]);
+            console.log(addedAirplane);
+            setAirplanes([...airplanes, addedAirplane.airplane]);
             setNewAirplane({ model: '', manufacturer: '', seat_count: '' });
             toast.success('Thêm máy bay thành công!');
           } else {
@@ -395,7 +396,7 @@ const AirplaneManagement = () => {
               />
             </div>
             <DialogFooter>
-              <Button onClick={handleSaveEdit} className="text-white">
+              <Button onClick={handleSaveEdit} className="text-white bg-[#ff4d4d] hover:bg-[#c84c4c]">
                 Lưu lại các thay đổi
               </Button>
             </DialogFooter>

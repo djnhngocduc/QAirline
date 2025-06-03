@@ -165,9 +165,10 @@ const PostManagement = () => {
           }
 
           const updatedPost = await response.json();
+          console.log(updatedPost);
           setPosts(
             posts.map((post) =>
-              post.id === updatedPost.id ? updatedPost : post
+              post.id === updatedPost.post.id ? updatedPost.post : post
             )
           );
           setIsEditOpen(false);
