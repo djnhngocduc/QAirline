@@ -4,25 +4,11 @@ import { Input } from '../../../components/ui/Input';
 import { Card, CardHeader, CardContent } from '../../../components/ui/Card';
 import { Label } from '../../../components/ui/Label';
 import AlertDialog from '../../../components/Notification/AlertDialog';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from '../../../components/ui/Dialog';
-import {
-  CheckCircle,
-  Luggage,
-  Utensils,
-  Armchair,
-  Briefcase,
-  Crown,
-} from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const ManageBooking = () => {
   const [bookingCode, setBookingCode] = useState('');
-  const [showFlightDetails, setShowFlightDetails] = useState(false);
+  const navigate = useNavigate();
   const [alert, setAlert] = useState({
     open: false,
     title: '',
@@ -30,12 +16,9 @@ const ManageBooking = () => {
     isSuccess: false,
     onClose: null,
   });
-  const [bookingData, setBookingData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-  });
+  const handleAlertClose = () => {
+    setAlert(prev => ({ ...prev, open: false}));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -63,8 +46,9 @@ const ManageBooking = () => {
             isSuccess: true,
           });
           setTimeout(() => {
-            setShowFlightDetails(true);
-          }, 3500)
+            sessionStorage.setItem('booking', JSON.stringify(data.booking));
+            navigate(`/booking-details`);
+          }, 3000);
         } else {
           setAlert({
             open: true,
@@ -120,47 +104,20 @@ const ManageBooking = () => {
               >
                 Tra cứu
               </Button>
-              <AlertDialog
-                open={alert.open}
-                onClose={() => {
-                  if (alert.onClose) {
-                    alert.onClose();
-                  }
-                  setAlert({ ...alert, open: false });
-                }}
-                title={alert.title}
-                message={alert.message}
-                isSuccess={alert.isSuccess}
-              />
+              {alert.open && (
+                <AlertDialog
+                  open={true}
+                  onClose={handleAlertClose}  // callback cố định
+                  title={alert.title}
+                  message={alert.message}
+                  isSuccess={alert.isSuccess}
+                />
+              )}
             </div>
           </form>
         </CardContent>
       </Card>
-      
-      <Dialog open={showFlightDetails} onOpenChange={setShowFlightDetails}>
-        <DialogContent
-          className={`rounded-lg shadow-lg sm:max-w-[450px] bg-white`}
-        >
-          <DialogHeader>
-            <div className="flex items-center justify-center gap-2">
-              <DialogTitle
-                className={`text-lg font-bold text-gray-800`}
-              >
-                Chi tiết giá vé cao cấp
-              </DialogTitle>
-              <Crown className="h-6 w-6 text-yellow-300" /> 
-            </div>
-            <DialogDescription
-              className={`text-sm text-gray-500`}
-            >
-              Vui lòng kiểm tra chi tiết giá vé đã chọn trước khi tiếp tục
-            </DialogDescription>
-          </DialogHeader>
-        </DialogContent>
-      </Dialog>
     </>
-    
-    
   );
 };
 

@@ -12,6 +12,7 @@ import Guide from './pages/Guide/Guide';
 import FareRules from "./pages/FareRules/FareRules";
 import About from "./pages/About/About";
 import Book from "./pages/Book/Book";
+import BookingDetails from "./pages/BookingDetails/BookingDetails";
 
 function AppRoutes() {
   return (
@@ -26,6 +27,7 @@ function AppRoutes() {
       <Route path="/farerules" element={<FareRules />} />  
       <Route path="/about" element={<About />} />  
       <Route path="/booking" element={<BookingPage />} />
+      <Route path="/booking-details" element={<BookingDetails />} />
       <Route path="/book" element={<Book />} />
       <Route
         path="/booking/passenger-details"

@@ -8,7 +8,7 @@ import FlightInfo from './FlightInfo';
 import PaymentInfo from './PaymentInfo';
 import PassengerInfo from './PassengerInfo';
 
-const BookingCard = ({ booking, index }) => {
+const BookingCard = ({ booking }) => {
   const [isCancelling, setIsCancelling] = useState(false);
   const [isCancelled, setIsCancelled] = useState(
     booking.status === 'Cancelled'

@@ -61,8 +61,8 @@ function MyBookingPage() {
           {!loading && !error && bookings.length === 0 && (
             <div className="py-8 text-center">Không tìm thấy đặt chỗ!</div>
           )}
-          {!loading && !error && bookings.length > 0 && bookings.map((booking, index) => (
-              <BookingCard key={booking.id} booking={booking} index={index} />
+          {!loading && !error && bookings.length > 0 && bookings.map((booking) => (
+            <BookingCard key={booking.id} booking={booking} />
           ))}
         </div>
       </div>
