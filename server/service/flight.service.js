@@ -83,14 +83,7 @@ exports.editFlight = async (
     airplaneModel
 ) => {
     try {
-        const flight = await Flight.findByPk(flightId , {
-            include: [
-                {
-                    model: Airplane,
-                    attributes: ['model']
-                },
-            ]
-        });
+        const flight = await Flight.findByPk(flightId);
         
         if (!flight) {
             throw new Error("Chuyến bay không tồn tại");
@@ -114,7 +107,13 @@ exports.editFlight = async (
             flight.airplane_id = airplane.id;
         }
         await flight.save();
-        return flight;
+        const newFlight = await Flight.findByPk(flightId, {
+            include: {
+                model: Airplane,
+                attributes: ["model"] 
+            },
+        })
+        return newFlight;
     } catch (error) {
         console.error("Lỗi khi chỉnh sửa chuyến bay:", error);
         throw error;
