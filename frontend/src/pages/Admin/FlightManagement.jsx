@@ -227,6 +227,7 @@ const FlightManagement = () => {
           }
 
           const updatedFlight = await response.json();
+          console.log(updatedFlight);
           setFlights(
             flights.map((flight) =>
               flight.id === updatedFlight.id ? updatedFlight : flight
