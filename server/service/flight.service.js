@@ -63,6 +63,7 @@ exports.addFlight = async (
             arrival_time: arrivalTime,
             duration,
             status,
+            airplane_id: airplane.id
         })
         return flight;
    } catch (error) {
