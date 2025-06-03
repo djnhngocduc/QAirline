@@ -249,7 +249,14 @@ exports.addFlight = async (req, res) => {
             status,
             airplaneModel
         );
-        return res.status(201).json(newFlight);
+        const flightWithAirplane = await Flight.findByPk(newFlight.id, {
+            include: {
+                model: Airplane,
+                attributes: ["model"]
+            }
+        });
+
+        return res.status(201).json(flightWithAirplane);
     } catch (error) {
         console.error(error);
         return res.status(500).json({ message: "Lỗi khi thêm chuyến bay" });
