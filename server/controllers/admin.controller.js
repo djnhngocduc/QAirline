@@ -157,9 +157,10 @@ exports.deletePost = async (req, res) => {
 //[PATCH]: /api/admin/post/edit/:id: Cập nhật bài viết theo id
 exports.editPost = async (req, res) => {
     const id = req.params.id;
-    const { title, image, cta } = req.body;
+    const { title, image, cta , content, start_date, end_date} = req.body;
+    console.log(req.body);
     try {
-        const post = await adminService.editPost(id, title, image, cta);
+        const post = await adminService.editPost(id, title, image, cta,content, start_date, end_date);
         return res.status(200).json({
             message: "Cập nhật bài viết thành công",
             post
