@@ -110,7 +110,7 @@ export default function BookFlight() {
         const data = await response.json();
         console.log(data);
 
-        if(data.message !== "No flights found") {
+        if(data.message !== "No flights found" && data.flights.outgoing.length > 0) {
           navigate('/booking', {
             state: { 
               flights: data, 
@@ -191,7 +191,7 @@ export default function BookFlight() {
               onChange={(e) => setFrom(e.target.value)}
             />
             {activeDropdown === 'from' && (
-              <div className="absolute z-10 mt-2 w-full rounded-lg border border-gray-300 bg-white shadow-lg">
+              <div className="absolute z-10 mt-2 w-full max-h-60 overflow-y-auto rounded-lg border border-gray-300 bg-white shadow-lg">
                 {fromCities.map((city) => (
                   <div
                     key={city}
@@ -231,7 +231,7 @@ export default function BookFlight() {
               onChange={(e) => setTo(e.target.value)}
             />
             {activeDropdown === 'to' && (
-              <div className="absolute z-10 mt-2 w-full rounded-lg border border-gray-300 bg-white shadow-lg">
+              <div className="absolute z-10 mt-2 w-full max-h-60 overflow-y-auto rounded-lg border border-gray-300 bg-white shadow-lg">
                 {toCities.map((city) => (
                   <div
                     key={city}

@@ -160,12 +160,14 @@ const DetailUser = () => {
           <div>
             <p className="font-semibold text-gray-800">Số điện thoại</p>
             <p className="text-gray-600">
-              +{countryCode} {phone.slice(1)}
+              {phone ? `+${countryCode} ${phone.slice(1)}` : 'N/A'}
             </p>
           </div>
           <div>
             <p className="font-semibold text-gray-800">Giới tính</p>
-            <p className="text-gray-600">{gender === 'male' ? 'Nam' : 'Nữ'}</p>
+            <p className="text-gray-600">
+              {gender ? gender === 'male' ? 'Nam' : 'Nữ' : 'N/A'}
+            </p>
           </div>
         </div>
       ) : (

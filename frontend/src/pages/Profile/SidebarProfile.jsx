@@ -29,7 +29,7 @@ const SidebarProfile = () => {
         console.log(data);
         setUserData({
           profilePictureUrl: data.customer.User.profilePicture,
-          fullName: `${data.customer.first_name} ${data.customer.middle_name ? data.customer.middle_name : ''} ${data.customer.last_name}`,
+          fullName: `${data.customer.first_name || ''} ${data.customer.middle_name ? data.customer.middle_name : ''} ${data.customer.last_name || ''}`,
           membershipNumber: data.customer.id * data.customer.user_id * 653432,
         });
         setShortName(data.customer.first_name.charAt(0) + data.customer.last_name.charAt(0));

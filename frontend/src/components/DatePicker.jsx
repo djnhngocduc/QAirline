@@ -12,7 +12,7 @@ const DatePicker = ({ date, setDate, title = "Chọn ngày" }) => {
           variant="outline"
           className="w-full justify-start text-left font-normal"
         >
-          {date ? format(new Date(date), "PPP") : title}
+          {date ? format(new Date(date), "dd/MM/yyyy") : title}
           <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
         </Button>
       </PopoverTrigger>

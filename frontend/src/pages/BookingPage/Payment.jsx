@@ -8,21 +8,6 @@ import { format } from 'date-fns';
 import AlertDialog from '../../components/Notification/AlertDialog';
 import Booking from '../Home/Booking';
 import StartPlanning from '../Home/StartPlanning';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from '../../components/ui/Dialog';
-import {
-  CheckCircle,
-  Luggage,
-  Utensils,
-  Armchair,
-  Briefcase,
-  Crown,
-} from 'lucide-react';
 
 export default function Payment() {
   const navigate = useNavigate();
@@ -35,7 +20,6 @@ export default function Payment() {
     message: '',
     isSuccess: false,
   });
-  const [showFlightDetails, setShowFlightDetails] = useState(false);
 
   const { totalPrice, outboundFlight, returnFlight, passengerDetails } =
     location.state || {
@@ -52,9 +36,23 @@ export default function Payment() {
     paymentMethod: 'Credit Card', // Default payment method
   });
 
+  const generateRandomString = (length) => {
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  
+    let result = "";
+  
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+  
+    return result;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const bookingData = {
+      booking_code: generateRandomString(6),
       totalPrice,
       outboundFlight: outboundFlight
         ? {
@@ -83,6 +81,7 @@ export default function Payment() {
         },
         body: JSON.stringify(bookingData),
       });
+      console.log(bookingData);
   
       if (response.ok) {
         setAlert({
@@ -93,7 +92,8 @@ export default function Payment() {
         });
 
         setTimeout(() => {
-          setShowFlightDetails(true);
+          sessionStorage.setItem('booking', JSON.stringify(bookingData));
+          navigate('/booking-details');
         }, 3000);
       } else {
         const errorText = await response.text(); // Read response as text
@@ -214,115 +214,6 @@ export default function Payment() {
                 </CardContent>
               </Card>
             </div>
-            <Dialog open={showFlightDetails} onOpenChange={setShowFlightDetails}>
-              <DialogContent
-                className={`rounded-lg shadow-lg sm:max-w-[450px] bg-white`}
-              >
-                <DialogHeader>
-                  <div className="flex items-center justify-center gap-2">
-                    <DialogTitle
-                      className={`text-lg font-bold text-gray-800`}
-                    >
-                      Chi tiết giá vé cao cấp
-                    </DialogTitle>
-                    <Crown className="h-6 w-6 text-yellow-300" /> 
-                  </div>
-                  <DialogDescription
-                    className={`text-sm text-gray-500`}
-                  >
-                    Vui lòng kiểm tra chi tiết giá vé đã chọn trước khi tiếp tục
-                  </DialogDescription>
-                </DialogHeader>
-                {(outboundFlight || returnFlight) && (
-                  <div className="space-y-6">
-                    {/* Flight Details */}
-                    <div className="space-y-2">
-                      <p
-                        className={`flex items-center gap-2 font-medium text-gray-800`}
-                      >
-                        <Briefcase className="h-5 w-5" />
-                        Chi tiết chuyến bay
-                      </p>
-                      <p>
-                        {outboundFlight && returnFlight
-                          ? `${returnFlight.origin} → ${returnFlight.destination}`
-                          : outboundFlight
-                            ? `${outboundFlight.origin} → ${outboundFlight.destination}`
-                            : ''}
-                      </p>
-                      <p>
-                        {format(
-                          new Date(
-                            outboundFlight && returnFlight
-                              ? returnFlight.departure_time
-                              : outboundFlight.departure_time
-                          ),
-                          'HH:mm'
-                        )}{' '}
-                        -{' '}
-                        {format(
-                          new Date(
-                            outboundFlight && returnFlight
-                              ? returnFlight.arrival_time
-                              : outboundFlight.arrival_time
-                          ),
-                          'HH:mm'
-                        )}
-                      </p>
-                    </div>
-
-                    {/* Included Benefits */}
-                    <div className="space-y-2">
-                      <p
-                        className={`flex items-center gap-2 font-medium text-gray-800`}
-                      >
-                        <CheckCircle className="h-5 w-5 text-green-500" />
-                        Tiện ích kèm theo
-                      </p>
-                      <ul
-                        className={`space-y-3 pl-4 text-sm text-gray-600`}
-                      >
-                        <li className="flex items-center gap-2">
-                          <Luggage
-                            className={`h-5 w-5 text-blue-500`}
-                          />
-                          Hành lý ký gửi miễn cước
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Briefcase
-                            className={`h-5 w-5 text-blue-500`}
-                          />
-                          Hành lý xách tay miễn cước
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Utensils
-                            className={`h-5 w-5 text-yellow-500`}
-                          />
-                          Suất ăn cao cấp miễn phí
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <Armchair
-                            className={`h-5 w-5 text-purple-500`}
-                          />
-                          Ghế rộng và thoải mái hơn
-                        </li>
-                      </ul>
-                    </div>
-
-                    {/* Confirm Button */}
-                    <Button
-                      className={`w-full bg-[#ff4d4d] text-white hover:bg-[#c84c4c]`}
-                      onClick={function() {
-                        setShowFlightDetails(false);
-                        navigate('/');
-                      }}
-                    >
-                      Xác nhận lựa chọn
-                    </Button>
-                  </div>
-                )}
-              </DialogContent>
-            </Dialog>
 
             <div className="col-span-3 lg:col-span-1">
               <Card className="shadow-lg">

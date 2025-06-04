@@ -46,7 +46,11 @@ function Navbar() {
         }
       );
       const { first_name, last_name, User } = response.data.customer;
-      setUserInfo({ name: `${first_name} ${last_name}`, email: User.email });
+      if(first_name === null && last_name === null) {
+        setUserInfo({ name: 'Họ và tên', email: User.email})
+      } else {
+        setUserInfo({ name: `${first_name} ${last_name}`, email: User.email });
+      }
     } catch (error) {
       console.error('Error fetching user info:', error);
     }

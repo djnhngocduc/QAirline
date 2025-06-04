@@ -117,9 +117,8 @@ function BookingPage() {
       // setSelectedOutgoingDate(null);
       setShowFareDetails(false);
     } else {
-      navigate('/booking/passenger-details', {
-        state: {
-          totalPrice,
+      const bookingInfo = {
+        totalPrice,
           outboundFlight: {
             ...selectedOutgoingFlight,
             seatId: selectedOutgoingFlight.seatId, // Pass the seat ID
@@ -130,8 +129,9 @@ function BookingPage() {
                 seatId: selectedReturnFlight.seatId, // Pass the seat ID if return flight exists
               }
             : null,
-        },
-      });
+      }
+      sessionStorage.setItem('bookingInfo', JSON.stringify(bookingInfo));
+      navigate('/booking/passenger-details');
     }
   };
 

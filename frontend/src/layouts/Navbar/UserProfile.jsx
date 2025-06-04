@@ -9,7 +9,6 @@ const UserProfile = ({
   avios,
   qpoints,
   onLogout,
-  isBooking,
   className
 }) => {
   return (

@@ -29,6 +29,7 @@ const Personal = () => {
           }
         );
         const data = await response.json();
+        console.log(data);
         setTitle(data.customer.title);
         setFirstName(data.customer.first_name);
         setMiddleName(data.customer.middle_name);
@@ -193,7 +194,7 @@ const Personal = () => {
                 <h1 className="text-xl font-semibold text-gray-800">
                   Họ và tên: {fullName}
                 </h1>
-                <p className="text-gray-600">Ngày sinh: {new Date(dob).toLocaleDateString('vi-VN')}</p>
+                <p className="text-gray-600">Ngày sinh: {dob ? new Date(dob).toLocaleDateString('vi-VN') : ''}</p>
               </>
             )}
           </div>

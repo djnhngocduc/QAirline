@@ -1,22 +1,32 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '../../components/ui/Button';
 import { Input } from '../../components/ui/Input';
 import { Label } from '../../components/ui/Label';
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/Card';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
 import Booking from '../Home/Booking';
 import StartPlanning from '../Home/StartPlanning';
 
 export default function PassengerDetails() {
   const navigate = useNavigate();
-  const location = useLocation();
-  const { totalPrice, outboundFlight, returnFlight } = location.state || {
+  const [bookingInfo, setBookingInfo] = useState({
     totalPrice: 0,
     outboundFlight: null,
     returnFlight: null,
-  }; // Retrieve total price from location.state
+  });
 
+  useEffect(() => {
+    const stored = sessionStorage.getItem('bookingInfo');
+    if (stored) {
+      setBookingInfo(JSON.parse(stored));
+      sessionStorage.removeItem('bookingInfo');
+    }
+  }, []);
+
+  const { totalPrice, outboundFlight, returnFlight } = bookingInfo;
+
+  console.log('Total Price:', totalPrice);
   console.log('Outbound Seat ID:', outboundFlight?.seatId);
   console.log('Return Seat ID:', returnFlight?.seatId);
 
@@ -74,6 +84,7 @@ export default function PassengerDetails() {
                             })
                           }
                           required
+                          placeholder="Nhập họ"
                         />
                       </div>
                       <div className="space-y-2">
@@ -88,6 +99,7 @@ export default function PassengerDetails() {
                             })
                           }
                           required
+                          placeholder="Nhập tên"
                         />
                       </div>
                     </div>
@@ -101,6 +113,7 @@ export default function PassengerDetails() {
                           setFormData({ ...formData, email: e.target.value })
                         }
                         required
+                        placeholder="Nhập email"
                       />
                     </div>
                     <div className="space-y-2">
@@ -113,6 +126,7 @@ export default function PassengerDetails() {
                           setFormData({ ...formData, phone: e.target.value })
                         }
                         required
+                        placeholder="Nhập số điện thoại"
                       />
                     </div>
                     <Button type="submit" className="w-full text-white bg-[#ff4d4d] hover:bg-[#c84c4c]">
@@ -139,10 +153,8 @@ export default function PassengerDetails() {
                       <div className="flex justify-between text-sm font-medium">
                         <div className="w-1/3 text-center">
                           <p className="text-sm text-gray-500">
-                            {format(
-                              new Date(outboundFlight.departure_time),
-                              'EEE, dd MMM yyyy'
-                            )}
+                            {new Date(outboundFlight.departure_time).toLocaleDateString()
+                            }
                           </p>
                           <p className="text-lg font-bold">
                             {format(
@@ -162,10 +174,8 @@ export default function PassengerDetails() {
                         </div>
                         <div className="w-1/3 text-center">
                           <p className="text-sm text-gray-500">
-                            {format(
-                              new Date(outboundFlight.arrival_time),
-                              'EEE, dd MMM yyyy'
-                            )}
+                            {new Date(outboundFlight.arrival_time).toLocaleDateString()
+                            }
                           </p>
                           <p className="text-lg font-bold">
                             {format(
@@ -190,10 +200,8 @@ export default function PassengerDetails() {
                       <div className="flex justify-between text-sm font-medium">
                         <div className="w-1/3 text-center">
                           <p className="text-sm text-gray-500">
-                            {format(
-                              new Date(returnFlight.departure_time),
-                              'EEE, dd MMM yyyy'
-                            )}
+                            {new Date(returnFlight.departure_time).toLocaleDateString()
+                            }
                           </p>
                           <p className="text-lg font-bold">
                             {format(
@@ -213,10 +221,8 @@ export default function PassengerDetails() {
                         </div>
                         <div className="w-1/3 text-center">
                           <p className="text-sm text-gray-500">
-                            {format(
-                              new Date(returnFlight.arrival_time),
-                              'EEE, dd MMM yyy'
-                            )}
+                            {new Date(returnFlight.arrival_time).toLocaleDateString()
+                            }
                           </p>
                           <p className="text-lg font-bold">
                             {format(

@@ -47,7 +47,7 @@ const ManageBooking = () => {
           });
           setTimeout(() => {
             sessionStorage.setItem('booking', JSON.stringify(data.booking));
-            navigate(`/booking-details`);
+            navigate('/booking-details');
           }, 3000);
         } else {
           setAlert({
