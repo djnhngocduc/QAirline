@@ -106,7 +106,7 @@ function BookingPage() {
         });
       }
       setSelectedFareType(fare); // Lưu loại ghế
-      setTotalPrice((prevPrice) => prevPrice + selectedSeat.price);
+      setTotalPrice((prevPrice) => prevPrice + Number(selectedSeat.price));
       setShowFareDetails(true);
     }
   };
@@ -118,7 +118,7 @@ function BookingPage() {
       setShowFareDetails(false);
     } else {
       const bookingInfo = {
-        totalPrice,
+        totalPrice: totalPrice,
           outboundFlight: {
             ...selectedOutgoingFlight,
             seatId: selectedOutgoingFlight.seatId, // Pass the seat ID

@@ -110,7 +110,7 @@ export default function BookFlight() {
         const data = await response.json();
         console.log(data);
 
-        if(data.message !== "No flights found" && data.flights.outgoing.length > 0) {
+        if(data.message !== "No flights found" && (data.flights.length > 0 || data.flights.outgoing.length > 0)) {
           navigate('/booking', {
             state: { 
               flights: data, 

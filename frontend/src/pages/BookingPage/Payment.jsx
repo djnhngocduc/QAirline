@@ -92,8 +92,7 @@ export default function Payment() {
         });
 
         setTimeout(() => {
-          sessionStorage.setItem('booking', JSON.stringify(bookingData));
-          navigate('/booking-details');
+          navigate('/');
         }, 3000);
       } else {
         const errorText = await response.text(); // Read response as text
@@ -230,10 +229,7 @@ export default function Payment() {
                       <div className="flex justify-between text-sm font-medium">
                         <div className="w-1/3 text-center">
                           <p className="text-sm text-gray-500">
-                            {format(
-                              new Date(outboundFlight.departure_time),
-                              'EEE, dd MMM yyyy'
-                            )}
+                            {new Date(outboundFlight.departure_time).toLocaleDateString()}
                           </p>
                           <p className="text-lg font-bold">
                             {format(
@@ -253,10 +249,7 @@ export default function Payment() {
                         </div>
                         <div className="w-1/3 text-center">
                           <p className="text-sm text-gray-500">
-                            {format(
-                              new Date(outboundFlight.arrival_time),
-                              'EEE, dd MMM yyyy'
-                            )}
+                            {new Date(outboundFlight.arrival_time).toLocaleDateString()}
                           </p>
                           <p className="text-lg font-bold">
                             {format(
@@ -281,10 +274,7 @@ export default function Payment() {
                       <div className="flex justify-between text-sm font-medium">
                         <div className="w-1/3 text-center">
                           <p className="text-sm text-gray-500">
-                            {format(
-                              new Date(returnFlight.departure_time),
-                              'EEE, dd MMM yyyy'
-                            )}
+                            {new Date(returnFlight.departure_time).toLocaleDateString()}
                           </p>
                           <p className="text-lg font-bold">
                             {format(
@@ -304,10 +294,7 @@ export default function Payment() {
                         </div>
                         <div className="w-1/3 text-center">
                           <p className="text-sm text-gray-500">
-                            {format(
-                              new Date(returnFlight.arrival_time),
-                              'EEE, dd MMM yyy'
-                            )}
+                            {new Date(returnFlight.arrival_time).toLocaleDateString()}
                           </p>
                           <p className="text-lg font-bold">
                             {format(

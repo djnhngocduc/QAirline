@@ -38,7 +38,9 @@ exports.searchFlights = async (req, res) => {
       returnFlightsWhere = {
         origin: destination,
         destination: origin,
-        departure_time: { [Op.gte]: new Date(departure_date) },
+        departure_time: { 
+          [Op.gte]: new Date(return_date) 
+        },
       };
     }
 
