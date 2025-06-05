@@ -172,6 +172,20 @@ exports.createBooking = async (req, res) => {
       booking_code: booking_code
     }); 
 
+    const seat_outbound = await Seat.findOne({
+      where: { id: outboundFlight.seat_id},
+    });
+    seat_outbound.is_available = false;
+    await seat_outbound.save();
+
+    if(returnFlight) {
+      const seat_return = await Seat.findOne({
+        where: {id: returnFlight.seat_id}
+      })
+      seat_return.is_available = false;
+      await seat_return.save();
+    }
+
     // Tạo Passenger cho booking
     await Passenger.create({
       booking_id: booking.id,
