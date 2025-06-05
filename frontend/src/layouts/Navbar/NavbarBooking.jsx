@@ -53,6 +53,7 @@ export const NavbarBooking = ({origin, destination, outgoingDate, returnDate, pa
         }
       );
       const { first_name, last_name, User } = response.data;
+      console.log(response.data);
       setUserInfo({ name: `${first_name} ${last_name}`, email: User.email });
     } catch (error) {
       console.error('Error fetching user info:', error);
@@ -137,7 +138,7 @@ export const NavbarBooking = ({origin, destination, outgoingDate, returnDate, pa
             <UserProfile
               name={userInfo.name}
               id={userInfo.email}
-              tier="Burgundy"
+              tier="Người dùng mới"
               avios={5}
               qpoints={10}
               onLogout={handleLogout}

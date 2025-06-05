@@ -73,7 +73,7 @@ function Login() {
           message: 'Đăng nhập thành công!',
           isSuccess: true,
           onClose: () => {
-            if (email === 'admin@example.com') {
+            if (email === 'admin1@example.com') {
               navigate('/admin/manage-posts');
             } else {
               setTimeout(() => {
@@ -83,15 +83,10 @@ function Login() {
           },
         });
       } else {
-        const error = await response.json();
-        const errorMessage =
-          error.errors && error.errors.length > 0
-            ? error.errors[0].msg
-            : 'Đăng nhập thất bại!';
         setAlert({
           open: true,
           title: 'QAirline',
-          message: `Đăng nhập thất bại!`,
+          message: `Đăng nhập thất bại! Tài khoản hoặc mật khẩu không đúng.`,
           isSuccess: false,
         });
       }
@@ -168,7 +163,7 @@ function Login() {
                 >
                   Mật khẩu
                 </label>
-                <button
+                <button type="button"
                   onClick={togglePasswordVisibility}
                   className="absolute right-3 top-3 text-muted-foreground hover:text-foreground"
                 >

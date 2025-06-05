@@ -230,7 +230,7 @@ function SignUp() {
                 >
                   Mật khẩu
                 </label>
-                <button
+                <button type="button"
                   onClick={togglePasswordVisibility}
                   className="absolute right-3 top-3 text-muted-foreground hover:text-foreground"
                 >
@@ -301,7 +301,7 @@ function SignUp() {
                 >
                   Nhập lại mật khẩu
                 </label>
-                <button
+                <button type="button"
                   onClick={toggleRePasswordVisibility}
                   className="absolute right-3 top-3 text-muted-foreground hover:text-foreground"
                 >

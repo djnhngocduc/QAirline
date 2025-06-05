@@ -19,6 +19,7 @@ import {
   Crown,
 } from 'lucide-react';
 import { format } from 'date-fns';
+import { vi } from 'date-fns/locale';
 import { NavbarBooking } from '../../layouts/Navbar/NavbarBooking';
 import Footer from '../../layouts/Footer';
 
@@ -39,6 +40,8 @@ function BookingPage() {
   const [isSelectingReturnFlight, setIsSelectingReturnFlight] = useState(false); // State to track if selecting return flight
   const [origin, setOrigin] = useState('Doha'); // Default origin
   const [destination, setDestination] = useState('Al-Baha'); // Default destination
+  const [outboundPrice, setOutboundPrice] = useState(0);
+  const [returnPrice, setReturnPrice] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0); // State to track total price
   const [passengers] = useState(location.state?.passengers || 1);
   const [searchDeparture, setSearchDeparture] = useState(null);
@@ -96,17 +99,22 @@ function BookingPage() {
         setSelectedReturnFlight({
           ...flight,
           fare,
-          seatId: selectedSeat.id, // Store the seat ID
+          seatId: selectedSeat.id,
         });
+        setReturnPrice(Number(selectedSeat.price));
+        setOutboundPrice(outboundPrice);
+        setTotalPrice(Number(outboundPrice) + Number(selectedSeat.price));
       } else {
         setSelectedOutgoingFlight({
           ...flight,
           fare,
-          seatId: selectedSeat.id, // Store the seat ID
+          seatId: selectedSeat.id,
         });
+        setOutboundPrice(Number(selectedSeat.price));
+        setReturnPrice(returnPrice);
+        setTotalPrice(Number(selectedSeat.price) + Number(returnPrice));
       }
       setSelectedFareType(fare); // Lưu loại ghế
-      setTotalPrice((prevPrice) => prevPrice + Number(selectedSeat.price));
       setShowFareDetails(true);
     }
   };
@@ -114,7 +122,7 @@ function BookingPage() {
   const handleConfirmBooking = () => {
     if (returnFlights.length > 0 && !isSelectingReturnFlight) {
       setIsSelectingReturnFlight(true);
-      // setSelectedOutgoingDate(null);
+      setSelectedOutgoingDate(null);
       setShowFareDetails(false);
     } else {
       const bookingInfo = {
@@ -182,7 +190,7 @@ function BookingPage() {
                       className="flex w-full flex-col items-center gap-1 text-wrap rounded-t-lg p-4 text-center data-[state=active]:border-b-2 data-[state=active]:border-[#ff4d4d]"
                     >
                       <span className="text-sm">
-                        {format(new Date(date), 'EEE, d MMM')}
+                        {format(new Date(date), 'EEEE, d MMMM', { locale: vi })}
                       </span>
                     </TabsTrigger>
                   )
