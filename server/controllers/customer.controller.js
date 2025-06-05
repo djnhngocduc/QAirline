@@ -117,11 +117,12 @@ exports.createBooking = async (req, res) => {
     returnFlight,
     passengerDetails,
     paymentDetails,
+    booking_code
   } = req.body;
 
   // Validate inputs
-  if (!totalPrice || !outboundFlight || !passengerDetails || !paymentDetails) {
-    return res.status(400).json({ message: "Thiếu trường nhập liệu" });
+  if (!totalPrice || !outboundFlight || !passengerDetails || !paymentDetails || !booking_code) {
+    return res.status(400).json({ message: "Thiếu trường thông tin gửi" });
   }
 
   try {
@@ -148,8 +149,6 @@ exports.createBooking = async (req, res) => {
         return res.status(404).json({ message: "Return flight not found" });
       }
     }
-    
-    const booking_code = generateRandomString.generateRandomString(6);
 
     // Tạo booking, customer_id có thể null nếu khách không đăng nhập
     const booking = await Booking.create({
