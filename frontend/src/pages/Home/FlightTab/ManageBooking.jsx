@@ -7,6 +7,7 @@ import AlertDialog from '../../../components/Notification/AlertDialog';
 import { useNavigate } from 'react-router-dom';
 
 const ManageBooking = () => {
+  const [activeTab, setActiveTab] = useState('manage_booking');
   const [bookingCode, setBookingCode] = useState('');
   const navigate = useNavigate();
   const [alert, setAlert] = useState({
@@ -39,16 +40,25 @@ const ManageBooking = () => {
         const data = await response.json();
         console.log(data);
         if (data.message !== "Không tìm thấy booking") {
-          setAlert({
-            open: true,
-            title: 'Đã tìm thấy vé đặt',
-            message: `Thông tin đặt chỗ với mã đặt chỗ ${bookingCode} đã được tìm thấy.`,
-            isSuccess: true,
-          });
-          setTimeout(() => {
-            sessionStorage.setItem('booking', JSON.stringify(data.booking));
-            navigate('/booking-details');
-          }, 3000);
+          if (activeTab !== 'manage_booking') {
+            setAlert({
+              open: true,
+              title: 'Làm thủ tục thành công',
+              message: `Đã hoàn tất thủ tục với mã đặt chỗ ${bookingCode}.`,
+              isSuccess: true,
+            });
+          } else {
+            setAlert({
+              open: true,
+              title: 'Đã tìm thấy vé đặt',
+              message: `Thông tin đặt chỗ với mã đặt chỗ ${bookingCode} đã được tìm thấy.`,
+              isSuccess: true,
+            });
+            setTimeout(() => {
+              sessionStorage.setItem('booking', JSON.stringify(data.booking));
+              navigate('/booking-details');
+            }, 3000);
+          }
         } else {
           setAlert({
             open: true,
@@ -75,9 +85,25 @@ const ManageBooking = () => {
           <div className="flex">
             <Button
               variant="ghost"
-              className={`flex-1 py-1 text-center text-lg font-medium rounded-none border-b-2 border-[#ff4d4d] text-[#ff4d4d] hover:text-[#ff4d4d] hover:bg-transparent`}
+              onClick={() => setActiveTab('manage_booking')}
+              className={`flex-1 py-1 text-center text-lg font-medium ${
+                activeTab === 'manage_booking'
+                  ? 'rounded-none border-b-2 border-[#ff4d4d] text-[#ff4d4d] hover:text-[#ff4d4d] hover:bg-transparent'
+                  : 'text-gray-600 hover:bg-transparent hover:text-[#ff4d4d]'
+              }`}
             >
               Quản lý đặt vé
+            </Button>
+            <Button
+              variant="ghost"
+              onClick={() => setActiveTab('checkin')}
+              className={`flex-1 py-2 text-center text-lg font-medium ${
+                activeTab === 'checkin'
+                  ? 'rounded-none border-b-2 border-[#ff4d4d] text-[#ff4d4d] hover:text-[#ff4d4d] hover:bg-transparent'
+                  : 'text-gray-600 hover:bg-transparent hover:text-[#ff4d4d]'
+              }`}
+            >
+              Làm thủ tục
             </Button>
           </div>
         </CardHeader>
@@ -102,7 +128,7 @@ const ManageBooking = () => {
                 onClick={handleSubmit}
                 className="w-full rounded-lg bg-[#ff4d4d] py-3 text-white hover:bg-[#c84c4c] md:w-auto"
               >
-                Tra cứu
+                {activeTab === 'manage_booking' ? 'Tra cứu' : 'Làm thủ tục'}
               </Button>
               {alert.open && (
                 <AlertDialog
