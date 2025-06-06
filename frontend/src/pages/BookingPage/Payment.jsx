@@ -51,8 +51,9 @@ export default function Payment() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const booking_code = generateRandomString(6);
     const bookingData = {
-      booking_code: generateRandomString(6),
+      booking_code: booking_code,
       totalPrice,
       outboundFlight: outboundFlight
         ? {
@@ -87,7 +88,7 @@ export default function Payment() {
         setAlert({
           open: true,
           title: 'QAirline',
-          message: 'Đặt chỗ thành công! Cảm ơn bạn đã mua vé.',
+          message: `Đặt vé thành công! Mã vé của bạn là ${booking_code}.`,
           isSuccess: true,
         });
 

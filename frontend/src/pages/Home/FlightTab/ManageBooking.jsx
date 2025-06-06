@@ -5,10 +5,19 @@ import { Card, CardHeader, CardContent } from '../../../components/ui/Card';
 import { Label } from '../../../components/ui/Label';
 import AlertDialog from '../../../components/Notification/AlertDialog';
 import { useNavigate } from 'react-router-dom';
+import { QRCodeCanvas } from 'qrcode.react';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from '../../../components/ui/Dialog';
 
 const ManageBooking = () => {
   const [activeTab, setActiveTab] = useState('manage_booking');
   const [bookingCode, setBookingCode] = useState('');
+  const [showQR, setShowQR] = useState(false);
   const navigate = useNavigate();
   const [alert, setAlert] = useState({
     open: false,
@@ -44,9 +53,12 @@ const ManageBooking = () => {
             setAlert({
               open: true,
               title: 'Làm thủ tục thành công',
-              message: `Đã hoàn tất thủ tục với mã đặt chỗ ${bookingCode}.`,
+              message: `Sau đây là QRCode ứng với mã đặt chỗ ${bookingCode}.`,
               isSuccess: true,
             });
+            setTimeout(() => {
+              setShowQR(true);
+            }, 3000);
           } else {
             setAlert({
               open: true,
@@ -143,6 +155,20 @@ const ManageBooking = () => {
           </form>
         </CardContent>
       </Card>
+      {showQR && (
+        <Dialog open={showQR} onOpenChange={() => setShowQR(false)}>
+          <DialogContent className="flex justify-center items-center">
+            <QRCodeCanvas
+              value={bookingCode}
+              size={512}
+              bgColor="#ffffff"
+              fgColor="#000000"
+              level="Q"
+              includeMargin={true}
+            />
+          </DialogContent>
+        </Dialog>
+      )}
     </>
   );
 };
