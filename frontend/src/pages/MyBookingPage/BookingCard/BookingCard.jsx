@@ -29,8 +29,10 @@ const BookingCard = ({ booking }) => {
     setIsCancelling(true);
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(
-        `http://localhost:5000/api/customer/cancel/${booking.id}`,
+      const url = token
+      ? `http://localhost:5000/api/customer/cancel/${booking.id}`
+      : `http://localhost:5000/api/customer/cancelNotLogin/${booking.id}`;
+      const response = await fetch(url,
         {
           method: 'PATCH',
           headers: {
