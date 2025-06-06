@@ -10,7 +10,7 @@ route.get("/search-flights", customerController.searchFlights);
 //[POST] /api/customer/book: Tao moi mot booking
 route.post("/bookForLogin", verifyToken, customerController.createBooking);
 
-route.post("/bookForNotLogin",customerController.createBookingNotLoggin)
+route.post("/bookForNotLogin",customerController.createBookingNotLogin)
 
 //[DELETE]: /api/customer/cancel/:bookingId: Huy mot booking
 route.patch("/cancel/:id",verifyToken, customerController.cancelBooking);

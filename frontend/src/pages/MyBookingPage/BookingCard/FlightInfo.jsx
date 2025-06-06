@@ -39,11 +39,11 @@ const FlightInfo = ({ type, flight, seat }) => {
             <div className="mb-8 flex items-start justify-between">
               <div className="space-y-1">
                 <div className="flex items-center gap-3">
-                  <span className="text-2xl font-medium">
+                  <span className="text-xl font-medium">
                     {flight.origin}
                   </span>
-                  <span className="text-2xl text-gray-400">›</span>
-                  <span className="text-2xl font-medium">
+                  <span className="text-xl text-gray-400">›</span>
+                  <span className="text-xl font-medium">
                     {flight.destination}
                   </span>
                 </div>

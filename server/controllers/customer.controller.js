@@ -204,7 +204,7 @@ exports.createBooking = async (req, res) => {
 };
 
 //[POST] /api/customer/bookForNotLogin
-exports.createBookingNotLoggin = async (req,res) => {
+exports.createBookingNotLogin = async (req,res) => {
   const {
     totalPrice,
     outboundFlight,

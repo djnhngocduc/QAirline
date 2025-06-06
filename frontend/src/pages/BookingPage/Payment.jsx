@@ -5,7 +5,7 @@ import { Label } from '../../components/ui/Label';
 import { Card, CardContent, CardHeader, CardTitle } from '../../components/ui/Card';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { format } from 'date-fns';
-import AlertDialog from '../../components/Notification/AlertDialog';
+import AlertDialogPayment from '../../components/Notification/AlertDialogPayment';
 import Booking from '../Home/Booking';
 import StartPlanning from '../Home/StartPlanning';
 
@@ -74,7 +74,10 @@ export default function Payment() {
     try {
       const token = localStorage.getItem('token'); // Retrieve token from localStorage
       console.log('token: ', token);
-      const response = await fetch('http://localhost:5000/api/customer/book', {
+      const url = token
+      ? 'http://localhost:5000/api/customer/bookForLogin'
+      : 'http://localhost:5000/api/customer/bookForNotLogin'; 
+      const response = await fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -94,7 +97,7 @@ export default function Payment() {
 
         setTimeout(() => {
           navigate('/');
-        }, 3000);
+        }, 10000);
       } else {
         const errorText = await response.text(); // Read response as text
         try {
@@ -203,7 +206,7 @@ export default function Payment() {
                     <Button type="submit" className="w-full text-white bg-[#ff4d4d] hover:bg-[#c84c4c]">
                       Hoàn tất thanh toán
                     </Button>
-                    <AlertDialog
+                    <AlertDialogPayment
                       open={alert.open}
                       onClose={() => setAlert({ ...alert, open: false })}
                       title={alert.title}
