@@ -587,3 +587,24 @@ exports.getUserBookings = async (req, res) => {
         });
     }
 }
+
+
+
+//[PATCH]
+exports.cancelBookingNotLogin = async (req, res) => {
+  const bookingId = req.params.id;
+  try {
+    // Tìm booking và kiểm tra quyền sở hữu
+    const booking = await Booking.findByPk(bookingId);
+    if (!booking) {
+      return res.status(404).json({ message: "Không tìm thấy booking" });
+    }
+    booking.status = "Cancelled";
+    await booking.save();
+    return res.status(200).json({ message: "Hủy booking thành công"});
+  }
+  catch (error) {
+    console.error("Lỗi khi hủy booking:", error);
+    return res.status(500).json({ message: "Lỗi hệ thống", error: error.message });
+  }
+}
