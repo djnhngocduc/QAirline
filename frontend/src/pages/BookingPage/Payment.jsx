@@ -72,13 +72,13 @@ export default function Payment() {
     };
 
     try {
-      // const token = localStorage.getItem('token'); // Retrieve token from localStorage
-      // console.log('token: ', token);
+      const token = localStorage.getItem('token'); // Retrieve token from localStorage
+      console.log('token: ', token);
       const response = await fetch('http://localhost:5000/api/customer/book', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          // Authorization: token ? `Bearer ${token}` : '', // Include token in headers
+          'Authorization': token ? `Bearer ${token}` : ''
         },
         body: JSON.stringify(bookingData),
       });
