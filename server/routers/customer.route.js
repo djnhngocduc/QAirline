@@ -30,6 +30,9 @@ route.patch("/update-profile", verifyToken, customerController.updateProfile);
 // Lấy tất cả thông tin đặt vé của người dùng
 route.get("/my-bookings", verifyToken, customerController.getUserBookings);
 
+//[DELETE]: /api/customer/cancel/:bookingId: Huy mot booking
+route.patch("/cancelNotLogin/:id", customerController.cancelBookingNotLogin);
+
 
 
 module.exports = route;
