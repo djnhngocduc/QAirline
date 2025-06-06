@@ -8,7 +8,9 @@ const { verifyToken } = require("../middlewares/auth.middleware");
 route.get("/search-flights", customerController.searchFlights);
 
 //[POST] /api/customer/book: Tao moi mot booking
-route.post("/book", verifyToken, customerController.createBooking);
+route.post("/bookForLogin", verifyToken, customerController.createBooking);
+
+route.post("/bookForNotLogin",customerController.createBookingNotLoggin)
 
 //[DELETE]: /api/customer/cancel/:bookingId: Huy mot booking
 route.patch("/cancel/:id",verifyToken, customerController.cancelBooking);
