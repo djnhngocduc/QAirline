@@ -97,7 +97,9 @@ const Personal = () => {
       first_name: firstName,
       middle_name: middleName,
       last_name: lastName,
-      date_of_birth: dob ? dob.toISOString() : null,
+      date_of_birth: (dob instanceof Date)
+      ? dob.toISOString()
+      : new Date(dob).toISOString(),
     };
 
     try {
@@ -186,7 +188,7 @@ const Personal = () => {
                 />
                 <DatePicker
                   date={dob}
-                  setDate={(e) => setDob(e.target.value)}
+                  setDate={(date) => setDob(date)}
                 />
               </>
             ) : (
